@@ -13,6 +13,7 @@ ThemeData theme = ThemeData(
       AppColor(
         primary: AppColorPalette.yellow,
         inversePrimary: AppColorPalette.yellowDark,
+        textField: AppColorPalette.brown,
       ),
       AppSpaceExtension.fromBaseSpace(8),
       AppTypographyExtension.fromColors(

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
+import 'package:goldenegg_profit/presentation/authentication/auth_verification_page.dart';
 import 'package:goldenegg_profit/presentation/get_start/get_start_page.dart';
 
 class RouterGo {
@@ -13,6 +14,11 @@ class RouterGo {
       path: AuthPage.routerPath,
       name: AuthPage.routerName,
       builder: (context, state) => const AuthPage(),
+    ),
+    GoRoute(
+      path: AuthVerification.routerPath,
+      name: AuthVerification.routerName,
+      builder: (context, state) => const AuthVerification(),
     )
   ]);
 }
