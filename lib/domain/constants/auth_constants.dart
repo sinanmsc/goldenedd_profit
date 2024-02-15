@@ -1,3 +1,5 @@
+import 'package:goldenegg_profit/domain/models/coin_model.dart';
+
 const String signInText = 'Sign in';
 const String signUpText = 'Sign Up';
 const String mobileNoHeadText = 'Mobile Number';
@@ -15,5 +17,3 @@ const String sendOtpBtnText = 'Send OTP';
 const String continueBtnText = 'Continue';
 const String authSuccessText = 'Your account has been successfully created!';
 const String getStartText = 'Get Start';
-
-const String authSuccessImage = 'asset/auth_success.png';

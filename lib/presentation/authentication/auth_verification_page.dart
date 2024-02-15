@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/authentication/successfull_registration_page.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_otp_widget.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_verification_header_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
@@ -51,7 +50,7 @@ class AuthVerification extends StatelessWidget {
               CustomButton(
                 text: continueBtnText,
                 onTap: () =>
-                    context.push(SuccessfullRegistrationPage.routerPath),
+                    Navigator.pushNamed(context, RoutPaths.successfullRegistrationPage),
               )
             ],
           ),

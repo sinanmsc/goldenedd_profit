@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/main_page/bloc/main_page_bloc.dart';
+import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
+import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/dummy_page_1.dart';
 import 'package:goldenegg_profit/presentation/dummy_page_2.dart';
@@ -18,18 +20,23 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentPage = context.watch<MainPageBloc>().state.index;
+    final colors = AppTheme.of(context).colors;
     return Scaffold(
         body: pages[currentPage],
         backgroundColor: Colors.black,
         bottomNavigationBar: Padding(
-            padding: EdgeInsets.all(Responsive.width(3.7, context)),
+            padding: EdgeInsets.only(
+                top: Responsive.width(2, context),
+                left: Responsive.width(3.7, context),
+                bottom: Responsive.width(3.7, context),
+                right: Responsive.width(3.7, context)),
             child: SizedBox(
               height: Responsive.height(10, context),
               child: Container(
                 alignment: Alignment.center,
                 height: Responsive.height(9, context),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF191919),
+                  color: colors.darkBg,
                   borderRadius: BorderRadius.circular(
                     Responsive.width(5, context),
                   ),
@@ -43,7 +50,7 @@ class MainPage extends StatelessWidget {
                           .add(const MainPageEvent.onPageChange(0)),
                       child: Column(
                         children: [
-                          Image.asset(homeImage),
+                          AppAssets.mainPageAssets.homeIcon,
                           const Text(homeText)
                         ],
                       ),
@@ -54,7 +61,7 @@ class MainPage extends StatelessWidget {
                           .add(const MainPageEvent.onPageChange(1)),
                       child: Column(
                         children: [
-                          Image.asset(activityImage),
+                          AppAssets.mainPageAssets.activityIcon,
                           const Text(activityText)
                         ],
                       ),
@@ -65,7 +72,7 @@ class MainPage extends StatelessWidget {
                           .add(const MainPageEvent.onPageChange(2)),
                       child: Column(
                         children: [
-                          Image.asset(walletImage),
+                          AppAssets.mainPageAssets.walletIcon,
                           const Text(walletText)
                         ],
                       ),

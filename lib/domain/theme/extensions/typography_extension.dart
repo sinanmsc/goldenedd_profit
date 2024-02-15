@@ -15,6 +15,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle bigWhite;
   final TextStyle name;
   final TextStyle iconText;
+  final TextStyle title;
+  final TextStyle subTitle;
+  final TextStyle boldTitle;
+  final TextStyle greenAmount;
+  final TextStyle redAmount;
+  final TextStyle greenSmall;
+  final TextStyle redSmall;
+  final TextStyle smallDiscription;
+  final TextStyle discription;
+  final TextStyle whiteUi;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -26,7 +36,30 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontWeight: FontWeight.w500,
           color: dimFontColor,
           fontSize: 16,
-          letterSpacing: 0,
+        ),
+        greenAmount = const TextStyle(
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF5ED5A8),
+          fontSize: 16,
+        ),
+        redAmount = const TextStyle(
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w500,
+          color: Color(0xFFDD4B4B),
+          fontSize: 16,
+        ),
+        greenSmall = const TextStyle(
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w400,
+          color: Color(0xFF5ED5A8),
+          fontSize: 12,
+        ),
+        redSmall = const TextStyle(
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w400,
+          color: Color(0xFFDD4B4B),
+          fontSize: 12,
         ),
         uiInvers = TextStyle(
           fontFamily: 'poppins',
@@ -39,6 +72,12 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontFamily: 'poppins',
           fontWeight: FontWeight.w500,
           color: Colors.grey[400],
+          fontSize: 14,
+          letterSpacing: 0,
+        ),
+        whiteUi = const TextStyle(
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: 0,
         ),
@@ -79,7 +118,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
         ),
         appBarTitle = const TextStyle(
           fontFamily: 'poppins',
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
           fontSize: 20,
         ),
         bigWhite = const TextStyle(
@@ -95,6 +134,33 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
         iconText = const TextStyle(
           fontFamily: 'poppins',
           fontSize: 12,
+          fontWeight: FontWeight.w400,
+        ),
+        title = const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'poppins',
+        ),
+        subTitle = const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w300,
+          fontFamily: 'poppins',
+        ),
+        boldTitle = const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'poppins',
+        ),
+        smallDiscription = const TextStyle(
+          fontSize: 11,
+          fontFamily: 'poppins',
+          color: Color(0xFF777777),
+          fontWeight: FontWeight.w400,
+        ),
+        discription = const TextStyle(
+          fontSize: 13,
+          fontFamily: 'poppins',
+          color: Color(0xFF777777),
           fontWeight: FontWeight.w400,
         );
 
@@ -113,6 +179,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.name,
     required this.btnInvers,
     required this.iconText,
+    required this.title,
+    required this.subTitle,
+    required this.boldTitle,
+    required this.greenAmount,
+    required this.redAmount,
+    required this.greenSmall,
+    required this.redSmall,
+    required this.smallDiscription,
+    required this.discription,
+    required this.whiteUi,
   });
 
   @override
@@ -130,6 +206,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? name,
     TextStyle? btnInvers,
     TextStyle? iconText,
+    TextStyle? title,
+    TextStyle? subTitle,
+    TextStyle? boldTitle,
+    TextStyle? greenAmount,
+    TextStyle? redAmount,
+    TextStyle? greenSmall,
+    TextStyle? redSmall,
+    TextStyle? smallDiscription,
+    TextStyle? discription,
+    TextStyle? whiteUi,
   }) {
     return AppTypographyExtension(
       small: small ?? this.small,
@@ -145,6 +231,16 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       name: name ?? this.name,
       btnInvers: btnInvers ?? this.btnInvers,
       iconText: iconText ?? this.iconText,
+      title: title ?? this.title,
+      subTitle: subTitle ?? this.subTitle,
+      boldTitle: boldTitle ?? this.boldTitle,
+      greenAmount: greenAmount ?? this.greenAmount,
+      redAmount: redAmount ?? this.redAmount,
+      greenSmall: greenSmall ?? this.greenSmall,
+      redSmall: redSmall ?? this.redSmall,
+      smallDiscription: smallDiscription ?? this.smallDiscription,
+      discription: discription ?? this.discription,
+      whiteUi: whiteUi ?? this.whiteUi,
     );
   }
 
@@ -168,6 +264,17 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       name: TextStyle.lerp(name, other.name, t)!,
       btnInvers: TextStyle.lerp(btnInvers, other.btnInvers, t)!,
       iconText: TextStyle.lerp(iconText, other.iconText, t)!,
+      title: TextStyle.lerp(title, other.title, t)!,
+      subTitle: TextStyle.lerp(subTitle, other.subTitle, t)!,
+      boldTitle: TextStyle.lerp(boldTitle, other.boldTitle, t)!,
+      greenAmount: TextStyle.lerp(greenAmount, other.greenAmount, t)!,
+      redAmount: TextStyle.lerp(redAmount, other.redAmount, t)!,
+      greenSmall: TextStyle.lerp(greenSmall, other.greenSmall, t)!,
+      redSmall: TextStyle.lerp(redSmall, other.redSmall, t)!,
+      smallDiscription:
+          TextStyle.lerp(smallDiscription, other.smallDiscription, t)!,
+      discription: TextStyle.lerp(discription, other.discription, t)!,
+      whiteUi: TextStyle.lerp(whiteUi, other.whiteUi, t)!,
     );
   }
 }

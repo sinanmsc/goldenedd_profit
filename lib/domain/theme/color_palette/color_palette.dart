@@ -7,4 +7,5 @@ class AppColorPalette {
   static const yellowShade = Color(0xFFFCBD68);
   static const dark = Color(0x9E191919);
   static const yellowbrown = Color(0xFF342E20);
+  static const dartGrey = Color(0xFF191919);
 }

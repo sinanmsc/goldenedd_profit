@@ -7,6 +7,7 @@ class AppColor extends ThemeExtension<AppColor> {
   final Color bg;
   final Color darkAppbar;
   final Color iconBg;
+  final Color darkBg;
 
   AppColor({
     required this.inversePrimary,
@@ -14,7 +15,8 @@ class AppColor extends ThemeExtension<AppColor> {
     required this.textField,
     required this.bg,
     required this.darkAppbar,
-    required this.iconBg
+    required this.iconBg,
+    required this.darkBg
   });
 
   @override
@@ -25,6 +27,7 @@ class AppColor extends ThemeExtension<AppColor> {
     Color? bg,
     Color? darkAppbar,
     Color? iconBg,
+    Color? darkBg,
   }) {
     return AppColor(
       primary: primary ?? this.primary,
@@ -33,6 +36,7 @@ class AppColor extends ThemeExtension<AppColor> {
       bg: bg ?? this.bg,
       darkAppbar: darkAppbar ?? this.darkAppbar,
       iconBg: iconBg ?? this.iconBg,
+      darkBg: darkBg ?? this.darkBg,
     );
   }
 
@@ -49,6 +53,7 @@ class AppColor extends ThemeExtension<AppColor> {
       bg: Color.lerp(bg, other.bg, t)!,
       darkAppbar: Color.lerp(darkAppbar, other.darkAppbar, t)!,
       iconBg: Color.lerp(iconBg, other.iconBg, t)!,
+      darkBg: Color.lerp(darkBg, other.darkBg, t)!,
     );
   }
 }

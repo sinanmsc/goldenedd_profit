@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
-import 'package:goldenegg_profit/domain/models/profile_model.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/profile/edit_profile_page.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/details_field_widget.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/profile_header_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widget.dart';
@@ -28,12 +26,8 @@ class Profile extends StatelessWidget {
           backgroundColor: colors.darkAppbar,
           actions: [
             TextButton(
-                onPressed: () => context.push(EditProfile.routerPath,
-                    extra: ProfileModel(
-                      email: demoEmail,
-                      number: demonumber,
-                      userName: demoUserName,
-                    )),
+                onPressed: () =>
+                    Navigator.pushNamed(context, RoutPaths.editProfile),
                 child: Image.asset('asset/profile/edit_btn.png'))
           ],
         ),

@@ -17,6 +17,7 @@ ThemeData theme = ThemeData(
         bg: AppColorPalette.yellowShade,
         darkAppbar: AppColorPalette.dark,
         iconBg: AppColorPalette.yellowbrown,
+        darkBg: AppColorPalette.dartGrey,
       ),
       AppSpaceExtension.fromBaseSpace(8),
       AppTypographyExtension.fromColors(
@@ -43,5 +44,15 @@ ThemeData theme = ThemeData(
           end: Alignment.bottomCenter,
           stops: [0, 0.9],
         ),
+        payBackground: LinearGradient(colors: [
+          const Color(0xFFF9B860).withOpacity(0.6),
+          const Color(0xFFB37A1B).withOpacity(0.6)
+        ]),
+        blue: const LinearGradient(
+            colors: [Color(0xFF8442FF), Color(0xFF4918E1)]),
+        greean: const LinearGradient(
+            colors: [Color(0xFF41C6FF), Color(0xFF1665E1)]),
+        red: const LinearGradient(
+            colors: [Color(0xFFFF4BAA), Color(0xFFE1601F)]),
       )
     ]);

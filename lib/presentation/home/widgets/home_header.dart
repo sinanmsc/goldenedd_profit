@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/home/widgets/home_header_component_widget.dart';
-import 'package:goldenegg_profit/presentation/profile/profile_page.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -15,16 +15,15 @@ class HomeHeader extends StatelessWidget {
     final gradients = AppTheme.of(context).gradients;
     return Container(
       padding: EdgeInsets.all(Responsive.width(3.5, context)),
-      height: MediaQuery.sizeOf(context).height / 3,
+      height: MediaQuery.sizeOf(context).height / 3.1,
       decoration: BoxDecoration(gradient: gradients.background),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () => context.push(Profile.routerPath),
+                onTap: () => Navigator.pushNamed(context, RoutPaths.profile),
                 child: const CircleAvatar(
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage(profileImage),
@@ -32,40 +31,52 @@ class HomeHeader extends StatelessWidget {
               ),
               Row(
                 children: [
+                  InkWell(onTap: () {}, child: AppAssets.homeAssets.searchImg),
                   InkWell(
-                      onTap: () {},
-                      child: Image.asset('asset/home/search.png')),
-                  InkWell(
-                      onTap: () {}, child: Image.asset('asset/home/noti.png')),
+                    onTap: () =>
+                        Navigator.pushNamed(context, RoutPaths.notification),
+                    child: AppAssets.homeAssets.notiImg,
+                  ),
                 ],
               )
             ],
           ),
           Container(
-            padding: EdgeInsets.all(Responsive.width(3.5, context)),
+            padding: EdgeInsets.symmetric(
+                vertical: Responsive.width(3.5, context),
+                horizontal: Responsive.width(4, context)),
             child: Column(
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     HomeHeaderComponents(
-                        label: depositText, icon: depositImage),
+                        onTap: () =>
+                            Navigator.pushNamed(context, RoutPaths.deposit),
+                        label: depositText,
+                        icon: AppAssets.homeAssets.depositImg),
                     HomeHeaderComponents(
-                        label: myCriptoText, icon: myCriptoImage),
-                    HomeHeaderComponents(label: ordersText, icon: ordersImage),
+                        label: myCriptoText,
+                        icon: AppAssets.homeAssets.myCriptoImg),
+                    HomeHeaderComponents(
+                        label: ordersText,
+                        icon: AppAssets.homeAssets.ordersImg),
                   ],
                 ),
                 SizedBox(
-                  height: Responsive.height(3, context),
+                  height: Responsive.height(2, context),
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     HomeHeaderComponents(
-                        label: savingsText, icon: savingsImage),
+                        label: savingsText,
+                        icon: AppAssets.homeAssets.savingsImg),
                     HomeHeaderComponents(
-                        label: refferalText, icon: refferalImage),
-                    HomeHeaderComponents(label: moreText, icon: moreImage),
+                        label: refferalText,
+                        icon: AppAssets.homeAssets.refferalImg),
+                    HomeHeaderComponents(
+                        label: moreText, icon: AppAssets.homeAssets.moreImg),
                   ],
                 ),
               ],

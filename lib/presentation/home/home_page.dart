@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:goldenegg_profit/domain/constants/home_constants.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/home/widgets/home_header.dart';
+
+import '../../domain/constants/app_assets.dart';
+import '../widgets/payment_container.dart';
+import 'widgets/coin_list_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,31 +17,45 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradients = AppTheme.of(context).gradients;
-    final typography = AppTheme.of(context).typography;
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.black,
-          body: Column(
-            children: [
-              const HomeHeader(),
-              Padding(
-                padding: EdgeInsets.all(Responsive.width(3.7, context)),
-                child: Container(
-                  width: double.infinity,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                const HomeHeader(),
+                Padding(
                   padding: EdgeInsets.all(Responsive.width(3.7, context)),
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.circular(Responsive.width(2, context)),
-                    gradient: LinearGradient(colors: [
-                      const Color(0xFFF9B860).withOpacity(0.6),
-                      const Color(0xFFB37A1B).withOpacity(0.6)
-                    ]),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      InkWell(
+                          onTap: () =>
+                              Navigator.pushNamed(context, RoutPaths.payment),
+                          child: PaymentContainer(
+                            title: creditTitle,
+                            subTitle: creditSubTitle,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  right: Responsive.width(3, context)),
+                              padding: EdgeInsets.only(
+                                  left: Responsive.width(1.5, context)),
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AppAssets.homeAssets.creditBg),
+                              ),
+                              child: AppAssets.homeAssets.creditIcon,
+                            ),
+                          )),
+                      SizedBox(height: Responsive.height(2, context)),
+                      CoinList(title: resentCoinText, list: coinList1),
+                      SizedBox(height: Responsive.height(4, context)),
+                      CoinList(title: topCoinText, list: coinList2),
+                    ],
                   ),
-                  child: ,
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           )),
     );
   }

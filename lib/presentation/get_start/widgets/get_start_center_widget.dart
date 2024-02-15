@@ -5,7 +5,7 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class GetStartCenterWidget extends StatelessWidget {
   final String head;
-  final String image;
+  final Image image;
   const GetStartCenterWidget(
       {super.key, required this.head, required this.image});
 
@@ -15,7 +15,7 @@ class GetStartCenterWidget extends StatelessWidget {
     final typography = AppTheme.of(context).typography;
     return Column(
       children: [
-        Center(child: Image.asset(image)),
+        Center(child: image),
         SizedBox(height: Responsive.height(3.3, context)),
         Text(
           head,

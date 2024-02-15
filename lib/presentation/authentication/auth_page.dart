@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
-import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/infrastructure/authentication/i_auth_repository.dart';
-import 'package:goldenegg_profit/presentation/authentication/auth_verification_page.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_appbar_widget.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/signin_register_widger.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_header_widget.dart';
@@ -38,7 +35,7 @@ class AuthPage extends StatelessWidget {
               SizedBox(height: Responsive.height(8.5, context)),
               CustomButton(
                 text: sendOtpBtnText,
-                onTap: () => context.push(AuthVerification.routerPath),
+                onTap: () => Navigator.pushNamed(context, RoutPaths.authVerification),
               )
             ],
           ),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/application/get_start/get_start_bloc.dart';
+import 'package:goldenegg_profit/domain/constants/app_assets.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/constants/getstart_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
 import 'package:goldenegg_profit/presentation/get_start/widgets/get_start_center_widget.dart';
 import 'package:goldenegg_profit/presentation/get_start/widgets/btn_widget.dart';
 
@@ -28,7 +28,7 @@ class GetStart extends StatelessWidget {
       } else if (currentIndex == 1) {
         page = 2;
       } else if (currentIndex == 2) {
-        context.push(AuthPage.routerPath);
+        Navigator.pushNamed(context, RoutPaths.authPage);
       }
       pageController.animateToPage(page,
           duration: const Duration(milliseconds: 300), curve: Curves.linear);
@@ -50,13 +50,19 @@ class GetStart extends StatelessWidget {
                       .read<GetStartBloc>()
                       .add(GetStartEvent.getIndexEvent(value)),
                   scrollDirection: Axis.horizontal,
-                  children: const [
+                  children: [
                     GetStartCenterWidget(
-                        head: getstartHeadText1, image: getStartImage1),
+                      head: getstartHeadText1,
+                      image: AppAssets.getStartAssets.getStartImg1,
+                    ),
                     GetStartCenterWidget(
-                        head: getstartHeadText2, image: getStartImage2),
+                      head: getstartHeadText2,
+                      image: AppAssets.getStartAssets.getStartImg2,
+                    ),
                     GetStartCenterWidget(
-                        head: getstartHeadText3, image: getStartImage3),
+                      head: getstartHeadText3,
+                      image: AppAssets.getStartAssets.getStartImg3,
+                    ),
                   ],
                 ),
               ),

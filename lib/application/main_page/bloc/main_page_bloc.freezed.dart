@@ -89,22 +89,22 @@ class _$MainPageEventCopyWithImpl<$Res, $Val extends MainPageEvent>
 }
 
 /// @nodoc
-abstract class _$$OnPageChaneImplCopyWith<$Res>
+abstract class _$$OnPageChangeImplCopyWith<$Res>
     implements $MainPageEventCopyWith<$Res> {
-  factory _$$OnPageChaneImplCopyWith(
-          _$OnPageChaneImpl value, $Res Function(_$OnPageChaneImpl) then) =
-      __$$OnPageChaneImplCopyWithImpl<$Res>;
+  factory _$$OnPageChangeImplCopyWith(
+          _$OnPageChangeImpl value, $Res Function(_$OnPageChangeImpl) then) =
+      __$$OnPageChangeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$OnPageChaneImplCopyWithImpl<$Res>
-    extends _$MainPageEventCopyWithImpl<$Res, _$OnPageChaneImpl>
-    implements _$$OnPageChaneImplCopyWith<$Res> {
-  __$$OnPageChaneImplCopyWithImpl(
-      _$OnPageChaneImpl _value, $Res Function(_$OnPageChaneImpl) _then)
+class __$$OnPageChangeImplCopyWithImpl<$Res>
+    extends _$MainPageEventCopyWithImpl<$Res, _$OnPageChangeImpl>
+    implements _$$OnPageChangeImplCopyWith<$Res> {
+  __$$OnPageChangeImplCopyWithImpl(
+      _$OnPageChangeImpl _value, $Res Function(_$OnPageChangeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$OnPageChaneImplCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$OnPageChaneImpl(
+    return _then(_$OnPageChangeImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$OnPageChaneImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnPageChaneImpl implements _OnPageChange {
-  const _$OnPageChaneImpl(this.index);
+class _$OnPageChangeImpl implements _OnPageChange {
+  const _$OnPageChangeImpl(this.index);
 
   @override
   final int index;
@@ -138,7 +138,7 @@ class _$OnPageChaneImpl implements _OnPageChange {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnPageChaneImpl &&
+            other is _$OnPageChangeImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -148,8 +148,8 @@ class _$OnPageChaneImpl implements _OnPageChange {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnPageChaneImplCopyWith<_$OnPageChaneImpl> get copyWith =>
-      __$$OnPageChaneImplCopyWithImpl<_$OnPageChaneImpl>(this, _$identity);
+  _$$OnPageChangeImplCopyWith<_$OnPageChangeImpl> get copyWith =>
+      __$$OnPageChangeImplCopyWithImpl<_$OnPageChangeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,13 +209,13 @@ class _$OnPageChaneImpl implements _OnPageChange {
 }
 
 abstract class _OnPageChange implements MainPageEvent {
-  const factory _OnPageChange(final int index) = _$OnPageChaneImpl;
+  const factory _OnPageChange(final int index) = _$OnPageChangeImpl;
 
   @override
   int get index;
   @override
   @JsonKey(ignore: true)
-  _$$OnPageChaneImplCopyWith<_$OnPageChaneImpl> get copyWith =>
+  _$$OnPageChangeImplCopyWith<_$OnPageChangeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

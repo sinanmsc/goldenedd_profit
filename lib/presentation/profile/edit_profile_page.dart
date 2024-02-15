@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
-import 'package:goldenegg_profit/domain/models/profile_model.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/edit_profile_center_widget.dart';
@@ -12,8 +10,7 @@ import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widg
 import 'package:goldenegg_profit/presentation/widgets/gradient_arrow_widget.dart';
 
 class EditProfile extends StatelessWidget {
-  final ProfileModel profileModel;
-  const EditProfile({super.key, required this.profileModel});
+  const EditProfile({super.key});
 
   static const routerPath = '/edit_profile';
   static const routerName = 'Edit Profile';
@@ -49,12 +46,12 @@ class EditProfile extends StatelessWidget {
               padding: EdgeInsets.all(Responsive.width(3.7, context)),
               child: Column(
                 children: [
-                  EditProfileCcenter(profileModel: profileModel),
+                  const EditProfileCcenter(),
                   SizedBox(height: Responsive.height(4, context)),
                   CustomButton(
-                      onTap: () => context.pop(), text: saveChangesBtn),
+                      onTap: () => Navigator.pop(context), text: saveChangesBtn),
                   SizedBox(height: Responsive.height(2, context)),
-                  CustomOutlinedButton(onTap: () => context.pop())
+                  CustomOutlinedButton(onTap: () => Navigator.pop(context))
                 ],
               ),
             ),

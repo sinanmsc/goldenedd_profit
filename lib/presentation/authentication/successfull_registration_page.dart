@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/main_page/main_page.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 class SuccessfullRegistrationPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class SuccessfullRegistrationPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(authSuccessImage),
+              AppAssets.getStartAssets.authSuccessImg,
               SizedBox(height: Responsive.height(3, context)),
               Text(
                 authSuccessText,
@@ -32,7 +32,7 @@ class SuccessfullRegistrationPage extends StatelessWidget {
               ),
               SizedBox(height: Responsive.height(5.8, context)),
               CustomButton(
-                  onTap: () => context.push(MainPage.routerPath),
+                  onTap: () => Navigator.pushNamed(context, RoutPaths.mainPage),
                   text: getStartText)
             ],
           ),
