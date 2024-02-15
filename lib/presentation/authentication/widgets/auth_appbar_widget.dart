@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:goldenegg_profit/core/theme/theme_helper.dart';
+import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 
 class AuthAppBar extends StatelessWidget {
   const AuthAppBar({

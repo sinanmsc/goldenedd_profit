@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:goldenegg_profit/core/theme/theme_helper.dart';
-import 'package:goldenegg_profit/domain/authentication/core/constants.dart';
+import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
+import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
+import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class AuthVerificationHeader extends StatelessWidget {
   const AuthVerificationHeader({super.key});
@@ -9,7 +10,7 @@ class AuthVerificationHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final gradients = AppTheme.of(context).gradients;
     final typography = AppTheme.of(context).typography;
-    final spaces = AppTheme.of(context).spaces;
+    // final spaces = AppTheme.of(context).spaces;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -21,7 +22,7 @@ class AuthVerificationHeader extends StatelessWidget {
             style: typography.authHead,
           ),
         ),
-        SizedBox(height: spaces.space_200),
+        SizedBox(height: Responsive.height(2.3, context)),
         Text(
           authVerificationSubHead,
           style: typography.ui,

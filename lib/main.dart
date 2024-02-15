@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
 import 'package:goldenegg_profit/application/get_start/get_start_bloc.dart';
-import 'package:goldenegg_profit/core/router/router.dart';
-import 'package:goldenegg_profit/core/theme/theme.dart';
+import 'package:goldenegg_profit/domain/router/router.dart';
+import 'package:goldenegg_profit/domain/theme/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -14,11 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => GetStartBloc()),
-        BlocProvider(create: (context) => AuthBloc())
-      ],
+    return BlocProvider(
+      create: (context) => GetStartBloc(),
       child: MaterialApp.router(
         routerConfig: RouterGo.router,
         debugShowCheckedModeBanner: false,

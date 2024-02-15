@@ -1,0 +1,19 @@
+const String depositText = 'Deposit';
+const String myCriptoText = 'My Crypto';
+const String ordersText = 'Orders';
+const String savingsText = 'Savings';
+const String refferalText = 'Referral';
+const String moreText = 'More';
+const String homeText = 'Home';
+const String activityText = 'Activity';
+const String walletText = 'Wallet';
+
+const String depositImage = 'asset/home/deposit.png';
+const String myCriptoImage = 'asset/home/my_cripto.png';
+const String ordersImage = 'asset/home/Orders.png';
+const String savingsImage = 'asset/home/savings.png';
+const String refferalImage = 'asset/home/referral.png';
+const String moreImage = 'asset/home/more.png';
+const String homeImage = 'asset/home.png';
+const String activityImage = 'asset/activity.png';
+const String walletImage = 'asset/wallet.png';

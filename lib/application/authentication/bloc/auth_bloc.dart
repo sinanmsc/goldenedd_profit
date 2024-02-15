@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,7 +11,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_ToSignIn>((event, emit) {
       emit(state.copyWith(isSigned: true));
     });
-     on<_ToSignUp>((event, emit) {
+
+    on<_ToSignUp>((event, emit) {
       emit(state.copyWith(isSigned: false));
     });
   }

@@ -4,4 +4,5 @@ part of 'auth_bloc.dart';
 class AuthEvent with _$AuthEvent {
   const factory AuthEvent.toSignIn() = _ToSignIn;
   const factory AuthEvent.toSignUp() = _ToSignUp;
+  // const factory AuthEvent.sendOtp(Function nextStep) = _SendOtp;
 }

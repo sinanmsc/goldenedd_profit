@@ -280,6 +280,9 @@ abstract class _ToSignUp implements AuthEvent {
 /// @nodoc
 mixin _$AuthState {
   bool get isSigned => throw _privateConstructorUsedError;
+  TextEditingController get phoneController =>
+      throw _privateConstructorUsedError;
+  String? get errorMsg => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -291,7 +294,8 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool isSigned});
+  $Res call(
+      {bool isSigned, TextEditingController phoneController, String? errorMsg});
 }
 
 /// @nodoc
@@ -308,12 +312,22 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? isSigned = null,
+    Object? phoneController = null,
+    Object? errorMsg = freezed,
   }) {
     return _then(_value.copyWith(
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
               as bool,
+      phoneController: null == phoneController
+          ? _value.phoneController
+          : phoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      errorMsg: freezed == errorMsg
+          ? _value.errorMsg
+          : errorMsg // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -326,7 +340,8 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isSigned});
+  $Res call(
+      {bool isSigned, TextEditingController phoneController, String? errorMsg});
 }
 
 /// @nodoc
@@ -341,12 +356,22 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isSigned = null,
+    Object? phoneController = null,
+    Object? errorMsg = freezed,
   }) {
     return _then(_$AuthStateImpl(
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
               as bool,
+      phoneController: null == phoneController
+          ? _value.phoneController
+          : phoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      errorMsg: freezed == errorMsg
+          ? _value.errorMsg
+          : errorMsg // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -354,14 +379,21 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthStateImpl implements _AuthState {
-  _$AuthStateImpl({required this.isSigned});
+  _$AuthStateImpl(
+      {required this.isSigned,
+      required this.phoneController,
+      required this.errorMsg});
 
   @override
   final bool isSigned;
+  @override
+  final TextEditingController phoneController;
+  @override
+  final String? errorMsg;
 
   @override
   String toString() {
-    return 'AuthState(isSigned: $isSigned)';
+    return 'AuthState(isSigned: $isSigned, phoneController: $phoneController, errorMsg: $errorMsg)';
   }
 
   @override
@@ -370,11 +402,16 @@ class _$AuthStateImpl implements _AuthState {
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
             (identical(other.isSigned, isSigned) ||
-                other.isSigned == isSigned));
+                other.isSigned == isSigned) &&
+            (identical(other.phoneController, phoneController) ||
+                other.phoneController == phoneController) &&
+            (identical(other.errorMsg, errorMsg) ||
+                other.errorMsg == errorMsg));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSigned);
+  int get hashCode =>
+      Object.hash(runtimeType, isSigned, phoneController, errorMsg);
 
   @JsonKey(ignore: true)
   @override
@@ -384,10 +421,17 @@ class _$AuthStateImpl implements _AuthState {
 }
 
 abstract class _AuthState implements AuthState {
-  factory _AuthState({required final bool isSigned}) = _$AuthStateImpl;
+  factory _AuthState(
+      {required final bool isSigned,
+      required final TextEditingController phoneController,
+      required final String? errorMsg}) = _$AuthStateImpl;
 
   @override
   bool get isSigned;
+  @override
+  TextEditingController get phoneController;
+  @override
+  String? get errorMsg;
   @override
   @JsonKey(ignore: true)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>

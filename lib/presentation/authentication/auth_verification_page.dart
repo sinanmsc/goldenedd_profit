@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:goldenegg_profit/core/theme/theme_helper.dart';
-import 'package:goldenegg_profit/domain/authentication/core/constants.dart';
+import 'package:go_router/go_router.dart';
+import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
+import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
+import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
+import 'package:goldenegg_profit/presentation/authentication/successfull_registration_page.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_otp_widget.dart';
-import 'package:goldenegg_profit/presentation/authentication/widgets/auth_verification_appbar_widget.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_verification_header_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
+import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widget.dart';
+import 'package:goldenegg_profit/presentation/widgets/gradient_arrow_widget.dart';
 
 class AuthVerification extends StatelessWidget {
   const AuthVerification({super.key});
@@ -14,39 +18,43 @@ class AuthVerification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final gradients = AppTheme.of(context).gradients;
     final typography = AppTheme.of(context).typography;
-    final spaces = AppTheme.of(context).spaces;
     return Scaffold(
-      appBar: const PreferredSize(
-          preferredSize: Size(0, 60), child: AuthVerificationAppbar()),
-      body: Padding(
-        padding: EdgeInsets.all(spaces.space_200),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AuthVerificationHeader(),
-            SizedBox(height: spaces.space_500),
-            const OTPWidget(),
-            SizedBox(height: spaces.space_500),
-            Center(
-              child: Column(children: [
-                Text(
-                  '$resendCodeTxt(30)',
-                  style: typography.smallInverse,
-                ),
-                Text(
-                  resendCodeLink,
-                  style: typography.number,
-                )
-              ]),
-            ),
-            SizedBox(height: spaces.space_600),
-            CustomButton(
-              text: continueBtnText,
-              onTap: () {},
-            )
-          ],
+      appBar: AppBar(
+        leading: const GradientArrowWidget(),
+        title:
+            const GradientAppbarTitle(titleText: authVerificationAppbarTitle),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(Responsive.width(3.7, context)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const AuthVerificationHeader(),
+              SizedBox(height: Responsive.height(5.8, context)),
+              const OTPWidget(),
+              SizedBox(height: Responsive.height(5.8, context)),
+              Center(
+                child: Column(children: [
+                  Text(
+                    '$resendCodeTxt(30)',
+                    style: typography.uiInvers,
+                  ),
+                  Text(
+                    resendCodeLink,
+                    style: typography.number,
+                  )
+                ]),
+              ),
+              SizedBox(height: Responsive.height(6.95, context)),
+              CustomButton(
+                text: continueBtnText,
+                onTap: () =>
+                    context.push(SuccessfullRegistrationPage.routerPath),
+              )
+            ],
+          ),
         ),
       ),
     );

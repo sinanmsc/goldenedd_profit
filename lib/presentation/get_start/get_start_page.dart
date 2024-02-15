@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:goldenegg_profit/application/get_start/get_start_bloc.dart';
-import 'package:goldenegg_profit/core/theme/theme_helper.dart';
-import 'package:goldenegg_profit/domain/get_start/core/constants.dart';
+import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
+import 'package:goldenegg_profit/domain/constants/getstart_constants.dart';
+import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
 import 'package:goldenegg_profit/presentation/get_start/widgets/get_start_center_widget.dart';
 import 'package:goldenegg_profit/presentation/get_start/widgets/btn_widget.dart';
@@ -15,7 +16,7 @@ class GetStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spaces = AppTheme.of(context).spaces;
+    // final spaces = AppTheme.of(context).spaces;
     final PageController pageController = PageController();
     final currentIndex = context.watch<GetStartBloc>().state.index;
     final colors = AppTheme.of(context).colors;
@@ -35,13 +36,14 @@ class GetStart extends StatelessWidget {
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(spaces.space_300),
+        padding: EdgeInsets.all(Responsive.width(5.5, context)),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: spaces.space_500 * 6),
-              Expanded(
+              SizedBox(height: Responsive.height(18, context)),
+              SizedBox(
+                height: Responsive.height(55, context),
                 child: PageView(
                   controller: pageController,
                   onPageChanged: (value) => context
@@ -58,27 +60,28 @@ class GetStart extends StatelessWidget {
                   ],
                 ),
               ),
+              // SizedBox(height: spaces.space_200),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: spaces.space_75,
+                    radius: Responsive.width(1.38, context),
                     backgroundColor:
                         context.watch<GetStartBloc>().state.index == 0
                             ? colors.primary
                             : colors.inversePrimary,
                   ),
-                  SizedBox(width: spaces.space_75),
+                  SizedBox(width: Responsive.width(1.38, context)),
                   CircleAvatar(
-                    radius: spaces.space_75,
+                    radius: Responsive.width(1.38, context),
                     backgroundColor:
                         context.watch<GetStartBloc>().state.index == 1
                             ? colors.primary
                             : colors.inversePrimary,
                   ),
-                  SizedBox(width: spaces.space_75),
+                  SizedBox(width: Responsive.width(1.38, context)),
                   CircleAvatar(
-                    radius: spaces.space_75,
+                    radius: Responsive.width(1.38, context),
                     backgroundColor:
                         context.watch<GetStartBloc>().state.index == 2
                             ? colors.primary
@@ -86,9 +89,9 @@ class GetStart extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: spaces.space_500 * 2),
+              SizedBox(height: Responsive.height(6, context)),
               InkWell(onTap: onNextBtn, child: const ButtonWidget()),
-              SizedBox(height: spaces.space_500),
+              // SizedBox(height: Responsive.height(4.6, context)),
             ],
           ),
         ),
