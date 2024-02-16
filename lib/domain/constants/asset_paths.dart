@@ -14,14 +14,14 @@ class GetStartAssetPaths {
 }
 
 class HomeAssetPaths {
-  final depositImg = 'asset/home/deposit.png';
-  final moreImg = 'asset/home/more.png';
-  final myCriptoImg = 'asset/home/my_cripto.png';
+  final depositImg = 'asset/home/deposit__svg.svg';
+  final moreImg = 'asset/home/more_svg.svg';
+  final myCriptoImg = 'asset/home/mycripto_referral.svg';
   final notiImg = 'asset/home/noti.png';
-  final ordersImg = 'asset/home/Orders.png';
-  final refferalImg = 'asset/home/referral.png';
-  final savingsImg = 'asset/home/savings.png';
-  final searchImg = 'asset/home/search.png';
+  final ordersImg = 'asset/home/orders_svg.svg';
+  final refferalImg = 'asset/home/mycripto_referral.svg';
+  final savingsImg = 'asset/home/savings_savg.svg';
+  final searchImg = 'asset/home/search_svg.svg';
   final creditIcon = 'asset/home/credit 1.png';
   final creditBg = 'asset/home/creditBack.png';
 }

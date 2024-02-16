@@ -1,4 +1,4 @@
-import 'package:goldenegg_profit/domain/models/coin_model.dart';
+
 
 const String signInText = 'Sign in';
 const String signUpText = 'Sign Up';

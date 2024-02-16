@@ -42,7 +42,7 @@ class EnterAmountPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: Responsive.height(4, context)),
-              const CustomTextField(headText: 'Amount'),
+              const CustomTextField(headText: 'Amount',maxLength: 5),
               SizedBox(height: Responsive.height(6, context)),
               CustomButton(onTap: () {}, text: continueBtnText)
             ],

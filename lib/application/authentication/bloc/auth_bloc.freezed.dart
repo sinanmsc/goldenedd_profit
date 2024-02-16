@@ -20,18 +20,24 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +125,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
   }) {
     return toSignIn();
   }
@@ -122,6 +136,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
   }) {
     return toSignIn?.call();
   }
@@ -131,6 +147,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
   }) {
     if (toSignIn != null) {
@@ -144,6 +162,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
   }) {
     return toSignIn(this);
   }
@@ -153,6 +173,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
   }) {
     return toSignIn?.call(this);
   }
@@ -162,6 +184,8 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
   }) {
     if (toSignIn != null) {
@@ -215,6 +239,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
   }) {
     return toSignUp();
   }
@@ -224,6 +250,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
   }) {
     return toSignUp?.call();
   }
@@ -233,6 +261,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
   }) {
     if (toSignUp != null) {
@@ -246,6 +276,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
   }) {
     return toSignUp(this);
   }
@@ -255,6 +287,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
   }) {
     return toSignUp?.call(this);
   }
@@ -264,6 +298,8 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
   }) {
     if (toSignUp != null) {
@@ -278,11 +314,270 @@ abstract class _ToSignUp implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$ResendOtpImplCopyWith<$Res> {
+  factory _$$ResendOtpImplCopyWith(
+          _$ResendOtpImpl value, $Res Function(_$ResendOtpImpl) then) =
+      __$$ResendOtpImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResendOtpImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$ResendOtpImpl>
+    implements _$$ResendOtpImplCopyWith<$Res> {
+  __$$ResendOtpImplCopyWithImpl(
+      _$ResendOtpImpl _value, $Res Function(_$ResendOtpImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ResendOtpImpl implements _ResendOtp {
+  const _$ResendOtpImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.resendOtp()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResendOtpImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toSignIn,
+    required TResult Function() toSignUp,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
+  }) {
+    return resendOtp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toSignIn,
+    TResult? Function()? toSignUp,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
+  }) {
+    return resendOtp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toSignIn,
+    TResult Function()? toSignUp,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (resendOtp != null) {
+      return resendOtp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToSignIn value) toSignIn,
+    required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
+  }) {
+    return resendOtp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToSignIn value)? toSignIn,
+    TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
+  }) {
+    return resendOtp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToSignIn value)? toSignIn,
+    TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (resendOtp != null) {
+      return resendOtp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResendOtp implements AuthEvent {
+  const factory _ResendOtp() = _$ResendOtpImpl;
+}
+
+/// @nodoc
+abstract class _$$SendOtpImplCopyWith<$Res> {
+  factory _$$SendOtpImplCopyWith(
+          _$SendOtpImpl value, $Res Function(_$SendOtpImpl) then) =
+      __$$SendOtpImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String mobileNo});
+}
+
+/// @nodoc
+class __$$SendOtpImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SendOtpImpl>
+    implements _$$SendOtpImplCopyWith<$Res> {
+  __$$SendOtpImplCopyWithImpl(
+      _$SendOtpImpl _value, $Res Function(_$SendOtpImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mobileNo = null,
+  }) {
+    return _then(_$SendOtpImpl(
+      null == mobileNo
+          ? _value.mobileNo
+          : mobileNo // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendOtpImpl implements _SendOtp {
+  const _$SendOtpImpl(this.mobileNo);
+
+  @override
+  final String mobileNo;
+
+  @override
+  String toString() {
+    return 'AuthEvent.sendOtp(mobileNo: $mobileNo)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendOtpImpl &&
+            (identical(other.mobileNo, mobileNo) ||
+                other.mobileNo == mobileNo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mobileNo);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendOtpImplCopyWith<_$SendOtpImpl> get copyWith =>
+      __$$SendOtpImplCopyWithImpl<_$SendOtpImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toSignIn,
+    required TResult Function() toSignUp,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
+  }) {
+    return sendOtp(mobileNo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toSignIn,
+    TResult? Function()? toSignUp,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
+  }) {
+    return sendOtp?.call(mobileNo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toSignIn,
+    TResult Function()? toSignUp,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (sendOtp != null) {
+      return sendOtp(mobileNo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToSignIn value) toSignIn,
+    required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
+  }) {
+    return sendOtp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToSignIn value)? toSignIn,
+    TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
+  }) {
+    return sendOtp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToSignIn value)? toSignIn,
+    TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (sendOtp != null) {
+      return sendOtp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendOtp implements AuthEvent {
+  const factory _SendOtp(final String mobileNo) = _$SendOtpImpl;
+
+  String get mobileNo;
+  @JsonKey(ignore: true)
+  _$$SendOtpImplCopyWith<_$SendOtpImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {
   bool get isSigned => throw _privateConstructorUsedError;
-  TextEditingController get phoneController =>
-      throw _privateConstructorUsedError;
-  String? get errorMsg => throw _privateConstructorUsedError;
+  int get resendOtpTime => throw _privateConstructorUsedError;
+  String get mobileNo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -294,8 +589,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call(
-      {bool isSigned, TextEditingController phoneController, String? errorMsg});
+  $Res call({bool isSigned, int resendOtpTime, String mobileNo});
 }
 
 /// @nodoc
@@ -312,22 +606,22 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? isSigned = null,
-    Object? phoneController = null,
-    Object? errorMsg = freezed,
+    Object? resendOtpTime = null,
+    Object? mobileNo = null,
   }) {
     return _then(_value.copyWith(
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
               as bool,
-      phoneController: null == phoneController
-          ? _value.phoneController
-          : phoneController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      errorMsg: freezed == errorMsg
-          ? _value.errorMsg
-          : errorMsg // ignore: cast_nullable_to_non_nullable
-              as String?,
+      resendOtpTime: null == resendOtpTime
+          ? _value.resendOtpTime
+          : resendOtpTime // ignore: cast_nullable_to_non_nullable
+              as int,
+      mobileNo: null == mobileNo
+          ? _value.mobileNo
+          : mobileNo // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -340,8 +634,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isSigned, TextEditingController phoneController, String? errorMsg});
+  $Res call({bool isSigned, int resendOtpTime, String mobileNo});
 }
 
 /// @nodoc
@@ -356,22 +649,22 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isSigned = null,
-    Object? phoneController = null,
-    Object? errorMsg = freezed,
+    Object? resendOtpTime = null,
+    Object? mobileNo = null,
   }) {
     return _then(_$AuthStateImpl(
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
               as bool,
-      phoneController: null == phoneController
-          ? _value.phoneController
-          : phoneController // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      errorMsg: freezed == errorMsg
-          ? _value.errorMsg
-          : errorMsg // ignore: cast_nullable_to_non_nullable
-              as String?,
+      resendOtpTime: null == resendOtpTime
+          ? _value.resendOtpTime
+          : resendOtpTime // ignore: cast_nullable_to_non_nullable
+              as int,
+      mobileNo: null == mobileNo
+          ? _value.mobileNo
+          : mobileNo // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -381,19 +674,19 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 class _$AuthStateImpl implements _AuthState {
   _$AuthStateImpl(
       {required this.isSigned,
-      required this.phoneController,
-      required this.errorMsg});
+      required this.resendOtpTime,
+      required this.mobileNo});
 
   @override
   final bool isSigned;
   @override
-  final TextEditingController phoneController;
+  final int resendOtpTime;
   @override
-  final String? errorMsg;
+  final String mobileNo;
 
   @override
   String toString() {
-    return 'AuthState(isSigned: $isSigned, phoneController: $phoneController, errorMsg: $errorMsg)';
+    return 'AuthState(isSigned: $isSigned, resendOtpTime: $resendOtpTime, mobileNo: $mobileNo)';
   }
 
   @override
@@ -403,15 +696,15 @@ class _$AuthStateImpl implements _AuthState {
             other is _$AuthStateImpl &&
             (identical(other.isSigned, isSigned) ||
                 other.isSigned == isSigned) &&
-            (identical(other.phoneController, phoneController) ||
-                other.phoneController == phoneController) &&
-            (identical(other.errorMsg, errorMsg) ||
-                other.errorMsg == errorMsg));
+            (identical(other.resendOtpTime, resendOtpTime) ||
+                other.resendOtpTime == resendOtpTime) &&
+            (identical(other.mobileNo, mobileNo) ||
+                other.mobileNo == mobileNo));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, isSigned, phoneController, errorMsg);
+      Object.hash(runtimeType, isSigned, resendOtpTime, mobileNo);
 
   @JsonKey(ignore: true)
   @override
@@ -423,15 +716,15 @@ class _$AuthStateImpl implements _AuthState {
 abstract class _AuthState implements AuthState {
   factory _AuthState(
       {required final bool isSigned,
-      required final TextEditingController phoneController,
-      required final String? errorMsg}) = _$AuthStateImpl;
+      required final int resendOtpTime,
+      required final String mobileNo}) = _$AuthStateImpl;
 
   @override
   bool get isSigned;
   @override
-  TextEditingController get phoneController;
+  int get resendOtpTime;
   @override
-  String? get errorMsg;
+  String get mobileNo;
   @override
   @JsonKey(ignore: true)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>

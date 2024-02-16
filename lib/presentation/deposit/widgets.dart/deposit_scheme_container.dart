@@ -9,7 +9,12 @@ class DepositSchemContainer extends StatelessWidget {
   final String title;
   final String price;
   final Gradient gradient;
-  const DepositSchemContainer({super.key, required this.gradient,required this.price,required this.title,});
+  const DepositSchemContainer({
+    super.key,
+    required this.gradient,
+    required this.price,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +42,14 @@ class DepositSchemContainer extends StatelessWidget {
                   children: [
                     ShaderMask(
                       shaderCallback: (bounds) => gradient.createShader(bounds),
-                      child: Text(
-                        title,
-                        style: typography.name,
+                      child: SizedBox(
+                        width: Responsive.width(32, context),
+                        child: Text(
+                          title,
+                          style: typography.name,
+                        ),
                       ),
                     ),
-                    SizedBox(width: Responsive.width(20, context)),
                     Container(
                       padding: EdgeInsets.all(Responsive.width(0.3, context)),
                       decoration: BoxDecoration(

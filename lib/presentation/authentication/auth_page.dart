@@ -11,33 +11,53 @@ import 'package:goldenegg_profit/presentation/authentication/widgets/signup_regi
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+  final formKey = GlobalKey<FormState>();
+  AuthPage({super.key});
 
   static const routerPath = '/auth_page';
   static const routerName = 'Auth Page';
 
   @override
   Widget build(BuildContext context) {
+    final mobileNoController = TextEditingController();
     return Scaffold(
       appBar:
           const PreferredSize(preferredSize: Size(0, 50), child: AuthAppBar()),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(Responsive.width(4.6, context)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const AuthHeader(),
-              SizedBox(height: Responsive.height(4, context)),
-              context.watch<AuthBloc>().state.isSigned
-                  ? const SignInRegisterWidget()
-                  : const SignUpRegisterWidget(),
-              SizedBox(height: Responsive.height(8.5, context)),
-              CustomButton(
-                text: sendOtpBtnText,
-                onTap: () => Navigator.pushNamed(context, RoutPaths.authVerification),
-              )
-            ],
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const AuthHeader(),
+                SizedBox(height: Responsive.height(4, context)),
+                context.watch<AuthBloc>().state.isSigned
+                    ? SignInRegisterWidget(
+                        mobileNoController: mobileNoController,
+                        // validator: (value) {
+                        //   if (value == null || value.isEmpty) {
+                        //     return 'Invalide number';
+                        //   }
+                        //   return null;
+                        // },
+                      )
+                    : const SignUpRegisterWidget(),
+                SizedBox(height: Responsive.height(8.5, context)),
+                CustomButton(
+                  text: sendOtpBtnText,
+                  onTap: () {
+                    // if (formKey.currentState!.validate()) {
+                      context
+                          .read<AuthBloc>()
+                          .add(AuthEvent.sendOtp(mobileNoController.text));
+                      Navigator.pushNamed(context, RoutPaths.authVerification);
+                    // }
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -1,9 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goldenegg_profit/domain/injectable/injectable.dart';
-import 'package:goldenegg_profit/presentation/deposit/deposit_page.dart';
-import 'package:goldenegg_profit/presentation/payment/add_new_card_page.dart';
-import 'package:goldenegg_profit/presentation/payment/enter_amount_page.dart';
-import 'package:goldenegg_profit/presentation/payment/payment_page.dart';
 
 import '../../application/authentication/bloc/auth_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
@@ -12,14 +7,21 @@ import '../../application/notification/bloc/notification_bloc.dart';
 import '../../presentation/authentication/auth_page.dart';
 import '../../presentation/authentication/auth_verification_page.dart';
 import '../../presentation/authentication/successfull_registration_page.dart';
+import '../../presentation/deposit/deposit_page.dart';
 import '../../presentation/get_start/get_start_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/main_page/main_page.dart';
 import '../../presentation/notification/notification_page.dart';
+import '../../presentation/payment/add_new_card_page.dart';
+import '../../presentation/payment/enter_amount_page.dart';
+import '../../presentation/payment/payment_page.dart';
 import '../../presentation/profile/edit_profile_page.dart';
 import '../../presentation/profile/profile_page.dart';
+import '../../presentation/splash_screen/splash_screen.dart';
+import '../injectable/injectable.dart';
 
 mixin RoutPaths {
+  static const String splashScreen = "/splash_screen";
   static const String getStarted = "/get_start";
   static const String authPage = "/auth_page";
   static const String authVerification = "/authVerification";
@@ -44,9 +46,12 @@ abstract class GetNamedRouts {
           ),
       RoutPaths.authPage: (context) => BlocProvider(
             create: (context) => AuthBloc(),
-            child: const AuthPage(),
+            child:  AuthPage(),
           ),
-      RoutPaths.authVerification: (context) => const AuthVerification(),
+      RoutPaths.authVerification: (context) => BlocProvider(
+            create: (context) => AuthBloc(),
+            child: const AuthVerification(),
+          ),
       RoutPaths.successfullRegistrationPage: (context) =>
           const SuccessfullRegistrationPage(),
       RoutPaths.profile: (context) => const Profile(),
@@ -64,6 +69,7 @@ abstract class GetNamedRouts {
       RoutPaths.payment: (context) => const PaymentPage(),
       RoutPaths.addCardPage: (context) => const AddNewCard(),
       RoutPaths.enterAmountPage: (context) => const EnterAmountPage(),
+      RoutPaths.splashScreen: (context) => const SplashScreen(),
     };
   }
 }

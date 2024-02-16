@@ -28,7 +28,7 @@ class PaymentPage extends StatelessWidget {
             children: [
               Text(paymentPageHead, style: typography.name),
               SizedBox(height: Responsive.height(6, context)),
-              InkWell(
+              GestureDetector(
                 onTap: () =>
                     Navigator.pushNamed(context, RoutPaths.addCardPage),
                 child: PaymentMethodContainer(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
 import 'package:goldenegg_profit/domain/router/router.dart';
-import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/home/widgets/home_header.dart';
 
@@ -29,7 +28,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      InkWell(
+                      GestureDetector(
                           onTap: () =>
                               Navigator.pushNamed(context, RoutPaths.payment),
                           child: PaymentContainer(

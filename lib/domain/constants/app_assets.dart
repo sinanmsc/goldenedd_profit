@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'asset_paths.dart';
 
 abstract class AppAssets {
@@ -18,13 +19,13 @@ class GetStartAssets {
 }
 
 class HomeAssets {
-  final depositImg = Image.asset(Assetpaths.homeAssetPaths.depositImg);
-  final moreImg = Image.asset(Assetpaths.homeAssetPaths.moreImg);
-  final myCriptoImg = Image.asset(Assetpaths.homeAssetPaths.myCriptoImg);
+  final depositImg = SvgPicture.asset(Assetpaths.homeAssetPaths.depositImg);
+  final moreImg = SvgPicture.asset(Assetpaths.homeAssetPaths.moreImg);
+  final myCriptoImg = SvgPicture.asset(Assetpaths.homeAssetPaths.myCriptoImg);
   final notiImg = Image.asset(Assetpaths.homeAssetPaths.notiImg);
-  final ordersImg = Image.asset(Assetpaths.homeAssetPaths.ordersImg);
-  final refferalImg = Image.asset(Assetpaths.homeAssetPaths.refferalImg);
-  final savingsImg = Image.asset(Assetpaths.homeAssetPaths.savingsImg);
+  final ordersImg = SvgPicture.asset(Assetpaths.homeAssetPaths.ordersImg);
+  final refferalImg = SvgPicture.asset(Assetpaths.homeAssetPaths.refferalImg);
+  final savingsImg = SvgPicture.asset(Assetpaths.homeAssetPaths.savingsImg);
   final searchImg = Image.asset(Assetpaths.homeAssetPaths.searchImg);
   final creditIcon = Image.asset(Assetpaths.homeAssetPaths.creditIcon);
   final creditBg = AssetImage(Assetpaths.homeAssetPaths.creditBg);

@@ -6,14 +6,26 @@ class CustomTextField extends StatelessWidget {
   final String? headText;
   final String? hintText;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
+  final int maxLength;
+  final bool readOnly;
+  final void Function()? onTap;
   const CustomTextField(
-      {super.key, this.headText, this.hintText, this.controller});
+      {super.key,
+      this.headText,
+      this.onTap,
+      this.hintText,
+      this.controller,
+      this.keyboardType,
+      this.validator,
+      this.readOnly = false,
+      required this.maxLength});
 
   @override
   Widget build(BuildContext context) {
     final typography = AppTheme.of(context).typography;
     final colors = AppTheme.of(context).colors;
-    // final spaces = AppTheme.of(context).spaces;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -21,9 +33,15 @@ class CustomTextField extends StatelessWidget {
             ? Text(headText!, style: typography.ui)
             : const SizedBox(),
         SizedBox(height: Responsive.height(1.5, context)),
-        TextField(
+        TextFormField(
+          onTap: () => onTap,
+          keyboardType: keyboardType,
+          validator: validator,
           controller: controller,
+          maxLength: maxLength,
+          readOnly: readOnly,
           decoration: InputDecoration(
+              counterText: '',
               fillColor: colors.textField,
               filled: true,
               contentPadding: EdgeInsets.all(Responsive.width(2.7, context)),

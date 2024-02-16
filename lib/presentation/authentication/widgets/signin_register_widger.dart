@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_textfield.dart';
 
 class SignInRegisterWidget extends StatelessWidget {
-  const SignInRegisterWidget({super.key});
+  // final String? Function(String?)? validator;
+  final TextEditingController mobileNoController;
+  const SignInRegisterWidget(
+      {super.key, required this.mobileNoController});
 
   @override
   Widget build(BuildContext context) {
+    final a = TextEditingController();
     final typography = AppTheme.of(context).typography;
     final gradients = AppTheme.of(context).gradients;
     return Column(
@@ -23,9 +25,12 @@ class SignInRegisterWidget extends StatelessWidget {
         ),
         SizedBox(height: Responsive.height(5, context)),
         CustomTextField(
+          maxLength: 12,
+          controller: a,
+          keyboardType: TextInputType.number,
           headText: mobileNoHeadText,
           hintText: hintTextOfNumberTextField,
-          controller: context.watch<AuthBloc>().state.phoneController,
+          // validator: validator,
         )
       ],
     );

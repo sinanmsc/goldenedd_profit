@@ -25,6 +25,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle smallDiscription;
   final TextStyle discription;
   final TextStyle whiteUi;
+  final TextStyle textField;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -92,6 +93,12 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           color: defaultFontColor,
           fontFamily: 'poppins',
           fontWeight: FontWeight.w500,
+          fontSize: 24,
+        ),
+        textField = const TextStyle(
+          color: Colors.white,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w600,
           fontSize: 24,
         ),
         btn = const TextStyle(
@@ -189,6 +196,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.smallDiscription,
     required this.discription,
     required this.whiteUi,
+    required this.textField,
   });
 
   @override
@@ -216,6 +224,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? smallDiscription,
     TextStyle? discription,
     TextStyle? whiteUi,
+    TextStyle? textField,
   }) {
     return AppTypographyExtension(
       small: small ?? this.small,
@@ -241,6 +250,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       smallDiscription: smallDiscription ?? this.smallDiscription,
       discription: discription ?? this.discription,
       whiteUi: whiteUi ?? this.whiteUi,
+      textField: textField ?? this.textField,
     );
   }
 
@@ -275,6 +285,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           TextStyle.lerp(smallDiscription, other.smallDiscription, t)!,
       discription: TextStyle.lerp(discription, other.discription, t)!,
       whiteUi: TextStyle.lerp(whiteUi, other.whiteUi, t)!,
+      textField: TextStyle.lerp(textField, other.textField, t)!,
     );
   }
 }

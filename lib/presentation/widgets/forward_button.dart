@@ -13,12 +13,14 @@ class ForwardButton extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: gradients.btnGradient,
           borderRadius: BorderRadius.circular(Responsive.width(4.5, context))),
-      child: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_forward,
-            color: Colors.black,
-          )),
+      child: SizedBox(
+        width: Responsive.width(12, context),
+        height: Responsive.height(6, context),
+        child: const Icon(
+          Icons.arrow_forward,
+          color: Colors.black,
+        ),
+      ),
     );
   }
 }

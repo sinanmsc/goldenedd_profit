@@ -22,13 +22,19 @@ class SignUpRegisterWidget extends StatelessWidget {
         ),
         SizedBox(height: Responsive.height(5, context)),
         const CustomTextField(
-            hintText: hintTextOfNameTextField, headText: nameHeadText),
+            hintText: hintTextOfNameTextField,
+            headText: nameHeadText,
+            maxLength: 20),
         SizedBox(height: Responsive.height(3.5, context)),
         const CustomTextField(
-            hintText: hintTextOfEmailTextField, headText: emailHeadText),
+            hintText: hintTextOfEmailTextField,
+            headText: emailHeadText,
+            maxLength: 25),
         SizedBox(height: Responsive.height(3.5, context)),
         const CustomTextField(
-            hintText: hintTextOfNumberTextField, headText: mobileNoHeadText),
+            hintText: hintTextOfNumberTextField,
+            headText: mobileNoHeadText,
+            maxLength: 12),
       ],
     );
   }

@@ -28,7 +28,8 @@ class GetStart extends StatelessWidget {
       } else if (currentIndex == 1) {
         page = 2;
       } else if (currentIndex == 2) {
-        Navigator.pushNamed(context, RoutPaths.authPage);
+        Navigator.pushNamedAndRemoveUntil(
+            context, RoutPaths.authPage, (Route<dynamic> route) => false);
       }
       pageController.animateToPage(page,
           duration: const Duration(milliseconds: 300), curve: Curves.linear);
@@ -96,7 +97,7 @@ class GetStart extends StatelessWidget {
                 ],
               ),
               SizedBox(height: Responsive.height(6, context)),
-              InkWell(onTap: onNextBtn, child: const ButtonWidget()),
+              GestureDetector(onTap: onNextBtn, child: const ButtonWidget()),
               // SizedBox(height: Responsive.height(4.6, context)),
             ],
           ),

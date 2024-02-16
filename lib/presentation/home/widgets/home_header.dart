@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
@@ -22,7 +23,7 @@ class HomeHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              InkWell(
+              GestureDetector(
                 onTap: () => Navigator.pushNamed(context, RoutPaths.profile),
                 child: const CircleAvatar(
                   backgroundColor: Colors.white,
@@ -31,8 +32,10 @@ class HomeHeader extends StatelessWidget {
               ),
               Row(
                 children: [
-                  InkWell(onTap: () {}, child: AppAssets.homeAssets.searchImg),
-                  InkWell(
+                  GestureDetector(
+                      onTap: () {},
+                      child: SvgPicture.asset('asset/home/search_svg.svg')),
+                  GestureDetector(
                     onTap: () =>
                         Navigator.pushNamed(context, RoutPaths.notification),
                     child: AppAssets.homeAssets.notiImg,

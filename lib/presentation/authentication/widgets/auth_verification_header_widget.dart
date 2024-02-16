@@ -4,7 +4,8 @@ import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class AuthVerificationHeader extends StatelessWidget {
-  const AuthVerificationHeader({super.key});
+  final String number;
+  const AuthVerificationHeader({super.key, required this.number});
 
   @override
   Widget build(BuildContext context) {

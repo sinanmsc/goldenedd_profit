@@ -10,13 +10,15 @@ class AuthBtns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Container(
           padding: EdgeInsets.symmetric(
-              vertical: Responsive.width(2.3, context), horizontal: Responsive.width(15.7, context)),
+              vertical: Responsive.width(2.3, context),
+              horizontal: Responsive.width(15.7, context)),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Responsive.width(3.7, context)),
+              borderRadius:
+                  BorderRadius.circular(Responsive.width(3.7, context)),
               color: color),
           child: widget),
     );

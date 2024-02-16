@@ -27,6 +27,6 @@ class NotificatioRepositoryImpl implements INotificationRepository {
       log(e.toString());
       throw CannotGetdatException();
     }
-    return null;
+    throw CannotGetdatException();
   }
 }

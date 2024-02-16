@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
     final typography = AppTheme.of(context).typography;
     final gradients = AppTheme.of(context).gradients;
     // final spaces = AppTheme.of(context).spaces;
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,

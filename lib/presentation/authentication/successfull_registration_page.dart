@@ -32,7 +32,8 @@ class SuccessfullRegistrationPage extends StatelessWidget {
               ),
               SizedBox(height: Responsive.height(5.8, context)),
               CustomButton(
-                  onTap: () => Navigator.pushNamed(context, RoutPaths.mainPage),
+                  onTap: () => Navigator.pushNamedAndRemoveUntil(context,
+                      RoutPaths.mainPage, (Route<dynamic> route) => false),
                   text: getStartText)
             ],
           ),

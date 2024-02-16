@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,6 +13,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<_ToSignUp>((event, emit) {
       emit(state.copyWith(isSigned: false));
+    });
+
+    on<_ResendOtp>((event, emit) {
+      emit(state.copyWith(resendOtpTime: state.resendOtpTime - 1));
+    });
+
+    on<_SendOtp>((event, emit) {
+      emit(state.copyWith(mobileNo: event.mobileNo));
     });
   }
 }
