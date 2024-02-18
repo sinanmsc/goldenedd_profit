@@ -44,18 +44,19 @@ class MainPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    InkWell(
+                    GestureDetector(
                       onTap: () => context
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(0)),
                       child: Column(
                         children: [
-                          AppAssets.mainPageAssets.homeIcon,
+                          SizedBox(height: Responsive.height(1, context)),
+                          Image.asset('asset/home/home_icon.png'),
                           const Text(homeText)
                         ],
                       ),
                     ),
-                    InkWell(
+                    GestureDetector(
                       onTap: () => context
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(1)),
@@ -66,7 +67,7 @@ class MainPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    InkWell(
+                    GestureDetector(
                       onTap: () => context
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(2)),
