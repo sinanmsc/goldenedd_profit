@@ -108,8 +108,8 @@ class _AuthVerificationState extends State<AuthVerification> {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Invalid OTP')));
                   } else {
-                    Navigator.pushNamedAndRemoveUntil(context, RoutPaths.home,
-                        (Route<dynamic> route) => false);
+                    Navigator.pushNamedAndRemoveUntil(context,
+                        RoutPaths.mainPage, (Route<dynamic> route) => false);
                   }
                 },
               )

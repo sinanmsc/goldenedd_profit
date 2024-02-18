@@ -85,7 +85,7 @@ class AuthPage extends StatelessWidget {
                       context
                           .read<AuthBloc>()
                           .add(AuthEvent.sendOtp(emailNoController.text));
-                      Navigator.pushNamed(context, RoutPaths.mainPage);
+                      Navigator.pushNamed(context, RoutPaths.authVerification);
                     }
                   },
                 )
