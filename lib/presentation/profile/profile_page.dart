@@ -25,10 +25,13 @@ class Profile extends StatelessWidget {
           leading: const GradientArrowWidget(),
           backgroundColor: colors.darkAppbar,
           actions: [
-            TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, RoutPaths.editProfile),
-                child: Image.asset('asset/profile/edit_btn.png'))
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: GestureDetector(
+                  onTap: () =>
+                      Navigator.pushNamed(context, RoutPaths.editProfile),
+                  child: Image.asset('asset/profile/edit_btn.png')),
+            )
           ],
         ),
         body: Column(

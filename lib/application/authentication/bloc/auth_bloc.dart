@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,7 +22,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<_SendOtp>((event, emit) {
+      // log('no: ' + event.mobileNo);
       emit(state.copyWith(mobileNo: event.mobileNo));
+      log(state.mobileNo);
     });
   }
 }

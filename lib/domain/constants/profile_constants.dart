@@ -8,7 +8,7 @@ const String cancelBtn = 'Cancel';
 
 const String demoUserName = 'Jhon James';
 const String demoEmail = 'example@gmail.com';
-const String demonumber = '+9199999999';
+const String demonumber = '9999999999';
 
 const String profileImage = 'asset/profile/person.png';
 const String cameraIcon = 'asset/profile/camera.png';

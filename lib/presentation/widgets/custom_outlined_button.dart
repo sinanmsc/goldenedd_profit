@@ -12,7 +12,7 @@ class CustomOutlinedButton extends StatelessWidget {
     final typography = AppTheme.of(context).typography;
     final gradients = AppTheme.of(context).gradients;
 
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(Responsive.width(0.5, context)),

@@ -5,14 +5,12 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_textfield.dart';
 
 class SignInRegisterWidget extends StatelessWidget {
-  // final String? Function(String?)? validator;
+  final String? Function(String?)? validator;
   final TextEditingController mobileNoController;
-  const SignInRegisterWidget(
-      {super.key, required this.mobileNoController});
+  const SignInRegisterWidget({super.key, required this.mobileNoController,required this.validator});
 
   @override
   Widget build(BuildContext context) {
-    final a = TextEditingController();
     final typography = AppTheme.of(context).typography;
     final gradients = AppTheme.of(context).gradients;
     return Column(
@@ -25,12 +23,12 @@ class SignInRegisterWidget extends StatelessWidget {
         ),
         SizedBox(height: Responsive.height(5, context)),
         CustomTextField(
-          maxLength: 12,
-          controller: a,
+          maxLength: 10,
+          controller: mobileNoController,
           keyboardType: TextInputType.number,
           headText: mobileNoHeadText,
           hintText: hintTextOfNumberTextField,
-          // validator: validator,
+          validator: validator,
         )
       ],
     );

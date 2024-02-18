@@ -4,7 +4,15 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/profile_textfield_widget.dart';
 
 class EditProfileCcenter extends StatelessWidget {
-  const EditProfileCcenter({super.key});
+  final String? Function(String?)? nameValidator;
+  final String? Function(String?)? emailValidator;
+  final String? Function(String?)? numberValidator;
+  const EditProfileCcenter({
+    super.key,
+    required this.nameValidator,
+    required this.emailValidator,
+    required this.numberValidator,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +25,23 @@ class EditProfileCcenter extends StatelessWidget {
     return Column(
       children: [
         ProfileTextField(
-            headText: usernameHead, controller: usernameController),
+            maxLength: 25,
+            validator: nameValidator,
+            headText: usernameHead,
+            controller: usernameController),
         SizedBox(height: Responsive.height(3, context)),
-        ProfileTextField(headText: emailHead, controller: emailController),
+        ProfileTextField(
+          headText: emailHead,
+          validator: emailValidator,
+          controller: emailController,
+          maxLength: 25,
+        ),
         SizedBox(height: Responsive.height(3, context)),
-        ProfileTextField(headText: mobileNoHead, controller: phoneController),
+        ProfileTextField(
+            validator: numberValidator,
+            headText: mobileNoHead,
+            controller: phoneController,
+            maxLength: 10),
       ],
     );
   }

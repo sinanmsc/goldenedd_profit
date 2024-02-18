@@ -4,10 +4,14 @@ import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 class ProfileTextField extends StatelessWidget {
   final String headText;
   final TextEditingController controller;
+  final int maxLength;
+  final String? Function(String?)? validator;
   const ProfileTextField({
     super.key,
     required this.headText,
     required this.controller,
+    required this.maxLength,
+    required this.validator,
   });
 
   @override
@@ -21,9 +25,12 @@ class ProfileTextField extends StatelessWidget {
           headText,
           style: typography.uiInvers,
         ),
-        TextField(
+        TextFormField(
+          validator: validator,
+          maxLength: maxLength,
           controller: controller,
           decoration: InputDecoration(
+            counterText: '',
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
                 color: colors.bg,

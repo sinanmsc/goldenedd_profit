@@ -27,6 +27,10 @@ class AuthVerification extends StatefulWidget {
 
 class _AuthVerificationState extends State<AuthVerification> {
   late Timer timer;
+  final otp1 = TextEditingController();
+  final otp2 = TextEditingController();
+  final otp3 = TextEditingController();
+  final otp4 = TextEditingController();
 
   @override
   void initState() {
@@ -63,18 +67,16 @@ class _AuthVerificationState extends State<AuthVerification> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthVerificationHeader(
-                number: context.read<AuthBloc>().state.mobileNo,
-              ),
+              AuthVerificationHeader(),
               SizedBox(height: Responsive.height(5.8, context)),
               // const OTPWidget(),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  OTPTextField(),
-                  OTPTextField(),
-                  OTPTextField(),
-                  OTPTextField(),
+                  OTPTextField(first: true, last: false, controller: otp1),
+                  OTPTextField(first: false, last: false, controller: otp2),
+                  OTPTextField(first: false, last: false, controller: otp3),
+                  OTPTextField(first: false, last: true, controller: otp4),
                 ],
               ),
               SizedBox(height: Responsive.height(5.8, context)),
@@ -86,19 +88,30 @@ class _AuthVerificationState extends State<AuthVerification> {
                           '$resendCodeTxt($time)',
                           style: typography.uiInvers,
                         ),
-                  Text(
-                    resendCodeLink,
-                    style: typography.number,
-                  )
+                  time == 0
+                      ? Text(
+                          resendCodeLink,
+                          style: typography.number,
+                        )
+                      : const SizedBox()
                 ]),
               ),
               SizedBox(height: Responsive.height(6.95, context)),
               CustomButton(
                 text: continueBtnText,
-                onTap: () => Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    RoutPaths.successfullRegistrationPage,
-                    (Route<dynamic> route) => false),
+                onTap: () {
+                  if (otp1.text.length +
+                          otp2.text.length +
+                          otp3.text.length +
+                          otp4.text.length !=
+                      4) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Invalid OTP')));
+                  } else {
+                    Navigator.pushNamedAndRemoveUntil(context, RoutPaths.home,
+                        (Route<dynamic> route) => false);
+                  }
+                },
               )
             ],
           ),

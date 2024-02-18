@@ -1,6 +1,6 @@
 const String paymentTitle = 'Payment';
 const String addCardAppbarTitle = 'Add a new card';
-const String enterAmountAppbarTitle = 'Add a new card';
+const String enterAmountAppbarTitle = 'Enter Amount';
 const String paymentPageHead = 'Add a Payment method';
 const String debitTitle = 'Debit or Credit Card';
 const String debitSubTitle = 'use visa, master card and more';
@@ -12,4 +12,4 @@ const String tctCVV = 'CVV';
 const String txtNameOnCard = 'Name on card';
 const String txtAmount = 'Amount';
 const String txtPaymentMethodTitle = 'payment method';
-const String txtPaymentMethodSubTitle = 'mastercard ending in 1234';
+const String txtPaymentMethodSubTitle = 'mastercard ending in ';

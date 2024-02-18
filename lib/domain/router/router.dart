@@ -4,6 +4,8 @@ import '../../application/authentication/bloc/auth_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
 import '../../application/main_page/bloc/main_page_bloc.dart';
 import '../../application/notification/bloc/notification_bloc.dart';
+import '../../application/payment/bloc/payment_bloc.dart';
+import '../../application/profile/bloc/profile_bloc.dart';
 import '../../presentation/authentication/auth_page.dart';
 import '../../presentation/authentication/auth_verification_page.dart';
 import '../../presentation/authentication/successfull_registration_page.dart';
@@ -46,7 +48,7 @@ abstract class GetNamedRouts {
           ),
       RoutPaths.authPage: (context) => BlocProvider(
             create: (context) => AuthBloc(),
-            child:  AuthPage(),
+            child: AuthPage(),
           ),
       RoutPaths.authVerification: (context) => BlocProvider(
             create: (context) => AuthBloc(),
@@ -54,8 +56,14 @@ abstract class GetNamedRouts {
           ),
       RoutPaths.successfullRegistrationPage: (context) =>
           const SuccessfullRegistrationPage(),
-      RoutPaths.profile: (context) => const Profile(),
-      RoutPaths.editProfile: (context) => const EditProfile(),
+      RoutPaths.profile: (context) => BlocProvider(
+            create: (context) => ProfileBloc(),
+            child: const Profile(),
+          ),
+      RoutPaths.editProfile: (context) => BlocProvider(
+            create: (context) => ProfileBloc(),
+            child: EditProfile(),
+          ),
       RoutPaths.home: (context) => const HomePage(),
       RoutPaths.mainPage: (context) => BlocProvider(
             create: (context) => MainPageBloc(),
@@ -67,8 +75,14 @@ abstract class GetNamedRouts {
           ),
       RoutPaths.deposit: (context) => const DepositPage(),
       RoutPaths.payment: (context) => const PaymentPage(),
-      RoutPaths.addCardPage: (context) => const AddNewCard(),
-      RoutPaths.enterAmountPage: (context) => const EnterAmountPage(),
+      RoutPaths.addCardPage: (context) => BlocProvider(
+            create: (context) => PaymentBloc(),
+            child: AddNewCard(),
+          ),
+      RoutPaths.enterAmountPage: (context) => BlocProvider(
+            create: (context) => PaymentBloc(),
+            child: const EnterAmountPage(),
+          ),
       RoutPaths.splashScreen: (context) => const SplashScreen(),
     };
   }

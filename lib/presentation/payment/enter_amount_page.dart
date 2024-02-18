@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/application/payment/bloc/payment_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/constants/payment_constents.dart';
@@ -14,6 +16,7 @@ class EnterAmountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final cardNumber = ;
     return SafeArea(
       child: Scaffold(
         appBar: const PreferredSize(
@@ -28,7 +31,8 @@ class EnterAmountPage extends StatelessWidget {
             children: [
               PaymentContainer(
                 title: txtPaymentMethodTitle,
-                subTitle: txtPaymentMethodSubTitle,
+                subTitle: txtPaymentMethodSubTitle +
+                    context.read<PaymentBloc>().state.cardNumber,
                 child: Container(
                   margin: EdgeInsets.only(right: Responsive.width(3, context)),
                   padding: EdgeInsets.all(Responsive.width(1.5, context)),
@@ -42,7 +46,7 @@ class EnterAmountPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: Responsive.height(4, context)),
-              const CustomTextField(headText: 'Amount',maxLength: 5),
+              const CustomTextField(headText: 'Amount', maxLength: 5),
               SizedBox(height: Responsive.height(6, context)),
               CustomButton(onTap: () {}, text: continueBtnText)
             ],

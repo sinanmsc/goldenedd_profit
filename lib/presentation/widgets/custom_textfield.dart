@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
             : const SizedBox(),
         SizedBox(height: Responsive.height(1.5, context)),
         TextFormField(
-          onTap: () => onTap,
+          onTap: onTap,
           keyboardType: keyboardType,
           validator: validator,
           controller: controller,

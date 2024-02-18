@@ -5,7 +5,21 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_textfield.dart';
 
 class SignUpRegisterWidget extends StatelessWidget {
-  const SignUpRegisterWidget({super.key});
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController mobileController;
+  final String? Function(String?)? namevalidator;
+  final String? Function(String?)? emailvalidator;
+  final String? Function(String?)? mobilevalidator;
+  const SignUpRegisterWidget({
+    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.mobileController,
+    this.emailvalidator,
+    this.mobilevalidator,
+    this.namevalidator,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +35,27 @@ class SignUpRegisterWidget extends StatelessWidget {
           child: Text(signUpText, style: typography.authHead),
         ),
         SizedBox(height: Responsive.height(5, context)),
-        const CustomTextField(
+        CustomTextField(
+            controller: nameController,
             hintText: hintTextOfNameTextField,
             headText: nameHeadText,
-            maxLength: 20),
-        SizedBox(height: Responsive.height(3.5, context)),
-        const CustomTextField(
-            hintText: hintTextOfEmailTextField,
-            headText: emailHeadText,
+            validator: namevalidator,
             maxLength: 25),
         SizedBox(height: Responsive.height(3.5, context)),
-        const CustomTextField(
+        CustomTextField(
+            controller: emailController,
+            hintText: hintTextOfEmailTextField,
+            headText: emailHeadText,
+            validator: emailvalidator,
+            maxLength: 25),
+        SizedBox(height: Responsive.height(3.5, context)),
+        CustomTextField(
+            // keyboardType: TextInputType.number,
+            controller: mobileController,
             hintText: hintTextOfNumberTextField,
             headText: mobileNoHeadText,
-            maxLength: 12),
+            validator: mobilevalidator,
+            maxLength: 10),
       ],
     );
   }
