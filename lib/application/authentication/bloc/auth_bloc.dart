@@ -22,9 +22,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<_SendOtp>((event, emit) {
-      // log('no: ' + event.mobileNo);
+      // log('no: ${event.mobileNo}');
       emit(state.copyWith(mobileNo: event.mobileNo));
-      log(state.mobileNo);
+      // log(state.mobileNo);
     });
   }
 }

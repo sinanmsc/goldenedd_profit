@@ -13,6 +13,9 @@ import 'package:goldenegg_profit/presentation/authentication/widgets/signup_regi
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 class AuthPage extends StatelessWidget {
+  final mobileNoController = TextEditingController();
+  final nameNoController = TextEditingController();
+  final emailNoController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AuthPage({super.key});
 
@@ -21,9 +24,6 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mobileNoController = TextEditingController();
-    final nameNoController = TextEditingController();
-    final emailNoController = TextEditingController();
     return Scaffold(
       appBar:
           const PreferredSize(preferredSize: Size(0, 50), child: AuthAppBar()),
@@ -81,10 +81,11 @@ class AuthPage extends StatelessWidget {
                   text: sendOtpBtnText,
                   onTap: () {
                     if (formKey.currentState!.validate()) {
-                      // log('noxf' + mobileNoController.text);
+                      log('noxf' + mobileNoController.text);
+                      mobNumber.value = mobileNoController.text;
                       context
                           .read<AuthBloc>()
-                          .add(AuthEvent.sendOtp(emailNoController.text));
+                          .add(AuthEvent.sendOtp(mobileNoController.text));
                       Navigator.pushNamed(context, RoutPaths.authVerification);
                     }
                   },
@@ -97,3 +98,5 @@ class AuthPage extends StatelessWidget {
     );
   }
 }
+
+ValueNotifier<String> mobNumber = ValueNotifier('');

@@ -52,6 +52,7 @@ class EditProfile extends StatelessWidget {
                             if (context.mounted) {
                               context.read<ProfileBloc>().add(
                                   ProfileEvent.changeImage(pickedImage.path));
+                              imageValue.value = pickedImage.path;
                             }
                           }
                         } catch (e) {
@@ -115,3 +116,5 @@ class EditProfile extends StatelessWidget {
     );
   }
 }
+
+ValueNotifier<String> imageValue = ValueNotifier('');

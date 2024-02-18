@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
+import 'package:goldenegg_profit/domain/injectable/injectable.dart';
 
 import '../../domain/constants/auth_constants.dart';
 import '../../domain/router/router.dart';
@@ -40,6 +41,7 @@ class _AuthVerificationState extends State<AuthVerification> {
       } else {
         timer.cancel();
       }
+      // log('abc ' + context.read<AuthBloc>().state.mobileNo);
     });
     super.initState();
   }
@@ -52,7 +54,6 @@ class _AuthVerificationState extends State<AuthVerification> {
 
   @override
   Widget build(BuildContext context) {
-    log(context.read<AuthBloc>().state.mobileNo);
     final typography = AppTheme.of(context).typography;
     final time = context.watch<AuthBloc>().state.resendOtpTime;
     return Scaffold(
@@ -67,7 +68,16 @@ class _AuthVerificationState extends State<AuthVerification> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthVerificationHeader(),
+              BlocBuilder<AuthBloc, AuthState>(
+                bloc: getIt<AuthBloc>(),
+                builder: (context, state) {
+                  if (state.mobileNo.isEmpty) {
+                    log('message');
+                  }
+                  log(' a : ' + state.mobileNo);
+                  return AuthVerificationHeader();
+                },
+              ),
               SizedBox(height: Responsive.height(5.8, context)),
               // const OTPWidget(),
               Row(

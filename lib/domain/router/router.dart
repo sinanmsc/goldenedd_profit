@@ -79,10 +79,10 @@ abstract class GetNamedRouts {
             create: (context) => PaymentBloc(),
             child: AddNewCard(),
           ),
-      RoutPaths.enterAmountPage: (context) => BlocProvider(
-            create: (context) => PaymentBloc(),
-            child: const EnterAmountPage(),
-          ),
+      // RoutPaths.enterAmountPage: (context) => BlocProvider(
+      //       create: (context) => PaymentBloc(),
+      //       child: const EnterAmountPage(),
+      //     ),
       RoutPaths.splashScreen: (context) => const SplashScreen(),
     };
   }

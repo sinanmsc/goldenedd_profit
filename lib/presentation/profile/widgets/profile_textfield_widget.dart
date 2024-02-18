@@ -5,6 +5,7 @@ class ProfileTextField extends StatelessWidget {
   final String headText;
   final TextEditingController controller;
   final int maxLength;
+  final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   const ProfileTextField({
     super.key,
@@ -12,6 +13,7 @@ class ProfileTextField extends StatelessWidget {
     required this.controller,
     required this.maxLength,
     required this.validator,
+     this.keyboardType,
   });
 
   @override
@@ -26,6 +28,7 @@ class ProfileTextField extends StatelessWidget {
           style: typography.uiInvers,
         ),
         TextFormField(
+          keyboardType: keyboardType,
           validator: validator,
           maxLength: maxLength,
           controller: controller,

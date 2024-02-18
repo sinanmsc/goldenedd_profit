@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:goldenegg_profit/application/profile/bloc/profile_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
+import 'package:goldenegg_profit/presentation/profile/edit_profile_page.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -42,14 +44,18 @@ class ProfileHeader extends StatelessWidget {
         Positioned(
           bottom: Responsive.height(11, context),
           left: Responsive.height(16.5, context),
-          child: CircleAvatar(
-            radius: 60,
-            backgroundColor: Colors.white,
-            // child: isNewImage ? Image.file(File(image)) : Image.asset(image),
-            backgroundImage: isNewImage
-                ? FileImage(File(image))
-                : AssetImage(image) as ImageProvider,
-          ),
+          child: ValueListenableBuilder(
+              valueListenable: imageValue,
+              builder: (context, value, child) {
+                log('va : ' + value);
+                return CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Colors.white,
+                    // child: isNewImage ? Image.file(File(image)) : Image.asset(image),
+                    backgroundImage: value.isEmpty
+                        ? AssetImage(image) as ImageProvider
+                        : FileImage(File(image)));
+              }),
         ),
       ],
     );

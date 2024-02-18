@@ -38,6 +38,7 @@ class EditProfileCcenter extends StatelessWidget {
         ),
         SizedBox(height: Responsive.height(3, context)),
         ProfileTextField(
+            keyboardType: TextInputType.number,
             validator: numberValidator,
             headText: mobileNoHead,
             controller: phoneController,

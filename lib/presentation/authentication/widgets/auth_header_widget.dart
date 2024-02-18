@@ -39,8 +39,7 @@ class AuthHeader extends StatelessWidget {
                     signInText,
                     style: typography.authBtn,
                   ),
-            onTap: () =>
-                context.read<AuthBloc>().add(const AuthEvent.toSignIn()),
+            onTap: () {}
           ),
           AuthBtns(
             color: context.watch<AuthBloc>().state.isSigned
@@ -55,8 +54,7 @@ class AuthHeader extends StatelessWidget {
                     shaderCallback: (bounds) =>
                         gradients.btnGradient.createShader(bounds),
                     child: const Text(signUpText)),
-            onTap: () =>
-                context.read<AuthBloc>().add(const AuthEvent.toSignUp()),
+            onTap: (){}
           ),
         ],
       ),

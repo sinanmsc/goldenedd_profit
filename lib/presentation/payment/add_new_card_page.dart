@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/payment/bloc/payment_bloc.dart';
+import 'package:goldenegg_profit/presentation/payment/enter_amount_page.dart';
 
 import '../../domain/constants/auth_constants.dart';
 import '../../domain/constants/payment_constents.dart';
@@ -12,14 +13,14 @@ import '../widgets/custom_button.dart';
 import '../widgets/custom_textfield.dart';
 
 class AddNewCard extends StatelessWidget {
+  final dateController = TextEditingController();
+  final cardNoController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AddNewCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     final typography = AppTheme.of(context).typography;
-    final dateController = TextEditingController();
-    final cardNoController = TextEditingController();
     return SafeArea(
       child: Scaffold(
         appBar: const PreferredSize(
@@ -39,8 +40,10 @@ class AddNewCard extends StatelessWidget {
                   Text(paymentPageHead, style: typography.name),
                   SizedBox(height: Responsive.height(5, context)),
                   CustomTextField(
+                    keyboardType: TextInputType.number,
                     hintText: '0000 1111 2222 3333',
                     headText: txtCardNumber,
+                    controller: cardNoController,
                     maxLength: 16,
                     validator: (value) {
                       if (value!.length < 16) {
@@ -81,6 +84,7 @@ class AddNewCard extends StatelessWidget {
                       SizedBox(
                           width: MediaQuery.sizeOf(context).width / 2.5,
                           child: CustomTextField(
+                            keyboardType: TextInputType.number,
                             hintText: '123',
                             validator: (value) {
                               if (value!.length < 3) {
@@ -108,14 +112,18 @@ class AddNewCard extends StatelessWidget {
                   SizedBox(height: Responsive.height(5, context)),
                   CustomButton(
                       onTap: () {
+                        final a = cardNoController.text
+                            .substring(cardNoController.text.length - 4);
                         if (formKey.currentState!.validate()) {
                           context
                               .read<PaymentBloc>()
                               .add(PaymentEvent.addCard(cardNoController.text));
-                          Navigator.pushNamed(
-                            context,
-                            RoutPaths.enterAmountPage,
-                          );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    EnterAmountPage(number: a),
+                              ));
                         }
                       },
                       text: continueBtnText)

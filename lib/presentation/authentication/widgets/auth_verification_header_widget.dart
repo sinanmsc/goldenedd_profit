@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
+import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
 
 import '../../../application/authentication/bloc/auth_bloc.dart';
 
@@ -20,7 +21,6 @@ class AuthVerificationHeader extends StatelessWidget {
     final typography = AppTheme.of(context).typography;
     // final spaces = AppTheme.of(context).spaces;
 
-    
     final number = context.read<AuthBloc>().state.mobileNo;
     log('num$number');
     return Column(
@@ -39,10 +39,23 @@ class AuthVerificationHeader extends StatelessWidget {
           authVerificationSubHead,
           style: typography.ui,
         ),
-        Text(
-          '+91 $number',
-          style: typography.number,
-        ),
+        ValueListenableBuilder(
+            valueListenable: mobNumber,
+            builder: (context, value, child) {
+              return Text(
+                '+91 $value',
+                style: typography.number,
+              );
+            })
+        // BlocBuilder<AuthBloc, AuthState>(
+        //   builder: (context, state) {
+        //     log('c :' + state.mobileNo);
+        //     return Text(
+        //       '+91 ${state.mobileNo}',
+        //       style: typography.number,
+        //     );
+        //   },
+        // ),
       ],
     );
   }
