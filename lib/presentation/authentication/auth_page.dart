@@ -44,7 +44,7 @@ class AuthPage extends StatelessWidget {
                           if (value == null ||
                               value.isEmpty ||
                               value.length < 10) {
-                            return 'Enter valid number';
+                            return 'Enter  number';
                           }
                           return null;
                         },
@@ -60,10 +60,9 @@ class AuthPage extends StatelessWidget {
                           return null;
                         },
                         emailvalidator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              !value.contains('@') ||
-                              !value.contains('.')) {
+                          if (!RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value!)) {
                             return 'Invalid Email';
                           }
                           return null;

@@ -27,35 +27,35 @@ class AuthHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AuthBtns(
-            color: context.watch<AuthBloc>().state.isSigned
-                ? Colors.black
-                : Colors.transparent,
-            widget: context.watch<AuthBloc>().state.isSigned
-                ? ShaderMask(
-                    shaderCallback: (bounds) =>
-                        gradients.btnGradient.createShader(bounds),
-                    child: const Text(signInText))
-                : Text(
-                    signInText,
-                    style: typography.authBtn,
-                  ),
-            onTap: () {}
-          ),
+              color: context.watch<AuthBloc>().state.isSigned
+                  ? Colors.black
+                  : Colors.transparent,
+              widget: context.watch<AuthBloc>().state.isSigned
+                  ? ShaderMask(
+                      shaderCallback: (bounds) =>
+                          gradients.btnGradient.createShader(bounds),
+                      child: const Text(signInText))
+                  : Text(
+                      signInText,
+                      style: typography.authBtn,
+                    ),
+              onTap: () =>
+                  context.read<AuthBloc>().add(const AuthEvent.toSignIn())),
           AuthBtns(
-            color: context.watch<AuthBloc>().state.isSigned
-                ? Colors.transparent
-                : Colors.black,
-            widget: context.watch<AuthBloc>().state.isSigned
-                ? Text(
-                    signUpText,
-                    style: typography.authBtn,
-                  )
-                : ShaderMask(
-                    shaderCallback: (bounds) =>
-                        gradients.btnGradient.createShader(bounds),
-                    child: const Text(signUpText)),
-            onTap: (){}
-          ),
+              color: context.watch<AuthBloc>().state.isSigned
+                  ? Colors.transparent
+                  : Colors.black,
+              widget: context.watch<AuthBloc>().state.isSigned
+                  ? Text(
+                      signUpText,
+                      style: typography.authBtn,
+                    )
+                  : ShaderMask(
+                      shaderCallback: (bounds) =>
+                          gradients.btnGradient.createShader(bounds),
+                      child: const Text(signUpText)),
+              onTap: () =>
+                  context.read<AuthBloc>().add(const AuthEvent.toSignUp())),
         ],
       ),
     );

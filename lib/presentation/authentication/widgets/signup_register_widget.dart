@@ -50,7 +50,7 @@ class SignUpRegisterWidget extends StatelessWidget {
             maxLength: 25),
         SizedBox(height: Responsive.height(3.5, context)),
         CustomTextField(
-            // keyboardType: TextInputType.number,
+            keyboardType: TextInputType.number,
             controller: mobileController,
             hintText: hintTextOfNumberTextField,
             headText: mobileNoHeadText,
