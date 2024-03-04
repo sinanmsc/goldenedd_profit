@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
+import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
 import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
@@ -12,10 +13,13 @@ import 'package:goldenegg_profit/presentation/authentication/widgets/auth_header
 import 'package:goldenegg_profit/presentation/authentication/widgets/signup_register_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
+import '../../domain/constants/profile_constants.dart';
+
 class AuthPage extends StatelessWidget {
-  final mobileNoController = TextEditingController();
-  final nameNoController = TextEditingController();
-  final emailNoController = TextEditingController();
+  final signinMobileNoController = TextEditingController();
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final signupMobileNoController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AuthPage({super.key});
 
@@ -24,6 +28,7 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isSigned = context.watch<AuthBloc>().state.isSigned;
     return Scaffold(
       appBar:
           const PreferredSize(preferredSize: Size(0, 50), child: AuthAppBar()),
@@ -39,23 +44,23 @@ class AuthPage extends StatelessWidget {
                 SizedBox(height: Responsive.height(4, context)),
                 context.watch<AuthBloc>().state.isSigned
                     ? SignInRegisterWidget(
-                        mobileNoController: mobileNoController,
+                        mobileNoController: signinMobileNoController,
                         validator: (value) {
                           if (value == null ||
                               value.isEmpty ||
                               value.length < 10) {
-                            return 'Enter  number';
+                            return 'Enter valid number';
                           }
                           return null;
                         },
                       )
                     : SignUpRegisterWidget(
-                        emailController: emailNoController,
-                        mobileController: mobileNoController,
-                        nameController: nameNoController,
+                        emailController: emailController,
+                        mobileController: signupMobileNoController,
+                        nameController: nameController,
                         namevalidator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Enter valid name';
+                            return 'Enter name';
                           }
                           return null;
                         },
@@ -80,12 +85,23 @@ class AuthPage extends StatelessWidget {
                   text: sendOtpBtnText,
                   onTap: () {
                     if (formKey.currentState!.validate()) {
-                      log('noxf' + mobileNoController.text);
-                      mobNumber.value = mobileNoController.text;
-                      context
-                          .read<AuthBloc>()
-                          .add(AuthEvent.sendOtp(mobileNoController.text));
-                      Navigator.pushNamed(context, RoutPaths.authVerification);
+                      log('noxf' + signinMobileNoController.text);
+                      context.read<AuthBloc>().add(
+                          AuthEvent.sendOtp(signinMobileNoController.text));
+                      if (isSigned) {
+                        mobNumber.value = signinMobileNoController.text;
+                        Navigator.pushNamed(
+                            context, RoutPaths.authVerification);
+                      }
+                      if (!isSigned) {
+                        mobNumber.value = signupMobileNoController.text;
+                        profileData.value = ProfileModel(
+                            userName: nameController.text,
+                            email: emailController.text,
+                            mobileNo: signupMobileNoController.text);
+                        Navigator.pushNamed(
+                            context, RoutPaths.authVerification);
+                      }
                     }
                   },
                 )
@@ -99,3 +115,6 @@ class AuthPage extends StatelessWidget {
 }
 
 ValueNotifier<String> mobNumber = ValueNotifier('');
+
+ValueNotifier<ProfileModel> profileData = ValueNotifier(ProfileModel(
+    userName: demoUserName, email: demoEmail, mobileNo: mobNumber.value));

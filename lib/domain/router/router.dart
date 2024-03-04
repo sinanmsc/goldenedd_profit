@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/presentation/myCripto/my_farm_page.dart';
 
 import '../../application/authentication/bloc/auth_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
@@ -15,7 +16,7 @@ import '../../presentation/home/home_page.dart';
 import '../../presentation/main_page/main_page.dart';
 import '../../presentation/notification/notification_page.dart';
 import '../../presentation/payment/add_new_card_page.dart';
-import '../../presentation/payment/enter_amount_page.dart';
+// import '../../presentation/payment/enter_amount_page.dart';
 import '../../presentation/payment/payment_page.dart';
 import '../../presentation/profile/edit_profile_page.dart';
 import '../../presentation/profile/profile_page.dart';
@@ -37,6 +38,7 @@ mixin RoutPaths {
   static const String payment = "/payment";
   static const String addCardPage = "/add_card";
   static const String enterAmountPage = "/enter_amount";
+  static const String myCriptoPage = "/my_cripto";
 }
 
 abstract class GetNamedRouts {
@@ -84,6 +86,7 @@ abstract class GetNamedRouts {
       //       child: const EnterAmountPage(),
       //     ),
       RoutPaths.splashScreen: (context) => const SplashScreen(),
+      RoutPaths.myCriptoPage: (context) => const MyCripto(),
     };
   }
 }

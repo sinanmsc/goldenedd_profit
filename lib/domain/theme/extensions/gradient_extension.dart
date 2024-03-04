@@ -7,6 +7,7 @@ class AppGradients extends ThemeExtension<AppGradients> {
   final Gradient blue;
   final Gradient greean;
   final Gradient red;
+  final Gradient border;
 
   AppGradients({
     required this.btnGradient,
@@ -15,6 +16,7 @@ class AppGradients extends ThemeExtension<AppGradients> {
     required this.blue,
     required this.greean,
     required this.red,
+    required this.border,
   });
   @override
   ThemeExtension<AppGradients> copyWith({
@@ -24,6 +26,7 @@ class AppGradients extends ThemeExtension<AppGradients> {
     Gradient? blue,
     Gradient? greean,
     Gradient? red,
+    Gradient? border,
   }) {
     return AppGradients(
       btnGradient: btnGradient ?? this.btnGradient,
@@ -32,6 +35,7 @@ class AppGradients extends ThemeExtension<AppGradients> {
       blue: blue ?? this.blue,
       greean: greean ?? this.greean,
       red: red ?? this.red,
+      border: border ?? this.border,
     );
   }
 
@@ -48,6 +52,7 @@ class AppGradients extends ThemeExtension<AppGradients> {
       blue: Gradient.lerp(blue, other.blue, t)!,
       greean: Gradient.lerp(greean, other.greean, t)!,
       red: Gradient.lerp(red, other.red, t)!,
+      border: Gradient.lerp(border, other.border, t)!,
     );
   }
 }

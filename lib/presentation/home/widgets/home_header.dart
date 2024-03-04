@@ -59,6 +59,8 @@ class HomeHeader extends StatelessWidget {
                         label: depositText,
                         icon: AppAssets.homeAssets.depositImg),
                     HomeHeaderComponents(
+                        onTap: () => Navigator.pushNamed(
+                            context, RoutPaths.myCriptoPage),
                         label: myCriptoText,
                         icon: AppAssets.homeAssets.myCriptoImg),
                     HomeHeaderComponents(

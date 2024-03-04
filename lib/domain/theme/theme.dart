@@ -54,5 +54,7 @@ ThemeData theme = ThemeData(
             colors: [Color(0xFF41C6FF), Color(0xFF1665E1)]),
         red: const LinearGradient(
             colors: [Color(0xFFFF4BAA), Color(0xFFE1601F)]),
+        border: const LinearGradient(
+            colors: [Color(0xFFD9A51E), Color(0xFFF3EEB3), Color(0xFFD4951A)]),
       )
     ]);

@@ -54,7 +54,7 @@ class ProfileHeader extends StatelessWidget {
                     // child: isNewImage ? Image.file(File(image)) : Image.asset(image),
                     backgroundImage: value.isEmpty
                         ? AssetImage(image) as ImageProvider
-                        : FileImage(File(image)));
+                        : FileImage(File(imageValue.value)));
               }),
         ),
       ],

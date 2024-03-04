@@ -3,10 +3,13 @@ import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
 import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
+import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/details_field_widget.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/profile_header_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widget.dart';
 import 'package:goldenegg_profit/presentation/widgets/gradient_arrow_widget.dart';
+
+import '../../domain/models/profile/profile_model.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -40,17 +43,22 @@ class Profile extends StatelessWidget {
             const ProfileHeader(),
             Padding(
               padding: EdgeInsets.all(Responsive.width(3.7, context)),
-              child: Column(
-                children: [
-                  const DetailsField(
-                      headText: usernameHead, valueText: demoUserName),
-                  SizedBox(height: Responsive.height(3, context)),
-                  const DetailsField(headText: emailHead, valueText: demoEmail),
-                  SizedBox(height: Responsive.height(3, context)),
-                  const DetailsField(
-                      headText: mobileNoHead, valueText: demonumber),
-                ],
-              ),
+              child: ValueListenableBuilder(
+                  valueListenable: profileData,
+                  builder: (context, value, child) {
+                    return Column(
+                      children: [
+                        DetailsField(
+                            headText: usernameHead, valueText: value.userName),
+                        SizedBox(height: Responsive.height(3, context)),
+                        DetailsField(
+                            headText: emailHead, valueText: value.email),
+                        SizedBox(height: Responsive.height(3, context)),
+                        DetailsField(
+                            headText: mobileNoHead, valueText: value.mobileNo),
+                      ],
+                    );
+                  }),
             )
           ],
         ),

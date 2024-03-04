@@ -8,6 +8,7 @@ abstract class AppAssets {
   static ProfileAssets get profileAssets => ProfileAssets();
   static MainPageAssets get mainPageAssets => MainPageAssets();
   static PaymentAssets get paymentAssets => PaymentAssets();
+  static MyCriptoAssets get myCriptoAssets => MyCriptoAssets();
 }
 
 class GetStartAssets {
@@ -47,4 +48,8 @@ class PaymentAssets {
   final debitImg = Image.asset(Assetpaths.paymentAssetPaths.debitImg);
   final bankImg = Image.asset(Assetpaths.paymentAssetPaths.bankImg);
   final newBankImg = Image.asset(Assetpaths.paymentAssetPaths.newBankImg);
+}
+
+class MyCriptoAssets {
+  final goldenEgg = Image.asset(Assetpaths.myCriptoAssetPaths.goldenEgg);
 }

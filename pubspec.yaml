@@ -38,13 +38,10 @@ dependencies:
   flutter_native_splash: ^2.3.10
   flutter_bloc: ^8.1.4
   freezed_annotation: ^2.4.1
-  firebase_core: ^2.25.4
-  firebase_auth: ^4.17.4
   json_annotation: ^4.8.1
   dio: ^5.4.0
   get_it: ^7.6.7
-  gradient_borders: ^1.0.0
-  flutter_svg: ^2.0.9
+  flutter_svg: ^2.0.10+1
   image_picker: ^1.0.7
 
 dev_dependencies:
@@ -78,6 +75,7 @@ flutter:
     - asset/get_start/
     - asset/profile/
     - asset/home/
+    - asset/ducks/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

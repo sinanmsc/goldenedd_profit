@@ -26,6 +26,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle discription;
   final TextStyle whiteUi;
   final TextStyle textField;
+  final TextStyle bigGreen;
+  final TextStyle bigRed;
+  final TextStyle duckTitle;
+  final TextStyle greenProfit;
+  final TextStyle redLoss;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -169,6 +174,35 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontFamily: 'poppins',
           color: Color(0xFF777777),
           fontWeight: FontWeight.w400,
+        ),
+        bigGreen = const TextStyle(
+          fontSize: 18,
+          fontFamily: 'poppins',
+          color: Color(0xFF55C64B),
+          fontWeight: FontWeight.w600,
+        ),
+        bigRed = const TextStyle(
+          fontSize: 18,
+          fontFamily: 'poppins',
+          color: Color(0xFFF43E32),
+          fontWeight: FontWeight.w600,
+        ),
+        duckTitle = const TextStyle(
+          fontSize: 15,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w400,
+        ),
+        greenProfit = const TextStyle(
+          fontSize: 14,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w600,
+          color: Color(0xFF55C64B),
+        ),
+        redLoss = const TextStyle(
+          fontSize: 14,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w600,
+          color: Color(0xFFF43E32),
         );
 
   /// Create the typography with given styles
@@ -197,6 +231,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.discription,
     required this.whiteUi,
     required this.textField,
+    required this.bigGreen,
+    required this.bigRed,
+    required this.duckTitle,
+    required this.greenProfit,
+    required this.redLoss,
   });
 
   @override
@@ -225,6 +264,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? discription,
     TextStyle? whiteUi,
     TextStyle? textField,
+    TextStyle? bigGreen,
+    TextStyle? bigRed,
+    TextStyle? duckTitle,
+    TextStyle? greenProfit,
+    TextStyle? redProfit,
   }) {
     return AppTypographyExtension(
       small: small ?? this.small,
@@ -251,6 +295,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       discription: discription ?? this.discription,
       whiteUi: whiteUi ?? this.whiteUi,
       textField: textField ?? this.textField,
+      bigGreen: bigGreen ?? this.bigGreen,
+      bigRed: bigRed ?? this.bigRed,
+      duckTitle: duckTitle ?? this.duckTitle,
+      greenProfit: greenProfit ?? this.greenProfit,
+      redLoss: redProfit ?? this.redLoss,
     );
   }
 
@@ -286,6 +335,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       discription: TextStyle.lerp(discription, other.discription, t)!,
       whiteUi: TextStyle.lerp(whiteUi, other.whiteUi, t)!,
       textField: TextStyle.lerp(textField, other.textField, t)!,
+      bigGreen: TextStyle.lerp(bigGreen, other.bigGreen, t)!,
+      bigRed: TextStyle.lerp(bigRed, other.bigRed, t)!,
+      duckTitle: TextStyle.lerp(duckTitle, other.duckTitle, t)!,
+      greenProfit: TextStyle.lerp(greenProfit, other.greenProfit, t)!,
+      redLoss: TextStyle.lerp(redLoss, other.redLoss, t)!,
     );
   }
 }

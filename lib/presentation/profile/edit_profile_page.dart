@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/profile/bloc/profile_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
+import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/edit_profile_center_widget.dart';
@@ -14,7 +15,12 @@ import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widg
 import 'package:goldenegg_profit/presentation/widgets/gradient_arrow_widget.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../authentication/auth_page.dart';
+
 class EditProfile extends StatelessWidget {
+  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   EditProfile({super.key});
 
@@ -73,6 +79,9 @@ class EditProfile extends StatelessWidget {
                 child: Column(
                   children: [
                     EditProfileCcenter(
+                      emailController: emailController,
+                      phoneController: phoneController,
+                      usernameController: usernameController,
                       nameValidator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Enter valid name';
@@ -100,6 +109,11 @@ class EditProfile extends StatelessWidget {
                     CustomButton(
                         onTap: () {
                           if (formKey.currentState!.validate()) {
+                            profileData.value = ProfileModel(
+                                userName: usernameController.text,
+                                email: emailController.text,
+                                mobileNo: phoneController.text);
+                            log(profileData.value.toString());
                             Navigator.pop(context);
                           }
                         },

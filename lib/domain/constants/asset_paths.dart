@@ -4,6 +4,7 @@ abstract class Assetpaths {
   static ProfileAssetPaths get profileAssetPaths => ProfileAssetPaths();
   static MainPageAssetPaths get mainPageAssetPaths => MainPageAssetPaths();
   static PaymentAssetPaths get paymentAssetPaths => PaymentAssetPaths();
+  static MyCriptoAssetPaths get myCriptoAssetPaths => MyCriptoAssetPaths();
 }
 
 class GetStartAssetPaths {
@@ -42,4 +43,15 @@ class PaymentAssetPaths {
   final debitImg = 'asset/credit_new1.png';
   final bankImg = 'asset/bank.png';
   final newBankImg = 'asset/newBank.png';
+}
+
+class MyCriptoAssetPaths {
+  final sortIcon = 'asset/sort.png';
+  final goldenEgg = 'asset/gegg.png';
+  final bronseDuck = 'asset/ducks/bronze.png';
+  final diamondDuck = 'asset/ducks/Diamond.png';
+  final goldDuck = 'asset/ducks/gold.png';
+  final platinumDuck = 'asset/ducks/Platinum.png';
+  final silverDuck = 'asset/ducks/silver.png';
+  final titaniumDuck = 'asset/ducks/Titanium.png';
 }
