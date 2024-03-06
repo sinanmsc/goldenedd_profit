@@ -5,7 +5,6 @@ import 'package:goldenegg_profit/presentation/payment/enter_amount_page.dart';
 
 import '../../domain/constants/auth_constants.dart';
 import '../../domain/constants/payment_constents.dart';
-import '../../domain/router/router.dart';
 import '../../domain/theme/theme_helper.dart';
 import '../../domain/utils/responsive_utils.dart';
 import '../widgets/custom_appbar.dart';

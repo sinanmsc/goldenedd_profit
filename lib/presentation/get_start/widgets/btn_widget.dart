@@ -4,8 +4,9 @@ import 'package:goldenegg_profit/domain/constants/getstart_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class ButtonWidget extends StatelessWidget {
+  final String title;
   const ButtonWidget({
-    super.key,
+    super.key, required this.title,
   });
 
   @override
@@ -20,7 +21,7 @@ class ButtonWidget extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Responsive.width(11, context)),
           gradient: gradients.btnGradient),
-      child: Text(getStartbtnText, style: typography.btn),
+      child: Text(title, style: typography.btn),
     );
   }
 }

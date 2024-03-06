@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
 import 'package:goldenegg_profit/domain/injectable/injectable.dart';
+import 'package:goldenegg_profit/presentation/authentication/successfull_registration_page.dart';
 
 import '../../domain/constants/auth_constants.dart';
 import '../../domain/router/router.dart';
@@ -118,8 +119,13 @@ class _AuthVerificationState extends State<AuthVerification> {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Invalid OTP')));
                   } else {
-                    Navigator.pushNamedAndRemoveUntil(context,
-                        RoutPaths.mainPage, (Route<dynamic> route) => false);
+                    if (isSigned.value) {
+                      Navigator.pushNamed(
+                          context, RoutPaths.successfullRegistrationPage);
+                    } else {
+                      Navigator.pushNamedAndRemoveUntil(context,
+                          RoutPaths.mainPage, (Route<dynamic> route) => false);
+                    }
                   }
                 },
               )

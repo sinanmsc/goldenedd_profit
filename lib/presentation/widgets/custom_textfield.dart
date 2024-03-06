@@ -8,8 +8,9 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
-  final int maxLength;
+  final int? maxLength;
   final bool readOnly;
+  final int maxLines;
   final void Function()? onTap;
   const CustomTextField(
       {super.key,
@@ -20,7 +21,8 @@ class CustomTextField extends StatelessWidget {
       this.keyboardType,
       this.validator,
       this.readOnly = false,
-      required this.maxLength});
+      this.maxLines = 1,
+      this.maxLength});
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           maxLength: maxLength,
           readOnly: readOnly,
+          maxLines: maxLines,
           decoration: InputDecoration(
               counterText: '',
               fillColor: colors.textField,

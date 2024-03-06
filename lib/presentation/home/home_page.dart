@@ -30,22 +30,8 @@ class HomePage extends StatelessWidget {
                     children: [
                       GestureDetector(
                           onTap: () =>
-                              Navigator.pushNamed(context, RoutPaths.payment),
-                          child: PaymentContainer(
-                            title: creditTitle,
-                            subTitle: creditSubTitle,
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                  right: Responsive.width(3, context)),
-                              padding: EdgeInsets.only(
-                                  left: Responsive.width(1.5, context)),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AppAssets.homeAssets.creditBg),
-                              ),
-                              child: AppAssets.homeAssets.creditIcon,
-                            ),
-                          )),
+                              Navigator.pushNamed(context, RoutPaths.deposit),
+                          child: const PaymentContainer()),
                       SizedBox(height: Responsive.height(2, context)),
                       CoinList(title: resentCoinText, list: coinList1),
                       SizedBox(height: Responsive.height(4, context)),

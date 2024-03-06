@@ -28,21 +28,7 @@ class EnterAmountPage extends StatelessWidget {
               vertical: Responsive.width(7, context)),
           child: Column(
             children: [
-              PaymentContainer(
-                title: txtPaymentMethodTitle,
-                subTitle: txtPaymentMethodSubTitle + number,
-                child: Container(
-                  margin: EdgeInsets.only(right: Responsive.width(3, context)),
-                  padding: EdgeInsets.all(Responsive.width(1.5, context)),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(
-                      Responsive.width(3, context),
-                    ),
-                  ),
-                  child: AppAssets.paymentAssets.newBankImg,
-                ),
-              ),
+              PaymentContainer(),
               SizedBox(height: Responsive.height(4, context)),
               const CustomTextField(
                 headText: 'Amount',

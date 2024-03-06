@@ -31,6 +31,19 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
   final TextStyle duckTitle;
   final TextStyle greenProfit;
   final TextStyle redLoss;
+  final TextStyle semiBoldTitle;
+  final TextStyle verySmallDiscription;
+  final TextStyle paymentSucceful;
+  final TextStyle title12;
+  final TextStyle smallTime;
+  final TextStyle purchaseDate;
+  final TextStyle mainTitle;
+  final TextStyle link;
+  final TextStyle levelHead;
+  final TextStyle withdrawalTextfieldHead;
+  final TextStyle withdrawalTextfieldHintText;
+  final TextStyle walletHead;
+  final TextStyle walletAmount;
 
   /// Create the default style values
   AppTypographyExtension.fromColors({
@@ -42,6 +55,10 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontWeight: FontWeight.w500,
           color: dimFontColor,
           fontSize: 16,
+        ),
+        link = const TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
         ),
         greenAmount = const TextStyle(
           fontFamily: 'poppins',
@@ -148,6 +165,11 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
+        title12 = const TextStyle(
+          fontFamily: 'poppins',
+          fontSize: 12,
+          fontWeight: FontWeight.w300,
+        ),
         title = const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w700,
@@ -163,16 +185,33 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontWeight: FontWeight.w700,
           fontFamily: 'poppins',
         ),
+        semiBoldTitle = const TextStyle(
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'poppins',
+        ),
         smallDiscription = const TextStyle(
           fontSize: 11,
           fontFamily: 'poppins',
           color: Color(0xFF777777),
           fontWeight: FontWeight.w400,
         ),
+        smallTime = const TextStyle(
+          fontSize: 10,
+          fontFamily: 'poppins',
+          color: Color(0xFFB0B0B0),
+          fontWeight: FontWeight.w300,
+        ),
         discription = const TextStyle(
           fontSize: 13,
           fontFamily: 'poppins',
           color: Color(0xFF777777),
+          fontWeight: FontWeight.w400,
+        ),
+        verySmallDiscription = const TextStyle(
+          fontSize: 10,
+          fontFamily: 'poppins',
+          color: Color(0xFFFFFFFC),
           fontWeight: FontWeight.w400,
         ),
         bigGreen = const TextStyle(
@@ -203,6 +242,46 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
           fontFamily: 'poppins',
           fontWeight: FontWeight.w600,
           color: Color(0xFFF43E32),
+        ),
+        purchaseDate = const TextStyle(
+          fontSize: 12,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w400,
+          color: Color(0xFF777777),
+        ),
+        mainTitle = const TextStyle(
+          fontSize: 15,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w500,
+        ),
+        paymentSucceful = const TextStyle(
+          fontSize: 13,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w500,
+        ),
+        withdrawalTextfieldHead = const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w300,
+          color: Color(0xFFD3CFCF),
+        ),
+        withdrawalTextfieldHintText = const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w300,
+          color: Color(0xFFB0B0B0),
+        ),
+        walletHead = const TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w400,
+        ),
+        walletAmount = const TextStyle(
+          fontSize: 27,
+          fontWeight: FontWeight.w700,
+          color: Color(0xFF55C64B),
+        ),
+        levelHead = const TextStyle(
+          fontSize: 17,
+          fontFamily: 'poppins',
+          fontWeight: FontWeight.w300,
         );
 
   /// Create the typography with given styles
@@ -236,6 +315,19 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     required this.duckTitle,
     required this.greenProfit,
     required this.redLoss,
+    required this.semiBoldTitle,
+    required this.verySmallDiscription,
+    required this.paymentSucceful,
+    required this.title12,
+    required this.smallTime,
+    required this.purchaseDate,
+    required this.mainTitle,
+    required this.link,
+    required this.levelHead,
+    required this.withdrawalTextfieldHintText,
+    required this.withdrawalTextfieldHead,
+    required this.walletAmount,
+    required this.walletHead,
   });
 
   @override
@@ -268,7 +360,20 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
     TextStyle? bigRed,
     TextStyle? duckTitle,
     TextStyle? greenProfit,
-    TextStyle? redProfit,
+    TextStyle? redLoss,
+    TextStyle? semiBoldTitle,
+    TextStyle? verySmallDiscription,
+    TextStyle? paymentSucceful,
+    TextStyle? title12,
+    TextStyle? smallTime,
+    TextStyle? purchaseDate,
+    TextStyle? mainTitle,
+    TextStyle? link,
+    TextStyle? levelHead,
+    TextStyle? withdrawalTextfieldHead,
+    TextStyle? withdrawalTextfieldHintText,
+    TextStyle? walletHead,
+    TextStyle? walletAmount,
   }) {
     return AppTypographyExtension(
       small: small ?? this.small,
@@ -276,7 +381,7 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       btn: btn ?? this.btn,
       authBtn: authBtn ?? this.authBtn,
       authHead: authHead ?? this.authHead,
-      uiInvers: smallInverse ?? this.uiInvers,
+      uiInvers: uiInvers ?? this.uiInvers,
       ui: ui ?? this.ui,
       appBarTitle: appBarTitle ?? this.appBarTitle,
       number: number ?? this.number,
@@ -299,7 +404,22 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       bigRed: bigRed ?? this.bigRed,
       duckTitle: duckTitle ?? this.duckTitle,
       greenProfit: greenProfit ?? this.greenProfit,
-      redLoss: redProfit ?? this.redLoss,
+      redLoss: redLoss ?? this.redLoss,
+      semiBoldTitle: semiBoldTitle ?? this.semiBoldTitle,
+      verySmallDiscription: verySmallDiscription ?? this.verySmallDiscription,
+      paymentSucceful: paymentSucceful ?? this.paymentSucceful,
+      title12: title12 ?? this.title12,
+      smallTime: smallTime ?? this.smallTime,
+      purchaseDate: purchaseDate ?? this.purchaseDate,
+      mainTitle: mainTitle ?? this.mainTitle,
+      link: link ?? this.link,
+      levelHead: levelHead ?? this.levelHead,
+      withdrawalTextfieldHead:
+          withdrawalTextfieldHead ?? this.withdrawalTextfieldHead,
+      withdrawalTextfieldHintText:
+          withdrawalTextfieldHintText ?? this.withdrawalTextfieldHintText,
+      walletAmount: walletAmount ?? this.walletAmount,
+      walletHead: walletHead ?? this.walletHead,
     );
   }
 
@@ -340,6 +460,23 @@ class AppTypographyExtension extends ThemeExtension<AppTypographyExtension> {
       duckTitle: TextStyle.lerp(duckTitle, other.duckTitle, t)!,
       greenProfit: TextStyle.lerp(greenProfit, other.greenProfit, t)!,
       redLoss: TextStyle.lerp(redLoss, other.redLoss, t)!,
+      semiBoldTitle: TextStyle.lerp(semiBoldTitle, other.semiBoldTitle, t)!,
+      verySmallDiscription:
+          TextStyle.lerp(verySmallDiscription, other.verySmallDiscription, t)!,
+      paymentSucceful:
+          TextStyle.lerp(paymentSucceful, other.paymentSucceful, t)!,
+      title12: TextStyle.lerp(title12, other.title12, t)!,
+      smallTime: TextStyle.lerp(smallTime, other.smallTime, t)!,
+      purchaseDate: TextStyle.lerp(purchaseDate, other.purchaseDate, t)!,
+      mainTitle: TextStyle.lerp(mainTitle, other.mainTitle, t)!,
+      link: TextStyle.lerp(link, other.link, t)!,
+      levelHead: TextStyle.lerp(levelHead, other.levelHead, t)!,
+      withdrawalTextfieldHead: TextStyle.lerp(
+          withdrawalTextfieldHead, other.withdrawalTextfieldHead, t)!,
+      withdrawalTextfieldHintText: TextStyle.lerp(
+          withdrawalTextfieldHintText, other.withdrawalTextfieldHintText, t)!,
+      walletAmount: TextStyle.lerp(walletAmount, other.walletAmount, t)!,
+      walletHead: TextStyle.lerp(walletHead, other.walletHead, t)!,
     );
   }
 }

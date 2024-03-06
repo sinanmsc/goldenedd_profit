@@ -1,0 +1,9 @@
+const String withdrawalAppbarTitle = 'Withdrawal';
+const String withdrawalminTxt = 'Minimum 10';
+const String withdrawalAddressHead = 'Wallet address';
+const String withdrawalAddresshintText = 'Enter your wallet address';
+const String withdrawalEnterAmountHead = 'Enter Amount';
+const String withdrawalEnterAmounthintText = 'Amount';
+const String withdrawalBtnTxt = 'Submit';
+const String withdrawalPaymentSuccessfulMsg = 'successfully paid to golden egg';
+const String withdrawalPaymentSuccessfulTopMsg = 'Lorem ipsum dolor sit amet, consectetur adipisciing';

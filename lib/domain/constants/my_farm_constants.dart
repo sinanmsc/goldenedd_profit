@@ -10,13 +10,19 @@ const String amountHead = 'Amount';
 const String amountValue = '\$800';
 const String totalProfitEggHead = 'Total Profit Eggs';
 const String totalProfitValue = ' 690(20%)';
-const String sortText = 'Sort';
 const String currentProfitText = 'Current Profit';
 const String doller = ' \$';
+const String purchaseDate = 'Date of Purchase : 25-02-2024';
+const String holdDetailstxt = 'Holding details';
+const String sellBtntxt = 'Sell';
+const String confirmSellBtntxt = 'Sell it';
+const String myFarmConfirmMsg =
+    '20% Earnings in a short time\nDate of Purchase : 25-02-2024';
+const String myFarmConfirmTitle = 'Are you sure want to sell ?';
 
 final List<DuckModel> myFarmList = [
   DuckModel(
-    duckImage: Assetpaths.myCriptoAssetPaths.bronseDuck,
+    duckImage: Assetpaths.ducksPaths.bronseDuck,
     duckName: 'Bronse Duck',
     amount: '100',
     profitPercentage: '2',
@@ -24,7 +30,7 @@ final List<DuckModel> myFarmList = [
     isProfit: true,
   ),
   DuckModel(
-    duckImage: Assetpaths.myCriptoAssetPaths.silverDuck,
+    duckImage: Assetpaths.ducksPaths.silverDuck,
     duckName: 'Silver Duckk',
     amount: '500',
     profitPercentage: '4',
@@ -32,7 +38,7 @@ final List<DuckModel> myFarmList = [
     isProfit: false,
   ),
   DuckModel(
-    duckImage: Assetpaths.myCriptoAssetPaths.goldDuck,
+    duckImage: Assetpaths.ducksPaths.goldDuck,
     duckName: 'Gold Duck',
     amount: '1000',
     profitPercentage: '2',
@@ -40,7 +46,7 @@ final List<DuckModel> myFarmList = [
     isProfit: true,
   ),
   DuckModel(
-    duckImage: Assetpaths.myCriptoAssetPaths.platinumDuck,
+    duckImage: Assetpaths.ducksPaths.platinumDuck,
     duckName: 'Platinum',
     amount: '2500',
     profitPercentage: '4',
@@ -48,7 +54,7 @@ final List<DuckModel> myFarmList = [
     isProfit: false,
   ),
   DuckModel(
-    duckImage: Assetpaths.myCriptoAssetPaths.platinumDuck,
+    duckImage: Assetpaths.ducksPaths.platinumDuck,
     duckName: 'Platinum',
     amount: '2500',
     profitPercentage: '2',

@@ -18,6 +18,9 @@ ThemeData theme = ThemeData(
         darkAppbar: AppColorPalette.dark,
         iconBg: AppColorPalette.yellowbrown,
         darkBg: AppColorPalette.dartGrey,
+        completed: AppColorPalette.green,
+        failed: AppColorPalette.red,
+        sellbtn: AppColorPalette.btnGreen,
       ),
       AppSpaceExtension.fromBaseSpace(8),
       AppTypographyExtension.fromColors(
@@ -35,6 +38,10 @@ ThemeData theme = ThemeData(
             Color(0xFFD4951A),
           ],
         ),
+        darkGold: const LinearGradient(colors: [
+          Color(0xFFF9B860),
+          Color(0xFFB37A1B),
+        ]),
         background: const LinearGradient(
           colors: [
             Color.fromARGB(111, 25, 25, 25),
@@ -48,11 +55,17 @@ ThemeData theme = ThemeData(
           const Color(0xFFF9B860).withOpacity(0.6),
           const Color(0xFFB37A1B).withOpacity(0.6)
         ]),
-        blue: const LinearGradient(
+        bronse: const LinearGradient(
             colors: [Color(0xFF8442FF), Color(0xFF4918E1)]),
-        greean: const LinearGradient(
+        silver: const LinearGradient(
             colors: [Color(0xFF41C6FF), Color(0xFF1665E1)]),
-        red: const LinearGradient(
+        golden: const LinearGradient(
+            colors: [Color(0xFFF9B860), Color(0xFFB37A1B)]),
+        diamond: const LinearGradient(
+            colors: [Color(0xFF42A4FF), Color(0xFF7DE118)]),
+        titanium: const LinearGradient(
+            colors: [Color(0xFF5142FF), Color(0xFFE118C1)]),
+        platinum: const LinearGradient(
             colors: [Color(0xFFFF4BAA), Color(0xFFE1601F)]),
         border: const LinearGradient(
             colors: [Color(0xFFD9A51E), Color(0xFFF3EEB3), Color(0xFFD4951A)]),

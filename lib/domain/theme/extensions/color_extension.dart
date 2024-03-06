@@ -8,6 +8,9 @@ class AppColor extends ThemeExtension<AppColor> {
   final Color darkAppbar;
   final Color iconBg;
   final Color darkBg;
+  final Color completed;
+  final Color failed;
+  final Color sellbtn;
 
   AppColor({
     required this.inversePrimary,
@@ -16,7 +19,10 @@ class AppColor extends ThemeExtension<AppColor> {
     required this.bg,
     required this.darkAppbar,
     required this.iconBg,
-    required this.darkBg
+    required this.darkBg,
+    required this.completed,
+    required this.failed,
+    required this.sellbtn,
   });
 
   @override
@@ -28,6 +34,9 @@ class AppColor extends ThemeExtension<AppColor> {
     Color? darkAppbar,
     Color? iconBg,
     Color? darkBg,
+    Color? completed,
+    Color? failed,
+    Color? sellbtn,
   }) {
     return AppColor(
       primary: primary ?? this.primary,
@@ -37,6 +46,9 @@ class AppColor extends ThemeExtension<AppColor> {
       darkAppbar: darkAppbar ?? this.darkAppbar,
       iconBg: iconBg ?? this.iconBg,
       darkBg: darkBg ?? this.darkBg,
+      completed: completed ?? this.completed,
+      failed: failed ?? this.failed,
+      sellbtn: sellbtn ?? this.sellbtn,
     );
   }
 
@@ -54,6 +66,9 @@ class AppColor extends ThemeExtension<AppColor> {
       darkAppbar: Color.lerp(darkAppbar, other.darkAppbar, t)!,
       iconBg: Color.lerp(iconBg, other.iconBg, t)!,
       darkBg: Color.lerp(darkBg, other.darkBg, t)!,
+      completed: Color.lerp(completed, other.completed, t)!,
+      failed: Color.lerp(failed, other.failed, t)!,
+      sellbtn: Color.lerp(sellbtn, other.sellbtn, t)!,
     );
   }
 }

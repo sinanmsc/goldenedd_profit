@@ -4,8 +4,9 @@ import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
+  final String title;
   final void Function() onTap;
-  const CustomOutlinedButton({super.key, required this.onTap});
+  const CustomOutlinedButton({super.key, required this.onTap, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomOutlinedButton extends StatelessWidget {
             color: const Color(0xFF1F1E1E),
             borderRadius: BorderRadius.circular(Responsive.width(6, context)),
           ),
-          child: Text(cancelBtn, style: typography.btnInvers),
+          child: Text(title, style: typography.btnInvers),
         ),
       ),
     );

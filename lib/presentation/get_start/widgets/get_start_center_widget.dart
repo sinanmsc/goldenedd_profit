@@ -6,8 +6,9 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 class GetStartCenterWidget extends StatelessWidget {
   final String head;
   final Image image;
+  final String subtxt;
   const GetStartCenterWidget(
-      {super.key, required this.head, required this.image});
+      {super.key, required this.head, required this.image, required this.subtxt});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,9 @@ class GetStartCenterWidget extends StatelessWidget {
           style: typography.getStartHead,
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: Responsive.height(2.5  , context)),
+        SizedBox(height: Responsive.height(2.5, context)),
         Text(
-          getstartSubText,
+          subtxt,
           style: typography.small,
           textAlign: TextAlign.center,
         ),

@@ -13,3 +13,8 @@ const String txtNameOnCard = 'Name on card';
 const String txtAmount = 'Amount';
 const String txtPaymentMethodTitle = 'payment method';
 const String txtPaymentMethodSubTitle = 'mastercard ending in ';
+
+const String minPaymentTxt = 'Minimum 100';
+const String paymentSubTitle = 'Only Use USDT TRC20 Network';
+const String addScreenshotProofTitle =
+    ' add /upload  of deposit screenshot proof';

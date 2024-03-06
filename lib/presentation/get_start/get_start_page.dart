@@ -54,14 +54,17 @@ class GetStart extends StatelessWidget {
                   children: [
                     GetStartCenterWidget(
                       head: getstartHeadText1,
+                      subtxt: getstartSubText1,
                       image: AppAssets.getStartAssets.getStartImg1,
                     ),
                     GetStartCenterWidget(
                       head: getstartHeadText2,
+                      subtxt: getstartSubText2,
                       image: AppAssets.getStartAssets.getStartImg2,
                     ),
                     GetStartCenterWidget(
                       head: getstartHeadText3,
+                      subtxt: getstartSubText3,
                       image: AppAssets.getStartAssets.getStartImg3,
                     ),
                   ],
@@ -97,7 +100,11 @@ class GetStart extends StatelessWidget {
                 ],
               ),
               SizedBox(height: Responsive.height(6, context)),
-              GestureDetector(onTap: onNextBtn, child: const ButtonWidget()),
+              GestureDetector(
+                  onTap: onNextBtn,
+                  child: const ButtonWidget(
+                    title: getStartbtnText,
+                  )),
               // SizedBox(height: Responsive.height(4.6, context)),
             ],
           ),

@@ -11,8 +11,9 @@ class ForwardButton extends StatelessWidget {
     final gradients = AppTheme.of(context).gradients;
     return Container(
       decoration: BoxDecoration(
-          gradient: gradients.btnGradient,
-          borderRadius: BorderRadius.circular(Responsive.width(4.5, context))),
+        gradient: gradients.btnGradient,
+        shape: BoxShape.circle,
+      ),
       child: SizedBox(
         width: Responsive.width(12, context),
         height: Responsive.height(6, context),

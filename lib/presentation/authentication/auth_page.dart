@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
 import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
+import 'package:goldenegg_profit/domain/models/profile/proof_model.dart';
 import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
@@ -20,6 +21,8 @@ class AuthPage extends StatelessWidget {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final signupMobileNoController = TextEditingController();
+  final addressController = TextEditingController();
+  final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AuthPage({super.key});
 
@@ -55,14 +58,15 @@ class AuthPage extends StatelessWidget {
                         },
                       )
                     : SignUpRegisterWidget(
+                        addressController: addressController,
+                        passwordController: passwordController,
                         emailController: emailController,
                         mobileController: signupMobileNoController,
                         nameController: nameController,
                         namevalidator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value == null || value.trim().isEmpty) {
                             return 'Enter name';
                           }
-                          return null;
                         },
                         emailvalidator: (value) {
                           if (!RegExp(
@@ -70,14 +74,22 @@ class AuthPage extends StatelessWidget {
                               .hasMatch(value!)) {
                             return 'Invalid Email';
                           }
-                          return null;
                         },
                         mobilevalidator: (value) {
                           if (!RegExp(r'(^(?:[+0]9)?[0-9]{10,12}$)')
                               .hasMatch(value!)) {
                             return 'Enter valid number';
                           }
-                          return null;
+                        },
+                        addressValidator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Enter address';
+                          }
+                        },
+                        passwordValidator: (value) {
+                          if (value == null || value.length < 8) {
+                            return 'Password must be at least 8 characters long';
+                          }
                         },
                       ),
                 SizedBox(height: Responsive.height(8.5, context)),
@@ -96,9 +108,13 @@ class AuthPage extends StatelessWidget {
                       if (!isSigned) {
                         mobNumber.value = signupMobileNoController.text;
                         profileData.value = ProfileModel(
-                            userName: nameController.text,
-                            email: emailController.text,
-                            mobileNo: signupMobileNoController.text);
+                          userName: nameController.text,
+                          email: emailController.text,
+                          adsress: addressController.text,
+                          password: passwordController.text,
+                          mobileNo: signupMobileNoController.text,
+                          proof: ProofModel(proofType: '', proofNo: ''),
+                        );
                         Navigator.pushNamed(
                             context, RoutPaths.authVerification);
                       }
@@ -117,4 +133,9 @@ class AuthPage extends StatelessWidget {
 ValueNotifier<String> mobNumber = ValueNotifier('');
 
 ValueNotifier<ProfileModel> profileData = ValueNotifier(ProfileModel(
-    userName: demoUserName, email: demoEmail, mobileNo: mobNumber.value));
+    proof: ProofModel(proofType: '', proofNo: ''),
+    userName: demoUserName,
+    email: demoEmail,
+    adsress: demoAddress,
+    password: demoPassword,
+    mobileNo: mobNumber.value));

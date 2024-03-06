@@ -54,34 +54,43 @@ class HomeHeader extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     HomeHeaderComponents(
-                        onTap: () =>
-                            Navigator.pushNamed(context, RoutPaths.deposit),
+                        onTap: () => Navigator.pushNamed(
+                            context, RoutPaths.depositPayment),
                         label: depositText,
                         icon: AppAssets.homeAssets.depositImg),
                     HomeHeaderComponents(
                         onTap: () => Navigator.pushNamed(
                             context, RoutPaths.myCriptoPage),
-                        label: myCriptoText,
-                        icon: AppAssets.homeAssets.myCriptoImg),
+                        label: myFarmText,
+                        icon: AppAssets.homeAssets.myFarmImg),
                     HomeHeaderComponents(
+                        onTap: () =>
+                            Navigator.pushNamed(context, RoutPaths.myOrders),
                         label: ordersText,
                         icon: AppAssets.homeAssets.ordersImg),
                   ],
                 ),
                 SizedBox(
-                  height: Responsive.height(2, context),
+                  height: Responsive.height(2.5, context),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     HomeHeaderComponents(
-                        label: savingsText,
-                        icon: AppAssets.homeAssets.savingsImg),
+                        onTap: () =>
+                            Navigator.pushNamed(context, RoutPaths.myHistory),
+                        label: historytxt,
+                        icon: AppAssets.homeAssets.moreImg),
                     HomeHeaderComponents(
-                        label: refferalText,
+                        onTap: () =>
+                            Navigator.pushNamed(context, RoutPaths.refferal),
+                        label: myTeamtxt,
                         icon: AppAssets.homeAssets.refferalImg),
                     HomeHeaderComponents(
-                        label: moreText, icon: AppAssets.homeAssets.moreImg),
+                        onTap: () =>
+                            Navigator.pushNamed(context, RoutPaths.withdrawal),
+                        label: withdrawalText,
+                        icon: AppAssets.homeAssets.savingsImg),
                   ],
                 ),
               ],

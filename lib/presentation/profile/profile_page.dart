@@ -1,15 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
-import 'package:goldenegg_profit/domain/router/router.dart';
-import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
-import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
-import 'package:goldenegg_profit/presentation/profile/widgets/details_field_widget.dart';
-import 'package:goldenegg_profit/presentation/profile/widgets/profile_header_widget.dart';
-import 'package:goldenegg_profit/presentation/widgets/gradient_appbar_title_widget.dart';
-import 'package:goldenegg_profit/presentation/widgets/gradient_arrow_widget.dart';
+import 'dart:io';
 
-import '../../domain/models/profile/profile_model.dart';
+import 'package:flutter/material.dart';
+import 'package:goldenegg_profit/presentation/get_start/widgets/btn_widget.dart';
+
+import '../../application/profile/bloc/profile_bloc.dart';
+import '../../domain/constants/profile_constants.dart';
+import '../../domain/router/router.dart';
+import '../../domain/theme/theme_helper.dart';
+import '../../domain/utils/responsive_utils.dart';
+import '../authentication/auth_page.dart';
+import '../widgets/gradient_appbar_title_widget.dart';
+import '../widgets/gradient_arrow_widget.dart';
+import 'widgets/details_field_widget.dart';
+import 'widgets/profile_header_widget.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -20,6 +23,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = AppTheme.of(context).colors;
+    final typography = AppTheme.of(context).typography;
 
     return SafeArea(
       child: Scaffold(
@@ -37,30 +41,73 @@ class Profile extends StatelessWidget {
             )
           ],
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ProfileHeader(),
-            Padding(
-              padding: EdgeInsets.all(Responsive.width(3.7, context)),
-              child: ValueListenableBuilder(
-                  valueListenable: profileData,
-                  builder: (context, value, child) {
-                    return Column(
-                      children: [
-                        DetailsField(
-                            headText: usernameHead, valueText: value.userName),
-                        SizedBox(height: Responsive.height(3, context)),
-                        DetailsField(
-                            headText: emailHead, valueText: value.email),
-                        SizedBox(height: Responsive.height(3, context)),
-                        DetailsField(
-                            headText: mobileNoHead, valueText: value.mobileNo),
-                      ],
-                    );
-                  }),
-            )
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ProfileHeader(valueListenable: savedImageValue),
+              Padding(
+                padding: EdgeInsets.all(Responsive.width(3.7, context)),
+                child: ValueListenableBuilder(
+                    valueListenable: profileData,
+                    builder: (context, value, child) {
+                      return Column(
+                        children: [
+                          DetailsField(
+                              headText: usernameHead,
+                              valueText: value.userName),
+                          SizedBox(height: Responsive.height(3, context)),
+                          DetailsField(
+                              headText: emailHead, valueText: value.email),
+                          SizedBox(height: Responsive.height(3, context)),
+                          DetailsField(
+                              headText: mobileNoHead,
+                              valueText: value.mobileNo),
+                          SizedBox(height: Responsive.height(3, context)),
+                          DetailsField(
+                              headText: addressHead, valueText: value.adsress),
+                          SizedBox(height: Responsive.height(3, context)),
+                          const DetailsField(
+                              headText: passwordHead, valueText: '********'),
+                          SizedBox(height: Responsive.height(4, context)),
+                          value.proof.proofNo.isEmpty
+                              ? GestureDetector(
+                                  onTap: () => Navigator.pushNamed(
+                                      context, RoutPaths.addKycPage),
+                                  child: const ButtonWidget(
+                                    title: addKycAppbar,
+                                  ),
+                                )
+                              : Column(
+                                  children: [
+                                    Text(
+                                      kycdHead,
+                                      style: typography.subTitle,
+                                    ),
+                                    SizedBox(
+                                        height: Responsive.height(3, context)),
+                                    DetailsField(
+                                        headText: aadhardHead,
+                                        valueText: value.proof.proofNo),
+                                    SizedBox(
+                                        height: Responsive.height(2, context)),
+                                    proofImage.value.isEmpty
+                                        ? const SizedBox()
+                                        : SizedBox(
+                                            height:
+                                                Responsive.height(50, context),
+                                            width:
+                                                Responsive.width(70, context),
+                                            child: Image.file(
+                                                File(proofImage.value)))
+                                  ],
+                                ),
+                        ],
+                      );
+                    }),
+              )
+            ],
+          ),
         ),
       ),
     );

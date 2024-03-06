@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 
 class GradientArrowWidget extends StatelessWidget {
-  const GradientArrowWidget({super.key});
+  final void Function()? onPressed;
+  const GradientArrowWidget({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +13,14 @@ class GradientArrowWidget extends StatelessWidget {
     return ShaderMask(
       shaderCallback: (bounds) => gradients.btnGradient.createShader(bounds),
       child: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            if (onPressed != null) {
+              log('message');
+              onPressed!();
+            } else {
+              Navigator.pop(context);
+            }
+          },
           icon: const Icon(Icons.arrow_back)),
     );
   }

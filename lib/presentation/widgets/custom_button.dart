@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: gradients.btnGradient,
-          borderRadius: BorderRadius.circular(Responsive.width(6, context)),
+          borderRadius: BorderRadius.circular(Responsive.width(5, context)),
         ),
         child: Text(text, style: typography.btn),
       ),

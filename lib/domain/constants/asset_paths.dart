@@ -5,6 +5,8 @@ abstract class Assetpaths {
   static MainPageAssetPaths get mainPageAssetPaths => MainPageAssetPaths();
   static PaymentAssetPaths get paymentAssetPaths => PaymentAssetPaths();
   static MyCriptoAssetPaths get myCriptoAssetPaths => MyCriptoAssetPaths();
+  static DucksPaths get ducksPaths => DucksPaths();
+  static RefferalPaths get refferalPaths => RefferalPaths();
 }
 
 class GetStartAssetPaths {
@@ -12,14 +14,15 @@ class GetStartAssetPaths {
   final getStartImg2 = 'asset/get_start/getstart2.png';
   final getStartImg3 = 'asset/get_start/getstart3.png';
   final authSuccessImg = 'asset/auth_success.png';
+  final authSuccessMsg = 'asset/get_start/successful_msg.png';
 }
 
 class HomeAssetPaths {
   final depositImg = 'asset/home/deposit__svg.svg';
   final moreImg = 'asset/home/more_svg.svg';
-  final myCriptoImg = 'asset/home/mycripto_referral.svg';
+  final myFarmImg = 'asset/home/farm.svg';
   final notiImg = 'asset/home/noti.png';
-  final ordersImg = 'asset/home/orders_svg.svg';
+  final ordersImg = 'asset/home/my_Orders.svg';
   final refferalImg = 'asset/home/mycripto_referral.svg';
   final savingsImg = 'asset/home/savings_savg.svg';
   final searchImg = 'asset/home/search_svg.svg';
@@ -48,10 +51,22 @@ class PaymentAssetPaths {
 class MyCriptoAssetPaths {
   final sortIcon = 'asset/sort.png';
   final goldenEgg = 'asset/gegg.png';
+}
+
+class DucksPaths {
   final bronseDuck = 'asset/ducks/bronze.png';
   final diamondDuck = 'asset/ducks/Diamond.png';
   final goldDuck = 'asset/ducks/gold.png';
   final platinumDuck = 'asset/ducks/Platinum.png';
   final silverDuck = 'asset/ducks/silver.png';
   final titaniumDuck = 'asset/ducks/Titanium.png';
+}
+
+class RefferalPaths {
+  final person1 = 'asset/refferal/person1.png';
+  final person2 = 'asset/refferal/person2.png';
+  final person3 = 'asset/refferal/person3.png';
+  final person4 = 'asset/refferal/person4.png';
+  final person5 = 'asset/refferal/person5.png';
+  final person6 = 'asset/refferal/person6.png';
 }

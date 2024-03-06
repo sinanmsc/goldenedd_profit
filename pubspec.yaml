@@ -76,6 +76,7 @@ flutter:
     - asset/profile/
     - asset/home/
     - asset/ducks/
+    - asset/refferal/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,11 +1,11 @@
 import '../models/coin_model.dart';
 
 const String depositText = 'Deposit';
-const String myCriptoText = 'My Crypto';
-const String ordersText = 'Orders';
-const String savingsText = 'Savings';
-const String refferalText = 'Referral';
-const String moreText = 'More';
+const String myFarmText = 'My Farm';
+const String ordersText = 'My Orders';
+const String withdrawalText = 'Withdrawal';
+const String myTeamtxt = 'My Team';
+const String historytxt = 'History';
 const String homeText = 'Home';
 const String activityText = 'Activity';
 const String walletText = 'Wallet';

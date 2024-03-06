@@ -4,6 +4,7 @@ import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart'
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
+import 'package:goldenegg_profit/presentation/authentication/successfull_registration_page.dart';
 import 'package:goldenegg_profit/presentation/authentication/widgets/auth_btn_widget.dart';
 
 class AuthHeader extends StatelessWidget {
@@ -39,8 +40,10 @@ class AuthHeader extends StatelessWidget {
                       signInText,
                       style: typography.authBtn,
                     ),
-              onTap: () =>
-                  context.read<AuthBloc>().add(const AuthEvent.toSignIn())),
+              onTap: () {
+                context.read<AuthBloc>().add(const AuthEvent.toSignIn());
+                isSigned.value = false;
+              }),
           AuthBtns(
               color: context.watch<AuthBloc>().state.isSigned
                   ? Colors.transparent
@@ -54,8 +57,10 @@ class AuthHeader extends StatelessWidget {
                       shaderCallback: (bounds) =>
                           gradients.btnGradient.createShader(bounds),
                       child: const Text(signUpText)),
-              onTap: () =>
-                  context.read<AuthBloc>().add(const AuthEvent.toSignUp())),
+              onTap: () {
+                context.read<AuthBloc>().add(const AuthEvent.toSignUp());
+                isSigned.value = true;
+              }),
         ],
       ),
     );

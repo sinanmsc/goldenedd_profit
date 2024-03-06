@@ -8,4 +8,7 @@ class AppColorPalette {
   static const dark = Color(0x9E191919);
   static const yellowbrown = Color(0xFF342E20);
   static const dartGrey = Color(0xFF191919);
+  static const green = Color(0xFF04B890);
+  static const btnGreen = Color(0xFF349B03);
+  static const red = Color(0xFFE14949);
 }

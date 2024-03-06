@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 
 class ProfileTextField extends StatelessWidget {
-  final String headText;
+  final String? headText;
   final TextEditingController controller;
-  final int maxLength;
+  final int? maxLength;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
+  final int? maxLines;
+  final String? hintText;
   const ProfileTextField({
     super.key,
-    required this.headText,
+    this.headText,
     required this.controller,
-    required this.maxLength,
-    required this.validator,
-     this.keyboardType,
+    this.maxLength,
+    this.validator,
+    this.keyboardType,
+    this.maxLines = 1,
+    this.hintText,
   });
 
   @override
@@ -23,16 +27,21 @@ class ProfileTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          headText,
-          style: typography.uiInvers,
-        ),
+        headText == null
+            ? const SizedBox()
+            : Text(
+                headText!,
+                style: typography.uiInvers,
+              ),
         TextFormField(
+          maxLines: maxLines,
           keyboardType: keyboardType,
           validator: validator,
           maxLength: maxLength,
           controller: controller,
           decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: typography.uiInvers,
             counterText: '',
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(

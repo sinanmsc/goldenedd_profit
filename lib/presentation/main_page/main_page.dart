@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:goldenegg_profit/application/main_page/bloc/main_page_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
 import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/dummy_page_1.dart';
-import 'package:goldenegg_profit/presentation/dummy_page_2.dart';
+import 'package:goldenegg_profit/presentation/history/my_history_page.dart';
 import 'package:goldenegg_profit/presentation/home/home_page.dart';
+import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
 
-final pages = [const HomePage(), const Dummy1(), const Dummy2()];
+final pages = [const HomePage(), const MyHistory(), const WalletPage()];
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -49,9 +50,11 @@ class MainPage extends StatelessWidget {
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(0)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: Responsive.height(1, context)),
-                          Image.asset('asset/home/home_icon.png'),
+                          currentPage == 0
+                              ? SvgPicture.asset('asset/HOME-3.svg')
+                              : SvgPicture.asset('asset/HOME_inverse.svg'),
                           const Text(homeText)
                         ],
                       ),
@@ -61,8 +64,11 @@ class MainPage extends StatelessWidget {
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(1)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AppAssets.mainPageAssets.activityIcon,
+                          currentPage == 1
+                              ? SvgPicture.asset('asset/Activity1.svg')
+                              : SvgPicture.asset('asset/Activity_inverse.svg'),
                           const Text(activityText)
                         ],
                       ),
@@ -72,8 +78,11 @@ class MainPage extends StatelessWidget {
                           .read<MainPageBloc>()
                           .add(const MainPageEvent.onPageChange(2)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          AppAssets.mainPageAssets.walletIcon,
+                          currentPage == 2
+                              ? SvgPicture.asset('asset/Wallets1.svg')
+                              : SvgPicture.asset('asset/Wallets_inverse.svg'),
                           const Text(walletText)
                         ],
                       ),

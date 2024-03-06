@@ -9,9 +9,13 @@ class EditProfileCcenter extends StatefulWidget {
   final String? Function(String?)? nameValidator;
   final String? Function(String?)? emailValidator;
   final String? Function(String?)? numberValidator;
+  final String? Function(String?)? addressValidator;
+  final String? Function(String?)? passwordValidator;
   final TextEditingController usernameController;
   final TextEditingController emailController;
   final TextEditingController phoneController;
+  final TextEditingController adressController;
+  final TextEditingController passwordController;
   const EditProfileCcenter({
     super.key,
     required this.nameValidator,
@@ -20,6 +24,8 @@ class EditProfileCcenter extends StatefulWidget {
     required this.emailController,
     required this.phoneController,
     required this.usernameController,
+    required this.adressController,
+    required this.passwordController, this.addressValidator, this.passwordValidator,
   });
 
   @override
@@ -32,6 +38,8 @@ class _EditProfileCcenterState extends State<EditProfileCcenter> {
     widget.usernameController.text = profileData.value.userName;
     widget.emailController.text = profileData.value.email;
     widget.phoneController.text = profileData.value.mobileNo;
+    widget.adressController.text = profileData.value.adsress;
+    widget.passwordController.text = profileData.value.password;
     super.initState();
   }
 
@@ -53,11 +61,25 @@ class _EditProfileCcenterState extends State<EditProfileCcenter> {
         ),
         SizedBox(height: Responsive.height(3, context)),
         ProfileTextField(
+          maxLines: 3,
+          headText: addressHead,
+          validator: widget.addressValidator,
+          controller: widget.adressController,
+        ),
+        SizedBox(height: Responsive.height(3, context)),
+        ProfileTextField(
             keyboardType: TextInputType.number,
             validator: widget.numberValidator,
             headText: mobileNoHead,
             controller: widget.phoneController,
             maxLength: 10),
+        SizedBox(height: Responsive.height(3, context)),
+        ProfileTextField(
+          headText: passwordHead,
+          validator: widget.passwordValidator,
+          controller: widget.passwordController,
+          maxLength: 25,
+        ),
       ],
     );
   }

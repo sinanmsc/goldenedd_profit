@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/profile/bloc/profile_bloc.dart';
@@ -9,8 +10,11 @@ import 'package:goldenegg_profit/domain/theme/theme_helper.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/profile/edit_profile_page.dart';
 
+import '../profile_page.dart';
+
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  final ValueListenable<String> valueListenable;
+  const ProfileHeader({super.key, required this.valueListenable});
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +49,9 @@ class ProfileHeader extends StatelessWidget {
           bottom: Responsive.height(11, context),
           left: Responsive.height(16.5, context),
           child: ValueListenableBuilder(
-              valueListenable: imageValue,
+              valueListenable: valueListenable,
               builder: (context, value, child) {
-                log('va : ' + value);
+                log('va : $value');
                 return CircleAvatar(
                     radius: 60,
                     backgroundColor: Colors.white,

@@ -6,8 +6,9 @@ import 'gradient_appbar_title_widget.dart';
 import 'gradient_arrow_widget.dart';
 
 class CustomAppbar extends StatelessWidget {
+  final void Function()? onPressed;
   final String title;
-  const CustomAppbar({super.key, required this.title});
+  const CustomAppbar({super.key, required this.title, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CustomAppbar extends StatelessWidget {
       ),
       child:  Row(
         children: [
-          const GradientArrowWidget(),
+           GradientArrowWidget(onPressed:onPressed,),
           GradientAppbarTitle(titleText: title)
         ],
       ),

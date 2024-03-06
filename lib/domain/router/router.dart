@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goldenegg_profit/presentation/myCripto/my_farm_page.dart';
-
+import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
+import '../../application/add_kyc/bloc/add_kyc_bloc.dart';
 import '../../application/authentication/bloc/auth_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
 import '../../application/main_page/bloc/main_page_bloc.dart';
@@ -11,16 +11,22 @@ import '../../presentation/authentication/auth_page.dart';
 import '../../presentation/authentication/auth_verification_page.dart';
 import '../../presentation/authentication/successfull_registration_page.dart';
 import '../../presentation/deposit/deposit_page.dart';
+import '../../presentation/deposit/deposit_payment_page.dart';
 import '../../presentation/get_start/get_start_page.dart';
+import '../../presentation/history/my_history_page.dart';
 import '../../presentation/home/home_page.dart';
 import '../../presentation/main_page/main_page.dart';
+import '../../presentation/my_farm/my_farm_page.dart';
+import '../../presentation/my_orders/my_orders_page.dart';
 import '../../presentation/notification/notification_page.dart';
 import '../../presentation/payment/add_new_card_page.dart';
-// import '../../presentation/payment/enter_amount_page.dart';
 import '../../presentation/payment/payment_page.dart';
+import '../../presentation/profile/add_kyc_page.dart';
 import '../../presentation/profile/edit_profile_page.dart';
 import '../../presentation/profile/profile_page.dart';
+import '../../presentation/referral/refferal_page.dart';
 import '../../presentation/splash_screen/splash_screen.dart';
+import '../../presentation/withdrawal/withdrawal_page.dart';
 import '../injectable/injectable.dart';
 
 mixin RoutPaths {
@@ -39,6 +45,13 @@ mixin RoutPaths {
   static const String addCardPage = "/add_card";
   static const String enterAmountPage = "/enter_amount";
   static const String myCriptoPage = "/my_cripto";
+  static const String addKycPage = "/add_kyc";
+  static const String depositPayment = "/deposit_payment";
+  static const String myOrders = "/my_orders";
+  static const String myHistory = "/my_history";
+  static const String refferal = "/refferal";
+  static const String withdrawal = "/withdrawal";
+  static const String wallet = "/wallet";
 }
 
 abstract class GetNamedRouts {
@@ -86,7 +99,17 @@ abstract class GetNamedRouts {
       //       child: const EnterAmountPage(),
       //     ),
       RoutPaths.splashScreen: (context) => const SplashScreen(),
+      RoutPaths.withdrawal: (context) => WithdrawalPage(),
       RoutPaths.myCriptoPage: (context) => const MyCripto(),
+      RoutPaths.addKycPage: (context) => BlocProvider(
+            create: (context) => AddKycBloc(),
+            child: AddKyc(),
+          ),
+      RoutPaths.depositPayment: (context) => const DepositPayment(),
+      RoutPaths.myOrders: (context) => const MyOrders(),
+      RoutPaths.myHistory: (context) => const MyHistory(),
+      RoutPaths.refferal: (context) => const RefferalPage(),
+      RoutPaths.wallet: (context) => const WalletPage(),
     };
   }
 }
