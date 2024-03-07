@@ -45,7 +45,7 @@ class Profile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ProfileHeader(valueListenable: savedImageValue),
+              const ProfileHeader(),
               Padding(
                 padding: EdgeInsets.all(Responsive.width(3.7, context)),
                 child: ValueListenableBuilder(
@@ -87,7 +87,7 @@ class Profile extends StatelessWidget {
                                     SizedBox(
                                         height: Responsive.height(3, context)),
                                     DetailsField(
-                                        headText: aadhardHead,
+                                        headText: proofType.value,
                                         valueText: value.proof.proofNo),
                                     SizedBox(
                                         height: Responsive.height(2, context)),
@@ -98,8 +98,18 @@ class Profile extends StatelessWidget {
                                                 Responsive.height(50, context),
                                             width:
                                                 Responsive.width(70, context),
-                                            child: Image.file(
-                                                File(proofImage.value)))
+                                            child: ValueListenableBuilder(
+                                                valueListenable:
+                                                    savedProofImage,
+                                                builder: (context, value, _) {
+                                                  if (value.isNotEmpty) {
+                                                    return Image.file(
+                                                        File(value));
+                                                  } else {
+                                                    return Image.file(
+                                                        File(proofImage.value));
+                                                  }
+                                                }))
                                   ],
                                 ),
                         ],

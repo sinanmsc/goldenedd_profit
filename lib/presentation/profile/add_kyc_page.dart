@@ -22,32 +22,37 @@ class AddKyc extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size(0, 70),
-            child: CustomAppbar(title: addKycAppbar,isNeedBackButton: true,)),
-        body: Padding(
-          padding: EdgeInsets.all(Responsive.width(3.7, context)),
-          child: Column(
-            children: [
-              KYCVerification(proofController: proofController),
-              SizedBox(height: Responsive.height(5, context)),
-              CustomButton(
-                  onTap: () {
-                    profileData.value = ProfileModel(
-                        userName: profileData.value.userName,
-                        email: profileData.value.email,
-                        mobileNo: profileData.value.mobileNo,
-                        adsress: profileData.value.adsress,
-                        password: profileData.value.password,
-                        proof: ProofModel(
-                            proofType: proofType.value,
-                            proofNo: proofController.text));
-                    context.read<AddKycBloc>().add(AddKycEvent.add(
-                        context,
-                        proofType.value,
-                        proofController.text,
-                        proofImage.value));
-                  },
-                  text: 'Add')
-            ],
+            child: CustomAppbar(
+              title: addKycAppbar,
+              isNeedBackButton: true,
+            )),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(Responsive.width(3.7, context)),
+            child: Column(
+              children: [
+                KYCVerification(proofController: proofController),
+                SizedBox(height: Responsive.height(5, context)),
+                CustomButton(
+                    onTap: () {
+                      profileData.value = ProfileModel(
+                          userName: profileData.value.userName,
+                          email: profileData.value.email,
+                          mobileNo: profileData.value.mobileNo,
+                          adsress: profileData.value.adsress,
+                          password: profileData.value.password,
+                          proof: ProofModel(
+                              proofType: proofType.value,
+                              proofNo: proofController.text));
+                      context.read<AddKycBloc>().add(AddKycEvent.add(
+                          context,
+                          proofType.value,
+                          proofController.text,
+                          proofImage.value));
+                    },
+                    text: 'Add')
+              ],
+            ),
           ),
         ),
       ),

@@ -42,6 +42,7 @@ class _EditProfileState extends State<EditProfile> {
   @override
   void initState() {
     imageValue.value = savedImageValue.value;
+
     super.initState();
   }
 
@@ -73,6 +74,7 @@ class _EditProfileState extends State<EditProfile> {
         leading: GradientArrowWidget(
           onPressed: () {
             imageValue.value = savedImageValue.value;
+
             Navigator.pop(context);
           },
         ),
@@ -86,7 +88,7 @@ class _EditProfileState extends State<EditProfile> {
             children: [
               Stack(
                 children: [
-                  ProfileHeader(valueListenable: imageValue),
+                  const ProfileHeader(),
                   Positioned(
                     bottom: Responsive.width(24, context),
                     right: Responsive.width(33, context),
@@ -136,7 +138,8 @@ class _EditProfileState extends State<EditProfile> {
                     SizedBox(height: Responsive.height(4, context)),
                     profileData.value.proof.proofNo.isEmpty
                         ? const SizedBox()
-                        : KYCVerification(proofController: proofController),
+                        : KYCVerification(
+                            proofController: proofController,),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomButton(
                         onTap: () {
@@ -155,13 +158,21 @@ class _EditProfileState extends State<EditProfile> {
                                 mobileNo: phoneController.text);
                             log(profileData.value.toString());
                             savedImageValue.value = imageValue.value;
+                            savedProofImage.value = proofImage.value;
                             Navigator.pop(context);
                           }
                         },
                         text: saveChangesBtn),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomOutlinedButton(
-                        onTap: () => Navigator.pop(context), title: cancelBtn)
+                        onTap: () {
+                          imageValue.value = savedImageValue.value;
+                          if (savedProofImage.value.isNotEmpty) {
+                            proofImage.value = savedProofImage.value;
+                          }
+                          Navigator.pop(context);
+                        },
+                        title: cancelBtn)
                   ],
                 ),
               ),

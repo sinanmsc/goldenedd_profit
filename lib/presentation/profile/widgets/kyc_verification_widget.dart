@@ -1,7 +1,10 @@
 import 'dart:developer';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:goldenegg_profit/presentation/profile/widgets/camera_widget.dart';
+import 'package:goldenegg_profit/presentation/widgets/outlined_widget.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../application/profile/bloc/profile_bloc.dart';
@@ -12,12 +15,8 @@ import '../../authentication/auth_page.dart';
 import 'profile_textfield_widget.dart';
 
 class KYCVerification extends StatefulWidget {
-  const KYCVerification({
-    super.key,
-    required this.proofController,
-  });
+  const KYCVerification({super.key, required this.proofController});
   final TextEditingController proofController;
-
   @override
   State<KYCVerification> createState() => _KYCVerificationState();
 }
@@ -34,6 +33,21 @@ class _KYCVerificationState extends State<KYCVerification> {
     final typography = AppTheme.of(context).typography;
     final gradients = AppTheme.of(context).gradients;
     final proofPicker = ImagePicker();
+
+    void kycImage() async {
+      try {
+        XFile? pickedImage =
+            await proofPicker.pickImage(source: ImageSource.camera);
+        if (pickedImage != null) {
+          if (context.mounted) {
+            proofImage.value = pickedImage.path;
+          }
+        }
+      } catch (e) {
+        log(e.toString());
+      }
+    }
+
     return Column(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -97,21 +111,21 @@ class _KYCVerificationState extends State<KYCVerification> {
           ],
         ),
         SizedBox(height: Responsive.height(4, context)),
-        CameraWidget(
-          onTap: () async {
-            try {
-              XFile? pickedImage =
-                  await proofPicker.pickImage(source: ImageSource.camera);
-              if (pickedImage != null) {
-                if (context.mounted) {
-                  proofImage.value = pickedImage.path;
-                }
+        ValueListenableBuilder(
+            valueListenable: proofImage,
+            builder: (context, value, child) {
+              if (value.isEmpty) {
+                return CameraWidget(
+                  onTap: kycImage,
+                );
+              } else {
+                return GestureDetector(
+                    onTap: kycImage,
+                    child: OutlinedContainer(
+                        padding: EdgeInsets.all(Responsive.width(3, context)),
+                        child: Image.file(File(value))));
               }
-            } catch (e) {
-              log(e.toString());
-            }
-          },
-        ),
+            }),
         SizedBox(height: Responsive.height(2, context)),
       ],
     );

@@ -18,5 +18,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
 ValueNotifier<String> imageValue = ValueNotifier('');
 ValueNotifier<String> proofImage = ValueNotifier('');
+ValueNotifier<String> savedProofImage = ValueNotifier('');
 ValueNotifier<String> savedImageValue = ValueNotifier('');
 ValueNotifier<String> proofType = ValueNotifier('Aadhar');

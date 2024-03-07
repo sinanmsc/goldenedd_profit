@@ -26,15 +26,20 @@ class HomeHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, RoutPaths.profile),
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: savedImageValue.value.isEmpty
-                      ? const AssetImage(profileImage) as ImageProvider
-                      : FileImage(File(savedImageValue.value)),
-                ),
-              ),
+              ValueListenableBuilder(
+                  valueListenable: savedImageValue,
+                  builder: (context, value, child) {
+                    return GestureDetector(
+                      onTap: () =>
+                          Navigator.pushNamed(context, RoutPaths.profile),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        backgroundImage: value.isEmpty
+                            ? const AssetImage(profileImage) as ImageProvider
+                            : FileImage(File(savedImageValue.value)),
+                      ),
+                    );
+                  }),
               Row(
                 children: [
                   GestureDetector(
