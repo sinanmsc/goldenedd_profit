@@ -10,7 +10,8 @@ import '../widgets/doller_widget.dart';
 import '../widgets/sort_widget.dart';
 
 class MyHistory extends StatelessWidget {
-  const MyHistory({super.key});
+  final bool isNeedBackButton;
+  const MyHistory({super.key,this.isNeedBackButton = true});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,9 @@ class MyHistory extends StatelessWidget {
     final colors = AppTheme.of(context).colors;
     return SafeArea(
         child: Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
         preferredSize: Size(0, 70),
-        child: CustomAppbar(title: historyAppbarTitle),
+        child: CustomAppbar(title: historyAppbarTitle, isNeedBackButton: isNeedBackButton),
       ),
       body: Padding(
         padding: EdgeInsets.all(Responsive.width(3.7, context)),

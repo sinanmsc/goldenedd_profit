@@ -44,6 +44,7 @@ class DepositPayment extends StatelessWidget {
         appBar: PreferredSize(
             preferredSize: const Size(0, 70),
             child: CustomAppbar(
+              isNeedBackButton: true,
               title: paymentTitle,
               onPressed: () {
                 paymentScreenshot.value = '';

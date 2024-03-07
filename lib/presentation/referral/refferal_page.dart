@@ -16,7 +16,7 @@ class RefferalPage extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size(0, 70),
-            child: CustomAppbar(title: refferalAppbarTitle)),
+            child: CustomAppbar(title: refferalAppbarTitle,isNeedBackButton: true,)),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(Responsive.width(3.7, context)),

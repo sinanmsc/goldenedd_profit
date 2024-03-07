@@ -18,7 +18,7 @@ class PaymentPage extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size(0, 70),
-            child: CustomAppbar(title: paymentTitle)),
+            child: CustomAppbar(title: paymentTitle,isNeedBackButton: true,)),
         body: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Responsive.width(3.7, context),

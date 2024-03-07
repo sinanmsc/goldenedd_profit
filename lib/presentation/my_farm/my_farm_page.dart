@@ -22,7 +22,7 @@ class MyCripto extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size(0, 70),
-            child: CustomAppbar(title: myFarmAppbarTitle)),
+            child: CustomAppbar(title: myFarmAppbarTitle,isNeedBackButton: true,)),
         body: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),
           child: Column(

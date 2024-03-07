@@ -60,7 +60,7 @@ class MyFarmList extends StatelessWidget {
               Text('$profitAmount ($profitPercentage%)',
                   style:
                       isProfit ? typography.greenProfit : typography.redLoss),
-              Text('($amount))', style: typography.duckTitle)
+              Text('($amount)', style: typography.duckTitle)
             ],
           )
         ],

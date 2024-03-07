@@ -25,7 +25,7 @@ class NotificationPage extends StatelessWidget {
       child: Scaffold(
           appBar: PreferredSize(
             preferredSize: Size(0, Responsive.height(8.5, context)),
-            child: const CustomAppbar(title: notificationAppbarTitle),
+            child: const CustomAppbar(title: notificationAppbarTitle,isNeedBackButton: true,),
           ),
           body: BlocBuilder<NotificationBloc, NotificationState>(
             builder: (context, state) {

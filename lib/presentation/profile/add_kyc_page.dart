@@ -22,7 +22,7 @@ class AddKyc extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size(0, 70),
-            child: CustomAppbar(title: addKycAppbar)),
+            child: CustomAppbar(title: addKycAppbar,isNeedBackButton: true,)),
         body: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),
           child: Column(

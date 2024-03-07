@@ -6,9 +6,14 @@ import 'gradient_appbar_title_widget.dart';
 import 'gradient_arrow_widget.dart';
 
 class CustomAppbar extends StatelessWidget {
+  final bool isNeedBackButton;
   final void Function()? onPressed;
   final String title;
-  const CustomAppbar({super.key, required this.title, this.onPressed});
+  const CustomAppbar(
+      {super.key,
+      required this.title,
+      this.onPressed,
+      required this.isNeedBackButton});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,13 @@ class CustomAppbar extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: gradients.background,
       ),
-      child:  Row(
+      child: Row(
         children: [
-           GradientArrowWidget(onPressed:onPressed,),
+          isNeedBackButton
+              ? GradientArrowWidget(
+                  onPressed: onPressed,
+                )
+              : SizedBox(width: Responsive.width(3, context)),
           GradientAppbarTitle(titleText: title)
         ],
       ),

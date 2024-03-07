@@ -35,7 +35,7 @@ class DepositPage extends StatelessWidget {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size(0, Responsive.height(9, context)),
-          child: const CustomAppbar(title: depositAppbarTitle),
+          child: const CustomAppbar(title: depositAppbarTitle,isNeedBackButton: true),
         ),
         body: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),

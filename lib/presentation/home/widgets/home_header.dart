@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:goldenegg_profit/application/profile/bloc/profile_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/app_assets.dart';
 import 'package:goldenegg_profit/domain/constants/home_constants.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
@@ -25,9 +28,11 @@ class HomeHeader extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, RoutPaths.profile),
-                child: const CircleAvatar(
+                child: CircleAvatar(
                   backgroundColor: Colors.white,
-                  backgroundImage: AssetImage(profileImage),
+                  backgroundImage: savedImageValue.value.isEmpty
+                      ? const AssetImage(profileImage) as ImageProvider
+                      : FileImage(File(savedImageValue.value)),
                 ),
               ),
               Row(
@@ -71,7 +76,7 @@ class HomeHeader extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: Responsive.height(2.5, context),
+                  height: Responsive.height(2, context),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -5,6 +5,7 @@ import 'package:goldenegg_profit/domain/router/router.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_outlined_button.dart';
+import 'package:goldenegg_profit/presentation/withdrawal/withdrawal_page.dart';
 
 import '../../domain/theme/theme_helper.dart';
 
@@ -60,14 +61,15 @@ class PaymentSuccessfulPage extends StatelessWidget {
                         children: [
                           Text(walletAddressIdTitle,
                               style: typography.iconText),
-                          Text('term2fewxzfm2th', style: typography.title12),
+                          Text(walletAddressValue.value,
+                              style: typography.title12),
                         ],
                       ),
                       SizedBox(height: Responsive.height(8, context)),
                       CustomButton(
                           onTap: onTap ??
-                              () => Navigator.pushNamedAndRemoveUntil(
-                                  context, RoutPaths.home, (route) => false),
+                              () => Navigator.pushNamedAndRemoveUntil(context,
+                                  RoutPaths.mainPage, (route) => false),
                           text: txtBackToHome),
                       SizedBox(height: Responsive.height(2, context)),
                       CustomOutlinedButton(

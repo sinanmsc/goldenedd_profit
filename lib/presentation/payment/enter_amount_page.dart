@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:goldenegg_profit/domain/constants/app_assets.dart';
-import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
-import 'package:goldenegg_profit/domain/constants/payment_constents.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_appbar.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_textfield.dart';
-import 'package:goldenegg_profit/presentation/widgets/payment_container.dart';
 
+import '../../domain/constants/auth_constants.dart';
+import '../../domain/constants/payment_constents.dart';
 import '../../domain/utils/responsive_utils.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_textfield.dart';
+import '../widgets/payment_container.dart';
 
 class EnterAmountPage extends StatelessWidget {
   final String number;
@@ -20,7 +19,7 @@ class EnterAmountPage extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: enterAmountAppbarTitle),
+          child: CustomAppbar(title: enterAmountAppbarTitle,isNeedBackButton: true,),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
@@ -28,7 +27,7 @@ class EnterAmountPage extends StatelessWidget {
               vertical: Responsive.width(7, context)),
           child: Column(
             children: [
-              PaymentContainer(),
+              const PaymentContainer(),
               SizedBox(height: Responsive.height(4, context)),
               const CustomTextField(
                 headText: 'Amount',

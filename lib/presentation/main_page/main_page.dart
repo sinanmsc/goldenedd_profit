@@ -10,7 +10,11 @@ import 'package:goldenegg_profit/presentation/history/my_history_page.dart';
 import 'package:goldenegg_profit/presentation/home/home_page.dart';
 import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
 
-final pages = [const HomePage(), const MyHistory(), const WalletPage()];
+final pages = [
+  const HomePage(),
+  const MyHistory(isNeedBackButton: false),
+  const WalletPage()
+];
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

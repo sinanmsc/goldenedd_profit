@@ -24,7 +24,7 @@ class AddNewCard extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: addCardAppbarTitle),
+          child: CustomAppbar(title: addCardAppbarTitle,isNeedBackButton: true,),
         ),
         body: SingleChildScrollView(
           child: Padding(

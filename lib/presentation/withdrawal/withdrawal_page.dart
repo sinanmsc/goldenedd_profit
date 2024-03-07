@@ -3,6 +3,7 @@ import 'package:goldenegg_profit/presentation/widgets/payment_successful_page.da
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 import '../../domain/constants/withdrawal_constants.dart';
+import '../../domain/router/router.dart';
 import '../../domain/theme/theme_helper.dart';
 import '../../domain/utils/responsive_utils.dart';
 import '../widgets/custom_appbar.dart';
@@ -22,7 +23,7 @@ class WithdrawalPage extends StatelessWidget {
         child: Scaffold(
       appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: withdrawalAppbarTitle)),
+          child: CustomAppbar(title: withdrawalAppbarTitle,isNeedBackButton: true,)),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),
@@ -54,6 +55,7 @@ class WithdrawalPage extends StatelessWidget {
                     } else if (double.parse(amountController.text) < 10) {
                       customSnackBar(context, 'Minimum amount is 10 \$');
                     } else {
+                      walletAddressValue.value = walletAdrressController.text;
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -73,3 +75,5 @@ class WithdrawalPage extends StatelessWidget {
     ));
   }
 }
+
+ValueNotifier<String> walletAddressValue = ValueNotifier('term2fewxzfm2th');
