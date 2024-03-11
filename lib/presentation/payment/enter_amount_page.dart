@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/constants/auth_constants.dart';
 import '../../domain/constants/payment_constents.dart';
+import '../../domain/theme/theme_helper.dart';
 import '../../domain/utils/responsive_utils.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_button.dart';
@@ -15,11 +16,15 @@ class EnterAmountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final cardNumber = ;
+    final typography = AppTheme.of(context).typography;
     return SafeArea(
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: enterAmountAppbarTitle,isNeedBackButton: true,),
+          child: CustomAppbar(
+            title: enterAmountAppbarTitle,
+            isNeedBackButton: true,
+          ),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
@@ -37,7 +42,8 @@ class EnterAmountPage extends StatelessWidget {
               ),
               SizedBox(height: Responsive.height(6, context)),
               CustomButton(
-                  onTap: () => Navigator.pop(context), text: continueBtnText)
+                  onTap: () => Navigator.pop(context),
+                  child: Text(continueBtnText, style: typography.btn))
             ],
           ),
         ),

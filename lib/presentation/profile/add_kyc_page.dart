@@ -10,6 +10,7 @@ import 'package:goldenegg_profit/presentation/widgets/custom_appbar.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 import '../../application/profile/bloc/profile_bloc.dart';
+import '../../domain/theme/theme_helper.dart';
 import 'widgets/kyc_verification_widget.dart';
 
 class AddKyc extends StatelessWidget {
@@ -18,6 +19,7 @@ class AddKyc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final typography = AppTheme.of(context).typography;
     return SafeArea(
       child: Scaffold(
         appBar: const PreferredSize(
@@ -50,7 +52,7 @@ class AddKyc extends StatelessWidget {
                           proofController.text,
                           proofImage.value));
                     },
-                    text: 'Add')
+                    child:Text('Add', style: typography.btn))
               ],
             ),
           ),

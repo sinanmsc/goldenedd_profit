@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/presentation/authentication/auth_checker.dart';
 import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
 import '../../application/add_kyc/bloc/add_kyc_bloc.dart';
 import '../../application/authentication/bloc/auth_bloc.dart';
@@ -52,27 +53,35 @@ mixin RoutPaths {
   static const String refferal = "/refferal";
   static const String withdrawal = "/withdrawal";
   static const String wallet = "/wallet";
+  static const String authChecker = "/auth_checker";
 }
 
 abstract class GetNamedRouts {
   static getRouts() {
     return {
+      
+      RoutPaths.authChecker: (context) => const AuthChecker(),
       RoutPaths.getStarted: (context) => BlocProvider(
             create: (context) => GetStartBloc(),
             child: const GetStart(),
           ),
       RoutPaths.authPage: (context) => BlocProvider(
-            create: (context) => AuthBloc(),
+            create: (context) => getIt<AuthBloc>(),
             child: AuthPage(),
           ),
       RoutPaths.authVerification: (context) => BlocProvider(
-            create: (context) => AuthBloc(),
+            create: (context) => getIt<AuthBloc>(),
             child: const AuthVerification(),
           ),
       RoutPaths.successfullRegistrationPage: (context) =>
           const SuccessfullRegistrationPage(),
-      RoutPaths.profile: (context) => BlocProvider(
-            create: (context) => ProfileBloc(),
+      RoutPaths.profile: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ProfileBloc()),
+              BlocProvider(
+                create: (context) => getIt<AuthBloc>(),
+              )
+            ],
             child: const Profile(),
           ),
       RoutPaths.editProfile: (context) => BlocProvider(

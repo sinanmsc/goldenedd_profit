@@ -108,7 +108,7 @@ class DepositDetail extends StatelessWidget {
                                         },
                                         successMsg: depositSuccessMsg),
                                   )),
-                              text: 'Buy Now')),
+                              child: Text('Buy Now', style: typography.btn))),
                       SizedBox(height: Responsive.height(3, context)),
                     ],
                   ),

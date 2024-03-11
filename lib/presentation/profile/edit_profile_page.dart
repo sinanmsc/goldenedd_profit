@@ -41,7 +41,12 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   void initState() {
-    imageValue.value = savedImageValue.value;
+    if (savedImageValue.value.isNotEmpty) {
+      imageValue.value = savedImageValue.value;
+    }
+    if (savedProofImage.value.isNotEmpty) {
+      proofImage.value = savedProofImage.value;
+    }
 
     super.initState();
   }
@@ -68,12 +73,16 @@ class _EditProfileState extends State<EditProfile> {
     }
 
     final colors = AppTheme.of(context).colors;
+    final typography = AppTheme.of(context).typography;
     return Scaffold(
       appBar: AppBar(
         title: const GradientAppbarTitle(titleText: editProfileAopbarTitle),
         leading: GradientArrowWidget(
           onPressed: () {
             imageValue.value = savedImageValue.value;
+            if (savedProofImage.value.isNotEmpty) {
+              proofImage.value = savedProofImage.value;
+            }
 
             Navigator.pop(context);
           },
@@ -139,7 +148,8 @@ class _EditProfileState extends State<EditProfile> {
                     profileData.value.proof.proofNo.isEmpty
                         ? const SizedBox()
                         : KYCVerification(
-                            proofController: proofController,),
+                            proofController: proofController,
+                          ),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomButton(
                         onTap: () {
@@ -162,12 +172,15 @@ class _EditProfileState extends State<EditProfile> {
                             Navigator.pop(context);
                           }
                         },
-                        text: saveChangesBtn),
+                        child:  
+                        Text(saveChangesBtn, style: typography.btn)
+                        ),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomOutlinedButton(
                         onTap: () {
                           imageValue.value = savedImageValue.value;
                           if (savedProofImage.value.isNotEmpty) {
+                            log('savedproofnot');
                             proofImage.value = savedProofImage.value;
                           }
                           Navigator.pop(context);

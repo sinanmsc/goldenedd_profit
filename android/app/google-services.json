@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "548588127000",
-    "project_id": "forbloc-17e8e",
-    "storage_bucket": "forbloc-17e8e.appspot.com"
+    "project_number": "691667417290",
+    "project_id": "firedummy-ba0db",
+    "storage_bucket": "firedummy-ba0db.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:548588127000:android:a4f4eb161790aa9297d46d",
-        "android_client_info": {
-          "package_name": "com.example.block_api"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDrJbmCtDG7NxXYPG_xWrYLNKcPJuK-S0Y"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:548588127000:android:485d30f84308773597d46d",
+        "mobilesdk_app_id": "1:691667417290:android:8ac22ad4ecf8e656ba1c33",
         "android_client_info": {
           "package_name": "com.example.goldenegg_profit"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDrJbmCtDG7NxXYPG_xWrYLNKcPJuK-S0Y"
+          "current_key": "AIzaSyD7fvbIFLlyRwVi1AEeVhOGS01XAG3ZQs8"
         }
       ],
       "services": {

@@ -15,9 +15,11 @@ const String authVerificationHead = 'Enter your code';
 const String authVerificationSubHead = 'Please type the code we sent to';
 const String resendCodeTxt = 'Resend Code';
 const String resendCodeLink = 'Resend Link';
-const String sendOtpBtnText = 'Send OTP';
+const String registerBtnText = 'Register';
+const String loginBtnText = 'Login';
 const String continueBtnText = 'Continue';
 const String authSuccessText = 'Your account has been successfully created!';
 const String getStartText = 'Get Start';
+const String logOutBtnTxt = 'Log out';
 const String successRegistrationMsg =
     'Congratulations! you got \$25  for the welcome bonus';

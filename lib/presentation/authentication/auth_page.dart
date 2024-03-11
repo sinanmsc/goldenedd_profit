@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
@@ -15,9 +13,11 @@ import 'package:goldenegg_profit/presentation/authentication/widgets/signup_regi
 import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
 
 import '../../domain/constants/profile_constants.dart';
+import '../../domain/theme/theme_helper.dart';
 
 class AuthPage extends StatelessWidget {
-  final signinMobileNoController = TextEditingController();
+  final signinEmailController = TextEditingController();
+  final signinPasswordController = TextEditingController();
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final signupMobileNoController = TextEditingController();
@@ -31,7 +31,10 @@ class AuthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final typography = AppTheme.of(context).typography;
     final isSigned = context.watch<AuthBloc>().state.isSigned;
+    final isLoading = context.watch<AuthBloc>().state.isLoading;
+
     return Scaffold(
       appBar:
           const PreferredSize(preferredSize: Size(0, 50), child: AuthAppBar()),
@@ -47,12 +50,18 @@ class AuthPage extends StatelessWidget {
                 SizedBox(height: Responsive.height(4, context)),
                 context.watch<AuthBloc>().state.isSigned
                     ? SignInRegisterWidget(
-                        mobileNoController: signinMobileNoController,
-                        validator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              value.length < 10) {
-                            return 'Enter valid number';
+                        passwordController: signinPasswordController,
+                        emaiController: signinEmailController,
+                        passwordValidator: (value) {
+                          if (value == null || value.length < 8) {
+                            return 'Password must be at least 8 characters long';
+                          }
+                        },
+                        emailValidator: (value) {
+                          if (!RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value!)) {
+                            return 'Enter valid email';
                           }
                           return null;
                         },
@@ -94,32 +103,42 @@ class AuthPage extends StatelessWidget {
                       ),
                 SizedBox(height: Responsive.height(8.5, context)),
                 CustomButton(
-                  text: sendOtpBtnText,
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      log('noxf' + signinMobileNoController.text);
-                      context.read<AuthBloc>().add(
-                          AuthEvent.sendOtp(signinMobileNoController.text));
-                      if (isSigned) {
-                        mobNumber.value = signinMobileNoController.text;
-                        Navigator.pushNamed(
-                            context, RoutPaths.authVerification);
-                      }
-                      if (!isSigned) {
-                        mobNumber.value = signupMobileNoController.text;
-                        profileData.value = ProfileModel(
-                          userName: nameController.text,
-                          email: emailController.text,
-                          adsress: addressController.text,
-                          password: passwordController.text,
-                          mobileNo: signupMobileNoController.text,
-                          proof: ProofModel(proofType: '', proofNo: ''),
-                        );
-                        Navigator.pushNamed(
-                            context, RoutPaths.authVerification);
-                      }
-                    }
-                  },
+                  onTap: isLoading
+                      ? () {}
+                      : () {
+                          if (formKey.currentState!.validate()) {
+                            if (isSigned) {
+                              mobNumber.value = demonumber;
+                              context.read<AuthBloc>().add(AuthEvent.login(
+                                  signinEmailController.text,
+                                  signinPasswordController.text,
+                                  context));
+                            }
+                            if (!isSigned) {
+                              mobNumber.value = signupMobileNoController.text;
+                              profileData.value = ProfileModel(
+                                userName: nameController.text,
+                                email: emailController.text,
+                                adsress: addressController.text,
+                                password: passwordController.text,
+                                mobileNo: signupMobileNoController.text,
+                                proof: ProofModel(proofType: '', proofNo: ''),
+                              );
+                              context.read<AuthBloc>().add(AuthEvent.signUp(
+                                  emailController.text,
+                                  passwordController.text,
+                                  context));
+                            }
+                          }
+                        },
+                  child: isLoading
+                      ? const CircularProgressIndicator(
+                          color: Colors.black,
+                          strokeWidth: 3,
+                          strokeAlign: -5,
+                        )
+                      : Text(!isSigned ? registerBtnText : loginBtnText,
+                          style: typography.btn),
                 )
               ],
             ),
