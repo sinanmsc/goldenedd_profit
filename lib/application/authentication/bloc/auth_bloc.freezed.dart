@@ -23,8 +23,8 @@ mixin _$AuthEvent {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -37,7 +37,8 @@ mixin _$AuthEvent {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -50,7 +51,8 @@ mixin _$AuthEvent {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -154,8 +156,8 @@ class _$ToSignInImpl implements _ToSignIn {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -171,7 +173,8 @@ class _$ToSignInImpl implements _ToSignIn {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -187,7 +190,8 @@ class _$ToSignInImpl implements _ToSignIn {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -294,8 +298,8 @@ class _$ToSignUpImpl implements _ToSignUp {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -311,7 +315,8 @@ class _$ToSignUpImpl implements _ToSignUp {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -327,7 +332,8 @@ class _$ToSignUpImpl implements _ToSignUp {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -477,8 +483,8 @@ class _$LogInImpl implements _LogIn {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -494,7 +500,8 @@ class _$LogInImpl implements _LogIn {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -510,7 +517,8 @@ class _$LogInImpl implements _LogIn {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -588,7 +596,10 @@ abstract class _$$SignUpImplCopyWith<$Res> {
           _$SignUpImpl value, $Res Function(_$SignUpImpl) then) =
       __$$SignUpImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password, BuildContext context});
+  $Res call(
+      {String email, String password, BuildContext context, ProfileModel user});
+
+  $ProfileModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -605,6 +616,7 @@ class __$$SignUpImplCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
     Object? context = null,
+    Object? user = null,
   }) {
     return _then(_$SignUpImpl(
       null == email
@@ -619,14 +631,26 @@ class __$$SignUpImplCopyWithImpl<$Res>
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ProfileModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileModelCopyWith<$Res> get user {
+    return $ProfileModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$SignUpImpl implements _SignUp {
-  const _$SignUpImpl(this.email, this.password, this.context);
+  const _$SignUpImpl(this.email, this.password, this.context, this.user);
 
   @override
   final String email;
@@ -634,10 +658,12 @@ class _$SignUpImpl implements _SignUp {
   final String password;
   @override
   final BuildContext context;
+  @override
+  final ProfileModel user;
 
   @override
   String toString() {
-    return 'AuthEvent.signUp(email: $email, password: $password, context: $context)';
+    return 'AuthEvent.signUp(email: $email, password: $password, context: $context, user: $user)';
   }
 
   @override
@@ -648,11 +674,12 @@ class _$SignUpImpl implements _SignUp {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.context, context) || other.context == context));
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password, context);
+  int get hashCode => Object.hash(runtimeType, email, password, context, user);
 
   @JsonKey(ignore: true)
   @override
@@ -668,14 +695,14 @@ class _$SignUpImpl implements _SignUp {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) {
-    return signUp(email, password, context);
+    return signUp(email, password, context, user);
   }
 
   @override
@@ -685,13 +712,14 @@ class _$SignUpImpl implements _SignUp {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) {
-    return signUp?.call(email, password, context);
+    return signUp?.call(email, password, context, user);
   }
 
   @override
@@ -701,7 +729,8 @@ class _$SignUpImpl implements _SignUp {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -709,7 +738,7 @@ class _$SignUpImpl implements _SignUp {
     required TResult orElse(),
   }) {
     if (signUp != null) {
-      return signUp(email, password, context);
+      return signUp(email, password, context, user);
     }
     return orElse();
   }
@@ -763,11 +792,12 @@ class _$SignUpImpl implements _SignUp {
 
 abstract class _SignUp implements AuthEvent {
   const factory _SignUp(final String email, final String password,
-      final BuildContext context) = _$SignUpImpl;
+      final BuildContext context, final ProfileModel user) = _$SignUpImpl;
 
   String get email;
   String get password;
   BuildContext get context;
+  ProfileModel get user;
   @JsonKey(ignore: true)
   _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -816,8 +846,8 @@ class _$LogOutImpl implements _LogOut {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -833,7 +863,8 @@ class _$LogOutImpl implements _LogOut {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -849,7 +880,8 @@ class _$LogOutImpl implements _LogOut {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -956,8 +988,8 @@ class _$ResendOtpImpl implements _ResendOtp {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -973,7 +1005,8 @@ class _$ResendOtpImpl implements _ResendOtp {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -989,7 +1022,8 @@ class _$ResendOtpImpl implements _ResendOtp {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,
@@ -1123,8 +1157,8 @@ class _$SendOtpImpl implements _SendOtp {
     required TResult Function(
             String email, String password, BuildContext context)
         login,
-    required TResult Function(
-            String email, String password, BuildContext context)
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
         signUp,
     required TResult Function() logOut,
     required TResult Function() resendOtp,
@@ -1140,7 +1174,8 @@ class _$SendOtpImpl implements _SendOtp {
     TResult? Function()? toSignUp,
     TResult? Function(String email, String password, BuildContext context)?
         login,
-    TResult? Function(String email, String password, BuildContext context)?
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult? Function()? logOut,
     TResult? Function()? resendOtp,
@@ -1156,7 +1191,8 @@ class _$SendOtpImpl implements _SendOtp {
     TResult Function()? toSignUp,
     TResult Function(String email, String password, BuildContext context)?
         login,
-    TResult Function(String email, String password, BuildContext context)?
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
         signUp,
     TResult Function()? logOut,
     TResult Function()? resendOtp,

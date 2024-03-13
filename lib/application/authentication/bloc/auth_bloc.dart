@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:goldenegg_profit/domain/exception/base_exception.dart';
+import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
 import 'package:goldenegg_profit/infrastructure/authentication/i_authentication_repository.dart';
 
 import '../../../domain/router/router.dart';
@@ -50,6 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         emit(state.copyWith(isLoading: true));
         await authRep.signup(event.email, event.password);
+        await authRep.addUser(event.user);
         emit(state.copyWith(isLoading: false));
         Future.sync(() => Navigator.pushNamed(
             event.context, RoutPaths.successfullRegistrationPage));

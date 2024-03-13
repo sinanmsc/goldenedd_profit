@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
-import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
-import 'package:goldenegg_profit/domain/models/profile/proof_model.dart';
-import 'package:goldenegg_profit/domain/router/router.dart';
-import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
-import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/authentication/widgets/auth_appbar_widget.dart';
-import 'package:goldenegg_profit/presentation/authentication/widgets/signin_register_widger.dart';
-import 'package:goldenegg_profit/presentation/authentication/widgets/auth_header_widget.dart';
-import 'package:goldenegg_profit/presentation/authentication/widgets/signup_register_widget.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
-
+import '../../application/authentication/bloc/auth_bloc.dart';
+import '../../domain/constants/auth_constants.dart';
 import '../../domain/constants/profile_constants.dart';
+import '../../domain/models/profile/profile_model.dart';
 import '../../domain/theme/theme_helper.dart';
+import '../../domain/utils/responsive_utils.dart';
+import '../widgets/custom_button.dart';
+import 'widgets/auth_appbar_widget.dart';
+import 'widgets/auth_header_widget.dart';
+import 'widgets/signin_register_widger.dart';
+import 'widgets/signup_register_widget.dart';
 
 class AuthPage extends StatelessWidget {
   final signinEmailController = TextEditingController();
@@ -122,12 +119,21 @@ class AuthPage extends StatelessWidget {
                                 adsress: addressController.text,
                                 password: passwordController.text,
                                 mobileNo: signupMobileNoController.text,
-                                proof: ProofModel(proofType: '', proofNo: ''),
+                                proofType: '',
+                                proofNo: '',
                               );
                               context.read<AuthBloc>().add(AuthEvent.signUp(
                                   emailController.text,
                                   passwordController.text,
-                                  context));
+                                  context,
+                                  ProfileModel(
+                                      userName: nameController.text,
+                                      email: emailController.text,
+                                      adsress: addressController.text,
+                                      password: passwordController.text,
+                                      mobileNo: signupMobileNoController.text,
+                                      proofType: '',
+                                      proofNo: '')));
                             }
                           }
                         },
@@ -152,9 +158,10 @@ class AuthPage extends StatelessWidget {
 ValueNotifier<String> mobNumber = ValueNotifier('');
 
 ValueNotifier<ProfileModel> profileData = ValueNotifier(ProfileModel(
-    proof: ProofModel(proofType: '', proofNo: ''),
+    proofType: '',
+    proofNo: '',
     userName: demoUserName,
     email: demoEmail,
     adsress: demoAddress,
     password: demoPassword,
-    mobileNo: mobNumber.value));
+    mobileNo: demonumber));

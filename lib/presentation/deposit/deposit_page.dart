@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/application/deposits/bloc/deposit_bloc.dart';
 
 import '../../domain/constants/deposit_constants.dart';
 import '../../domain/theme/theme_helper.dart';
@@ -14,17 +18,20 @@ class DepositPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gradients = AppTheme.of(context).gradients;
+    context.read<DepositBloc>().add(const DepositEvent.getDepositData());
+    // log('dddd' + deposiyDatas.toString());
+    // final depositDatas = context.
 
-    Gradient getGradient(int index) {
-      if (deposits[index].title == 'Bronze Duck') {
+    Gradient getGradient(int index, List list) {
+      if (list[index].name == 'Bronze Duck') {
         return gradients.bronse;
-      } else if (deposits[index].title == 'Silver Duck') {
+      } else if (list[index].name == 'Silver Duck') {
         return gradients.silver;
-      } else if (deposits[index].title == 'Golden Duck') {
+      } else if (list[index].name == 'Golden Duck') {
         return gradients.golden;
-      } else if (deposits[index].title == 'Platinum Duck') {
+      } else if (list[index].name == 'Platinum Duck') {
         return gradients.platinum;
-      } else if (deposits[index].title == 'Diamond Duck') {
+      } else if (list[index].name == 'Diamond Duck') {
         return gradients.diamond;
       } else {
         return gradients.titanium;
@@ -35,7 +42,8 @@ class DepositPage extends StatelessWidget {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size(0, Responsive.height(9, context)),
-          child: const CustomAppbar(title: depositAppbarTitle,isNeedBackButton: true),
+          child: const CustomAppbar(
+              title: depositAppbarTitle, isNeedBackButton: true),
         ),
         body: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),
@@ -44,31 +52,43 @@ class DepositPage extends StatelessWidget {
               const WelcomBonusWidget(),
               SizedBox(height: Responsive.height(2, context)),
               Expanded(
-                child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      Gradient gradient = getGradient(index);
+                child: BlocBuilder<DepositBloc, DepositState>(
+                  builder: (context, state) {
+                    final depositDatas = state.deposits;
+                    if (state.errorMsg.isNotEmpty) {
+                      return Center(child: Text(state.errorMsg));
+                    } else if (state.isLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    return ListView.separated(
+                        itemBuilder: (context, index) {
+                          Gradient gradient = getGradient(index, depositDatas);
 
-                      return GestureDetector(
-                        onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DepositDetail(
-                                  containerGradient: gradient,
-                                  scheme: deposits[index]),
-                            )),
-                        child: DepositSchemContainer(
-                          gradient: gradient,
-                          title: deposits[index].title,
-                          amount: deposits[index].amount,
-                          profitAmount: deposits[index].profitAmount,
-                          imagePath: deposits[index].imagePath,
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => SizedBox(
-                          height: Responsive.height(1.5, context),
-                        ),
-                    itemCount: deposits.length),
+                          return GestureDetector(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DepositDetail(
+                                      containerGradient: gradient,
+                                      scheme: depositDatas[index]),
+                                )),
+                            child: DepositSchemContainer(
+                              gradient: gradient,
+                              title: depositDatas[index].name,
+                              amount:
+                                  depositDatas[index].amount.toStringAsFixed(0),
+                              profitAmount:
+                                  depositDatas[index].dailyProfit.toString(),
+                              imagePath: depositDatas[index].image,
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) => SizedBox(
+                              height: Responsive.height(1.5, context),
+                            ),
+                        itemCount: state.deposits.length);
+                  },
+                ),
               )
             ],
           ),

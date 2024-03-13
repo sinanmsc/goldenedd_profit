@@ -24,7 +24,7 @@ class KYCVerification extends StatefulWidget {
 class _KYCVerificationState extends State<KYCVerification> {
   @override
   void initState() {
-    widget.proofController.text = profileData.value.proof.proofNo;
+    widget.proofController.text = profileData.value.proofNo;
     super.initState();
   }
 

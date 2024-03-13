@@ -3,6 +3,7 @@ import 'package:goldenegg_profit/presentation/authentication/auth_checker.dart';
 import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
 import '../../application/add_kyc/bloc/add_kyc_bloc.dart';
 import '../../application/authentication/bloc/auth_bloc.dart';
+import '../../application/deposits/bloc/deposit_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
 import '../../application/main_page/bloc/main_page_bloc.dart';
 import '../../application/notification/bloc/notification_bloc.dart';
@@ -59,7 +60,6 @@ mixin RoutPaths {
 abstract class GetNamedRouts {
   static getRouts() {
     return {
-      
       RoutPaths.authChecker: (context) => const AuthChecker(),
       RoutPaths.getStarted: (context) => BlocProvider(
             create: (context) => GetStartBloc(),
@@ -97,7 +97,10 @@ abstract class GetNamedRouts {
             create: (context) => getIt<NotificationBloc>(),
             child: const NotificationPage(),
           ),
-      RoutPaths.deposit: (context) => const DepositPage(),
+      RoutPaths.deposit: (context) => BlocProvider(
+            create: (context) => getIt<DepositBloc>(),
+            child: const DepositPage(),
+          ),
       RoutPaths.payment: (context) => const PaymentPage(),
       RoutPaths.addCardPage: (context) => BlocProvider(
             create: (context) => PaymentBloc(),

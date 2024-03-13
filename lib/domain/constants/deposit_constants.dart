@@ -19,41 +19,41 @@ const String paymentTime = '23 jan 2024, 2:23 pm';
 const String goldeniggIdTitle = 'Golden egg Id';
 const String walletAddressIdTitle = 'Wallet Address';
 
-final List<DepositSchemeModel> deposits = [
-  DepositSchemeModel(
-    amount: '100',
-    title: 'Bronze Duck',
-    profitAmount: '1',
-    imagePath: Assetpaths.ducksPaths.bronseDuck,
-  ),
-  DepositSchemeModel(
-    amount: '500',
-    title: 'Silver Duck',
-    profitAmount: '5.5',
-    imagePath: Assetpaths.ducksPaths.silverDuck,
-  ),
-  DepositSchemeModel(
-    amount: '1000',
-    title: 'Golden Duck',
-    profitAmount: '12',
-    imagePath: Assetpaths.ducksPaths.goldDuck,
-  ),
-  DepositSchemeModel(
-    amount: '2500',
-    title: 'Platinum Duck',
-    profitAmount: '32.5',
-    imagePath: Assetpaths.ducksPaths.platinumDuck,
-  ),
-  DepositSchemeModel(
-    amount: '5000',
-    title: 'Diamond Duck',
-    profitAmount: '70',
-    imagePath: Assetpaths.ducksPaths.diamondDuck,
-  ),
-  DepositSchemeModel(
-    amount: '10000',
-    title: 'Titanium Duck',
-    profitAmount: '150',
-    imagePath: Assetpaths.ducksPaths.titaniumDuck,
-  ),
-];
+// final List<DepositSchemeModel> deposits = [
+//   DepositSchemeModel(
+//     amount: '100',
+//     title: 'Bronze Duck',
+//     profitAmount: '1',
+//     imagePath: Assetpaths.ducksPaths.bronseDuck,
+//   ),
+//   DepositSchemeModel(
+//     amount: '500',
+//     title: 'Silver Duck',
+//     profitAmount: '5.5',
+//     imagePath: Assetpaths.ducksPaths.silverDuck,
+//   ),
+//   DepositSchemeModel(
+//     amount: '1000',
+//     title: 'Golden Duck',
+//     profitAmount: '12',
+//     imagePath: Assetpaths.ducksPaths.goldDuck,
+//   ),
+//   DepositSchemeModel(
+//     amount: '2500',
+//     title: 'Platinum Duck',
+//     profitAmount: '32.5',
+//     imagePath: Assetpaths.ducksPaths.platinumDuck,
+//   ),
+//   DepositSchemeModel(
+//     amount: '5000',
+//     title: 'Diamond Duck',
+//     profitAmount: '70',
+//     imagePath: Assetpaths.ducksPaths.diamondDuck,
+//   ),
+//   DepositSchemeModel(
+//     amount: '10000',
+//     title: 'Titanium Duck',
+//     profitAmount: '150',
+//     imagePath: Assetpaths.ducksPaths.titaniumDuck,
+//   ),
+// ];

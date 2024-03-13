@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../application/profile/bloc/profile_bloc.dart';
 import '../../domain/constants/profile_constants.dart';
 import '../../domain/models/profile/profile_model.dart';
-import '../../domain/models/profile/proof_model.dart';
 import '../../domain/theme/theme_helper.dart';
 import '../../domain/utils/responsive_utils.dart';
 import '../authentication/auth_page.dart';
@@ -145,7 +144,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                     ),
                     SizedBox(height: Responsive.height(4, context)),
-                    profileData.value.proof.proofNo.isEmpty
+                    profileData.value.proofNo.isEmpty
                         ? const SizedBox()
                         : KYCVerification(
                             proofController: proofController,
@@ -158,9 +157,8 @@ class _EditProfileState extends State<EditProfile> {
                               proofImage.value = '';
                             }
                             profileData.value = ProfileModel(
-                                proof: ProofModel(
-                                    proofType: proofType.value,
-                                    proofNo: proofController.text),
+                                proofType: proofType.value,
+                                    proofNo: proofController.text,
                                 adsress: adddressController.text,
                                 password: passwordController.text,
                                 userName: usernameController.text,

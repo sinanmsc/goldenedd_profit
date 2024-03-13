@@ -1,16 +1,20 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:goldenegg_profit/domain/exception/firebase_auth_exception.dart';
+import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
 
 abstract class IAuthenticationRepo {
   Future<UserCredential> signup(String email, String password);
   Future<UserCredential> login(String email, String password);
   Future<void> logout();
+  Future<void> addUser(ProfileModel user);
 }
 
 class AuthenticationRepoImpl implements IAuthenticationRepo {
   final auth = FirebaseAuth.instance;
+  final db = FirebaseFirestore.instance;
   @override
   Future<UserCredential> signup(String email, String password) async {
     try {
@@ -40,5 +44,16 @@ class AuthenticationRepoImpl implements IAuthenticationRepo {
     } on FirebaseAuthException catch (e) {
       throw GetFirebaeAuthException(e.message.toString());
     }
+  }
+
+  final collection =
+      FirebaseFirestore.instance.collection('users').withConverter(
+            fromFirestore: ProfileModel.fromFirestore,
+            toFirestore: (ProfileModel value, options) => value.toFirestore(),
+          );
+
+  @override
+  Future<void> addUser(ProfileModel user) async {
+    await collection.add(user);
   }
 }

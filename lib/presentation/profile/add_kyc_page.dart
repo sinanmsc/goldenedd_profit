@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:goldenegg_profit/application/add_kyc/bloc/add_kyc_bloc.dart';
 import 'package:goldenegg_profit/domain/constants/profile_constants.dart';
 import 'package:goldenegg_profit/domain/models/profile/profile_model.dart';
-import 'package:goldenegg_profit/domain/models/profile/proof_model.dart';
 import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 import 'package:goldenegg_profit/presentation/authentication/auth_page.dart';
 import 'package:goldenegg_profit/presentation/widgets/custom_appbar.dart';
@@ -43,9 +42,9 @@ class AddKyc extends StatelessWidget {
                           mobileNo: profileData.value.mobileNo,
                           adsress: profileData.value.adsress,
                           password: profileData.value.password,
-                          proof: ProofModel(
+                          
                               proofType: proofType.value,
-                              proofNo: proofController.text));
+                              proofNo: proofController.text);
                       context.read<AddKycBloc>().add(AddKycEvent.add(
                           context,
                           proofType.value,

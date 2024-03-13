@@ -73,7 +73,7 @@ class Profile extends StatelessWidget {
                           const DetailsField(
                               headText: passwordHead, valueText: '********'),
                           SizedBox(height: Responsive.height(4, context)),
-                          value.proof.proofNo.isEmpty
+                          value.proofNo.isEmpty
                               ? GestureDetector(
                                   onTap: () => Navigator.pushNamed(
                                       context, RoutPaths.addKycPage),
@@ -91,7 +91,7 @@ class Profile extends StatelessWidget {
                                         height: Responsive.height(3, context)),
                                     DetailsField(
                                         headText: proofType.value,
-                                        valueText: value.proof.proofNo),
+                                        valueText: value.proofNo),
                                     SizedBox(
                                         height: Responsive.height(2, context)),
                                     proofImage.value.isEmpty
