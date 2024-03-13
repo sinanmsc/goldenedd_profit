@@ -20,6 +20,13 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) =>
@@ -28,6 +35,12 @@ mixin _$AuthEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) =>
@@ -36,6 +49,12 @@ mixin _$AuthEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
     TResult Function()? resendOtp,
     TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
@@ -45,6 +64,9 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_ResendOtp value) resendOtp,
     required TResult Function(_SendOtp value) sendOtp,
   }) =>
@@ -53,6 +75,9 @@ mixin _$AuthEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_ResendOtp value)? resendOtp,
     TResult? Function(_SendOtp value)? sendOtp,
   }) =>
@@ -61,6 +86,9 @@ mixin _$AuthEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_ResendOtp value)? resendOtp,
     TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
@@ -125,6 +153,13 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) {
@@ -136,6 +171,12 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) {
@@ -147,6 +188,12 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
     TResult Function()? resendOtp,
     TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
@@ -162,6 +209,9 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_ResendOtp value) resendOtp,
     required TResult Function(_SendOtp value) sendOtp,
   }) {
@@ -173,6 +223,9 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_ResendOtp value)? resendOtp,
     TResult? Function(_SendOtp value)? sendOtp,
   }) {
@@ -184,6 +237,9 @@ class _$ToSignInImpl implements _ToSignIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_ResendOtp value)? resendOtp,
     TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
@@ -239,6 +295,13 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) {
@@ -250,6 +313,12 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) {
@@ -261,6 +330,12 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
     TResult Function()? resendOtp,
     TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
@@ -276,6 +351,9 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_ResendOtp value) resendOtp,
     required TResult Function(_SendOtp value) sendOtp,
   }) {
@@ -287,6 +365,9 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_ResendOtp value)? resendOtp,
     TResult? Function(_SendOtp value)? sendOtp,
   }) {
@@ -298,6 +379,9 @@ class _$ToSignUpImpl implements _ToSignUp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_ResendOtp value)? resendOtp,
     TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
@@ -311,6 +395,554 @@ class _$ToSignUpImpl implements _ToSignUp {
 
 abstract class _ToSignUp implements AuthEvent {
   const factory _ToSignUp() = _$ToSignUpImpl;
+}
+
+/// @nodoc
+abstract class _$$LogInImplCopyWith<$Res> {
+  factory _$$LogInImplCopyWith(
+          _$LogInImpl value, $Res Function(_$LogInImpl) then) =
+      __$$LogInImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password, BuildContext context});
+}
+
+/// @nodoc
+class __$$LogInImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LogInImpl>
+    implements _$$LogInImplCopyWith<$Res> {
+  __$$LogInImplCopyWithImpl(
+      _$LogInImpl _value, $Res Function(_$LogInImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? context = null,
+  }) {
+    return _then(_$LogInImpl(
+      null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LogInImpl implements _LogIn {
+  const _$LogInImpl(this.email, this.password, this.context);
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'AuthEvent.login(email: $email, password: $password, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LogInImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LogInImplCopyWith<_$LogInImpl> get copyWith =>
+      __$$LogInImplCopyWithImpl<_$LogInImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toSignIn,
+    required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
+  }) {
+    return login(email, password, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toSignIn,
+    TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
+  }) {
+    return login?.call(email, password, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toSignIn,
+    TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(email, password, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToSignIn value) toSignIn,
+    required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
+  }) {
+    return login(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToSignIn value)? toSignIn,
+    TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
+  }) {
+    return login?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToSignIn value)? toSignIn,
+    TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogIn implements AuthEvent {
+  const factory _LogIn(final String email, final String password,
+      final BuildContext context) = _$LogInImpl;
+
+  String get email;
+  String get password;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$LogInImplCopyWith<_$LogInImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignUpImplCopyWith<$Res> {
+  factory _$$SignUpImplCopyWith(
+          _$SignUpImpl value, $Res Function(_$SignUpImpl) then) =
+      __$$SignUpImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String email, String password, BuildContext context, ProfileModel user});
+
+  $ProfileModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$SignUpImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignUpImpl>
+    implements _$$SignUpImplCopyWith<$Res> {
+  __$$SignUpImplCopyWithImpl(
+      _$SignUpImpl _value, $Res Function(_$SignUpImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? context = null,
+    Object? user = null,
+  }) {
+    return _then(_$SignUpImpl(
+      null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as ProfileModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileModelCopyWith<$Res> get user {
+    return $ProfileModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SignUpImpl implements _SignUp {
+  const _$SignUpImpl(this.email, this.password, this.context, this.user);
+
+  @override
+  final String email;
+  @override
+  final String password;
+  @override
+  final BuildContext context;
+  @override
+  final ProfileModel user;
+
+  @override
+  String toString() {
+    return 'AuthEvent.signUp(email: $email, password: $password, context: $context, user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password, context, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
+      __$$SignUpImplCopyWithImpl<_$SignUpImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toSignIn,
+    required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
+  }) {
+    return signUp(email, password, context, user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toSignIn,
+    TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
+  }) {
+    return signUp?.call(email, password, context, user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toSignIn,
+    TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(email, password, context, user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToSignIn value) toSignIn,
+    required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
+  }) {
+    return signUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToSignIn value)? toSignIn,
+    TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
+  }) {
+    return signUp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToSignIn value)? toSignIn,
+    TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUp implements AuthEvent {
+  const factory _SignUp(final String email, final String password,
+      final BuildContext context, final ProfileModel user) = _$SignUpImpl;
+
+  String get email;
+  String get password;
+  BuildContext get context;
+  ProfileModel get user;
+  @JsonKey(ignore: true)
+  _$$SignUpImplCopyWith<_$SignUpImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LogOutImplCopyWith<$Res> {
+  factory _$$LogOutImplCopyWith(
+          _$LogOutImpl value, $Res Function(_$LogOutImpl) then) =
+      __$$LogOutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogOutImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LogOutImpl>
+    implements _$$LogOutImplCopyWith<$Res> {
+  __$$LogOutImplCopyWithImpl(
+      _$LogOutImpl _value, $Res Function(_$LogOutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LogOutImpl implements _LogOut {
+  const _$LogOutImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.logOut()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogOutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toSignIn,
+    required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
+    required TResult Function() resendOtp,
+    required TResult Function(String mobileNo) sendOtp,
+  }) {
+    return logOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toSignIn,
+    TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
+    TResult? Function()? resendOtp,
+    TResult? Function(String mobileNo)? sendOtp,
+  }) {
+    return logOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toSignIn,
+    TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
+    TResult Function()? resendOtp,
+    TResult Function(String mobileNo)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToSignIn value) toSignIn,
+    required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
+    required TResult Function(_ResendOtp value) resendOtp,
+    required TResult Function(_SendOtp value) sendOtp,
+  }) {
+    return logOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToSignIn value)? toSignIn,
+    TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
+    TResult? Function(_ResendOtp value)? resendOtp,
+    TResult? Function(_SendOtp value)? sendOtp,
+  }) {
+    return logOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToSignIn value)? toSignIn,
+    TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
+    TResult Function(_ResendOtp value)? resendOtp,
+    TResult Function(_SendOtp value)? sendOtp,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogOut implements AuthEvent {
+  const factory _LogOut() = _$LogOutImpl;
 }
 
 /// @nodoc
@@ -353,6 +985,13 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) {
@@ -364,6 +1003,12 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) {
@@ -375,6 +1020,12 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
     TResult Function()? resendOtp,
     TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
@@ -390,6 +1041,9 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_ResendOtp value) resendOtp,
     required TResult Function(_SendOtp value) sendOtp,
   }) {
@@ -401,6 +1055,9 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_ResendOtp value)? resendOtp,
     TResult? Function(_SendOtp value)? sendOtp,
   }) {
@@ -412,6 +1069,9 @@ class _$ResendOtpImpl implements _ResendOtp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_ResendOtp value)? resendOtp,
     TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
@@ -494,6 +1154,13 @@ class _$SendOtpImpl implements _SendOtp {
   TResult when<TResult extends Object?>({
     required TResult Function() toSignIn,
     required TResult Function() toSignUp,
+    required TResult Function(
+            String email, String password, BuildContext context)
+        login,
+    required TResult Function(String email, String password,
+            BuildContext context, ProfileModel user)
+        signUp,
+    required TResult Function() logOut,
     required TResult Function() resendOtp,
     required TResult Function(String mobileNo) sendOtp,
   }) {
@@ -505,6 +1172,12 @@ class _$SendOtpImpl implements _SendOtp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? toSignIn,
     TResult? Function()? toSignUp,
+    TResult? Function(String email, String password, BuildContext context)?
+        login,
+    TResult? Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult? Function()? logOut,
     TResult? Function()? resendOtp,
     TResult? Function(String mobileNo)? sendOtp,
   }) {
@@ -516,6 +1189,12 @@ class _$SendOtpImpl implements _SendOtp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toSignIn,
     TResult Function()? toSignUp,
+    TResult Function(String email, String password, BuildContext context)?
+        login,
+    TResult Function(String email, String password, BuildContext context,
+            ProfileModel user)?
+        signUp,
+    TResult Function()? logOut,
     TResult Function()? resendOtp,
     TResult Function(String mobileNo)? sendOtp,
     required TResult orElse(),
@@ -531,6 +1210,9 @@ class _$SendOtpImpl implements _SendOtp {
   TResult map<TResult extends Object?>({
     required TResult Function(_ToSignIn value) toSignIn,
     required TResult Function(_ToSignUp value) toSignUp,
+    required TResult Function(_LogIn value) login,
+    required TResult Function(_SignUp value) signUp,
+    required TResult Function(_LogOut value) logOut,
     required TResult Function(_ResendOtp value) resendOtp,
     required TResult Function(_SendOtp value) sendOtp,
   }) {
@@ -542,6 +1224,9 @@ class _$SendOtpImpl implements _SendOtp {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ToSignIn value)? toSignIn,
     TResult? Function(_ToSignUp value)? toSignUp,
+    TResult? Function(_LogIn value)? login,
+    TResult? Function(_SignUp value)? signUp,
+    TResult? Function(_LogOut value)? logOut,
     TResult? Function(_ResendOtp value)? resendOtp,
     TResult? Function(_SendOtp value)? sendOtp,
   }) {
@@ -553,6 +1238,9 @@ class _$SendOtpImpl implements _SendOtp {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ToSignIn value)? toSignIn,
     TResult Function(_ToSignUp value)? toSignUp,
+    TResult Function(_LogIn value)? login,
+    TResult Function(_SignUp value)? signUp,
+    TResult Function(_LogOut value)? logOut,
     TResult Function(_ResendOtp value)? resendOtp,
     TResult Function(_SendOtp value)? sendOtp,
     required TResult orElse(),
@@ -575,6 +1263,8 @@ abstract class _SendOtp implements AuthEvent {
 
 /// @nodoc
 mixin _$AuthState {
+  bool get isLoading => throw _privateConstructorUsedError;
+  String get errorMsg => throw _privateConstructorUsedError;
   bool get isSigned => throw _privateConstructorUsedError;
   int get resendOtpTime => throw _privateConstructorUsedError;
   String get mobileNo => throw _privateConstructorUsedError;
@@ -589,7 +1279,12 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool isSigned, int resendOtpTime, String mobileNo});
+  $Res call(
+      {bool isLoading,
+      String errorMsg,
+      bool isSigned,
+      int resendOtpTime,
+      String mobileNo});
 }
 
 /// @nodoc
@@ -605,11 +1300,21 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
+    Object? errorMsg = null,
     Object? isSigned = null,
     Object? resendOtpTime = null,
     Object? mobileNo = null,
   }) {
     return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMsg: null == errorMsg
+          ? _value.errorMsg
+          : errorMsg // ignore: cast_nullable_to_non_nullable
+              as String,
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
@@ -634,7 +1339,12 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isSigned, int resendOtpTime, String mobileNo});
+  $Res call(
+      {bool isLoading,
+      String errorMsg,
+      bool isSigned,
+      int resendOtpTime,
+      String mobileNo});
 }
 
 /// @nodoc
@@ -648,11 +1358,21 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
+    Object? errorMsg = null,
     Object? isSigned = null,
     Object? resendOtpTime = null,
     Object? mobileNo = null,
   }) {
     return _then(_$AuthStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMsg: null == errorMsg
+          ? _value.errorMsg
+          : errorMsg // ignore: cast_nullable_to_non_nullable
+              as String,
       isSigned: null == isSigned
           ? _value.isSigned
           : isSigned // ignore: cast_nullable_to_non_nullable
@@ -673,10 +1393,16 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 
 class _$AuthStateImpl implements _AuthState {
   _$AuthStateImpl(
-      {required this.isSigned,
+      {required this.isLoading,
+      required this.errorMsg,
+      required this.isSigned,
       required this.resendOtpTime,
       required this.mobileNo});
 
+  @override
+  final bool isLoading;
+  @override
+  final String errorMsg;
   @override
   final bool isSigned;
   @override
@@ -686,7 +1412,7 @@ class _$AuthStateImpl implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(isSigned: $isSigned, resendOtpTime: $resendOtpTime, mobileNo: $mobileNo)';
+    return 'AuthState(isLoading: $isLoading, errorMsg: $errorMsg, isSigned: $isSigned, resendOtpTime: $resendOtpTime, mobileNo: $mobileNo)';
   }
 
   @override
@@ -694,6 +1420,10 @@ class _$AuthStateImpl implements _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.errorMsg, errorMsg) ||
+                other.errorMsg == errorMsg) &&
             (identical(other.isSigned, isSigned) ||
                 other.isSigned == isSigned) &&
             (identical(other.resendOtpTime, resendOtpTime) ||
@@ -703,8 +1433,8 @@ class _$AuthStateImpl implements _AuthState {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isSigned, resendOtpTime, mobileNo);
+  int get hashCode => Object.hash(
+      runtimeType, isLoading, errorMsg, isSigned, resendOtpTime, mobileNo);
 
   @JsonKey(ignore: true)
   @override
@@ -715,10 +1445,16 @@ class _$AuthStateImpl implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   factory _AuthState(
-      {required final bool isSigned,
+      {required final bool isLoading,
+      required final String errorMsg,
+      required final bool isSigned,
       required final int resendOtpTime,
       required final String mobileNo}) = _$AuthStateImpl;
 
+  @override
+  bool get isLoading;
+  @override
+  String get errorMsg;
   @override
   bool get isSigned;
   @override

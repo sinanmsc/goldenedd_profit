@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/application/authentication/bloc/auth_bloc.dart';
+import 'package:goldenegg_profit/domain/constants/auth_constants.dart';
 import 'package:goldenegg_profit/presentation/get_start/widgets/btn_widget.dart';
 
 import '../../application/profile/bloc/profile_bloc.dart';
@@ -70,7 +73,7 @@ class Profile extends StatelessWidget {
                           const DetailsField(
                               headText: passwordHead, valueText: '********'),
                           SizedBox(height: Responsive.height(4, context)),
-                          value.proof.proofNo.isEmpty
+                          value.proofNo.isEmpty
                               ? GestureDetector(
                                   onTap: () => Navigator.pushNamed(
                                       context, RoutPaths.addKycPage),
@@ -88,16 +91,14 @@ class Profile extends StatelessWidget {
                                         height: Responsive.height(3, context)),
                                     DetailsField(
                                         headText: proofType.value,
-                                        valueText: value.proof.proofNo),
+                                        valueText: value.proofNo),
                                     SizedBox(
                                         height: Responsive.height(2, context)),
                                     proofImage.value.isEmpty
                                         ? const SizedBox()
-                                        : SizedBox(
-                                            height:
-                                                Responsive.height(50, context),
-                                            width:
-                                                Responsive.width(70, context),
+                                        : Container(
+                                            padding: EdgeInsets.all(
+                                                Responsive.width(8, context)),
                                             child: ValueListenableBuilder(
                                                 valueListenable:
                                                     savedProofImage,
@@ -112,6 +113,16 @@ class Profile extends StatelessWidget {
                                                 }))
                                   ],
                                 ),
+                          SizedBox(height: Responsive.height(4, context)),
+                          GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<AuthBloc>()
+                                    .add(const AuthEvent.logOut());
+                                Navigator.pushNamedAndRemoveUntil(context,
+                                    RoutPaths.authPage, (route) => false);
+                              },
+                              child: const ButtonWidget(title: logOutBtnTxt))
                         ],
                       );
                     }),

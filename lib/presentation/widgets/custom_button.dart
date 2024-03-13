@@ -4,8 +4,8 @@ import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
 
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
-  final String text;
-  const CustomButton({super.key, required this.onTap, required this.text});
+  final Widget child;
+  const CustomButton({super.key, required this.onTap, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CustomButton extends StatelessWidget {
           gradient: gradients.btnGradient,
           borderRadius: BorderRadius.circular(Responsive.width(5, context)),
         ),
-        child: Text(text, style: typography.btn),
+        child:child,
       ),
     );
   }

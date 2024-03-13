@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class DepositSchemeModel {
   final String title;
   final String amount;

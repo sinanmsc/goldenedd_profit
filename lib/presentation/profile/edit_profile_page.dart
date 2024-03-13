@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../application/profile/bloc/profile_bloc.dart';
 import '../../domain/constants/profile_constants.dart';
 import '../../domain/models/profile/profile_model.dart';
-import '../../domain/models/profile/proof_model.dart';
 import '../../domain/theme/theme_helper.dart';
 import '../../domain/utils/responsive_utils.dart';
 import '../authentication/auth_page.dart';
@@ -41,7 +40,12 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   void initState() {
-    imageValue.value = savedImageValue.value;
+    if (savedImageValue.value.isNotEmpty) {
+      imageValue.value = savedImageValue.value;
+    }
+    if (savedProofImage.value.isNotEmpty) {
+      proofImage.value = savedProofImage.value;
+    }
 
     super.initState();
   }
@@ -68,12 +72,16 @@ class _EditProfileState extends State<EditProfile> {
     }
 
     final colors = AppTheme.of(context).colors;
+    final typography = AppTheme.of(context).typography;
     return Scaffold(
       appBar: AppBar(
         title: const GradientAppbarTitle(titleText: editProfileAopbarTitle),
         leading: GradientArrowWidget(
           onPressed: () {
             imageValue.value = savedImageValue.value;
+            if (savedProofImage.value.isNotEmpty) {
+              proofImage.value = savedProofImage.value;
+            }
 
             Navigator.pop(context);
           },
@@ -136,10 +144,11 @@ class _EditProfileState extends State<EditProfile> {
                       },
                     ),
                     SizedBox(height: Responsive.height(4, context)),
-                    profileData.value.proof.proofNo.isEmpty
+                    profileData.value.proofNo.isEmpty
                         ? const SizedBox()
                         : KYCVerification(
-                            proofController: proofController,),
+                            proofController: proofController,
+                          ),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomButton(
                         onTap: () {
@@ -148,9 +157,8 @@ class _EditProfileState extends State<EditProfile> {
                               proofImage.value = '';
                             }
                             profileData.value = ProfileModel(
-                                proof: ProofModel(
-                                    proofType: proofType.value,
-                                    proofNo: proofController.text),
+                                proofType: proofType.value,
+                                    proofNo: proofController.text,
                                 adsress: adddressController.text,
                                 password: passwordController.text,
                                 userName: usernameController.text,
@@ -162,12 +170,15 @@ class _EditProfileState extends State<EditProfile> {
                             Navigator.pop(context);
                           }
                         },
-                        text: saveChangesBtn),
+                        child:  
+                        Text(saveChangesBtn, style: typography.btn)
+                        ),
                     SizedBox(height: Responsive.height(2, context)),
                     CustomOutlinedButton(
                         onTap: () {
                           imageValue.value = savedImageValue.value;
                           if (savedProofImage.value.isNotEmpty) {
+                            log('savedproofnot');
                             proofImage.value = savedProofImage.value;
                           }
                           Navigator.pop(context);

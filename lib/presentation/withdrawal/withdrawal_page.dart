@@ -23,7 +23,10 @@ class WithdrawalPage extends StatelessWidget {
         child: Scaffold(
       appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: withdrawalAppbarTitle,isNeedBackButton: true,)),
+          child: CustomAppbar(
+            title: withdrawalAppbarTitle,
+            isNeedBackButton: true,
+          )),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(Responsive.width(3.7, context)),
@@ -67,7 +70,8 @@ class WithdrawalPage extends StatelessWidget {
                                   successMsg: withdrawalPaymentSuccessfulMsg)));
                     }
                   },
-                  text: withdrawalBtnTxt)
+                  child:  Text(withdrawalBtnTxt, style: typography.btn)
+                  )
             ],
           ),
         ),

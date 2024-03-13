@@ -58,7 +58,7 @@ class SuccessfullRegistrationPage extends StatelessWidget {
               CustomButton(
                   onTap: () => Navigator.pushNamedAndRemoveUntil(context,
                       RoutPaths.mainPage, (Route<dynamic> route) => false),
-                  text: getStartText)
+                  child: Text(getStartText, style: typography.btn))
             ],
           ),
         ),

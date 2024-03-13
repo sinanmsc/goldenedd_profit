@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:goldenegg_profit/presentation/authentication/auth_checker.dart';
 import 'package:goldenegg_profit/presentation/wallet/wallet_page.dart';
 import '../../application/add_kyc/bloc/add_kyc_bloc.dart';
 import '../../application/authentication/bloc/auth_bloc.dart';
+import '../../application/deposits/bloc/deposit_bloc.dart';
 import '../../application/get_start/get_start_bloc.dart';
 import '../../application/main_page/bloc/main_page_bloc.dart';
 import '../../application/notification/bloc/notification_bloc.dart';
@@ -52,27 +54,34 @@ mixin RoutPaths {
   static const String refferal = "/refferal";
   static const String withdrawal = "/withdrawal";
   static const String wallet = "/wallet";
+  static const String authChecker = "/auth_checker";
 }
 
 abstract class GetNamedRouts {
   static getRouts() {
     return {
+      RoutPaths.authChecker: (context) => const AuthChecker(),
       RoutPaths.getStarted: (context) => BlocProvider(
             create: (context) => GetStartBloc(),
             child: const GetStart(),
           ),
       RoutPaths.authPage: (context) => BlocProvider(
-            create: (context) => AuthBloc(),
+            create: (context) => getIt<AuthBloc>(),
             child: AuthPage(),
           ),
       RoutPaths.authVerification: (context) => BlocProvider(
-            create: (context) => AuthBloc(),
+            create: (context) => getIt<AuthBloc>(),
             child: const AuthVerification(),
           ),
       RoutPaths.successfullRegistrationPage: (context) =>
           const SuccessfullRegistrationPage(),
-      RoutPaths.profile: (context) => BlocProvider(
-            create: (context) => ProfileBloc(),
+      RoutPaths.profile: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ProfileBloc()),
+              BlocProvider(
+                create: (context) => getIt<AuthBloc>(),
+              )
+            ],
             child: const Profile(),
           ),
       RoutPaths.editProfile: (context) => BlocProvider(
@@ -88,7 +97,10 @@ abstract class GetNamedRouts {
             create: (context) => getIt<NotificationBloc>(),
             child: const NotificationPage(),
           ),
-      RoutPaths.deposit: (context) => const DepositPage(),
+      RoutPaths.deposit: (context) => BlocProvider(
+            create: (context) => getIt<DepositBloc>(),
+            child: const DepositPage(),
+          ),
       RoutPaths.payment: (context) => const PaymentPage(),
       RoutPaths.addCardPage: (context) => BlocProvider(
             create: (context) => PaymentBloc(),

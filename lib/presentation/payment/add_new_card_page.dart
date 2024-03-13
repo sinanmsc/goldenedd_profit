@@ -24,7 +24,10 @@ class AddNewCard extends StatelessWidget {
       child: Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size(0, 70),
-          child: CustomAppbar(title: addCardAppbarTitle,isNeedBackButton: true,),
+          child: CustomAppbar(
+            title: addCardAppbarTitle,
+            isNeedBackButton: true,
+          ),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -125,7 +128,7 @@ class AddNewCard extends StatelessWidget {
                               ));
                         }
                       },
-                      text: continueBtnText)
+                      child: Text(continueBtnText, style: typography.btn))
                 ],
               ),
             ),

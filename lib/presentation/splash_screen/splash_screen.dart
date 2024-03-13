@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:goldenegg_profit/domain/router/router.dart';
 
+import '../authentication/auth_checker.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -12,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void navigationToNextPage() {
-    Navigator.pushReplacementNamed(context, RoutPaths.getStarted);
+    Navigator.pushReplacementNamed(context, RoutPaths.authChecker);
   }
 
   startSplashScreenTimer() async {

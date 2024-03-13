@@ -109,7 +109,7 @@ class _AuthVerificationState extends State<AuthVerification> {
               ),
               SizedBox(height: Responsive.height(6.95, context)),
               CustomButton(
-                text: continueBtnText,
+                child: Text(continueBtnText, style: typography.btn),
                 onTap: () {
                   if (otp1.text.length +
                           otp2.text.length +

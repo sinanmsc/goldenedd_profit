@@ -1,19 +1,34 @@
-import 'package:goldenegg_profit/domain/models/profile/proof_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'profile_model.freezed.dart';
+part 'profile_model.g.dart';
 
-class ProfileModel {
-  final String userName;
-  final String email;
-  final String mobileNo;
-  final String adsress;
-  final String password;
-  final ProofModel proof;
+@freezed
+class ProfileModel with _$ProfileModel{
+  ProfileModel._();
 
-  ProfileModel({
-    required this.userName,
-    required this.email,
-    required this.mobileNo,
-    required this.adsress,
-    required this.password,
-    required this.proof,
-  });
+  factory ProfileModel({
+    required String userName,
+    required String email,
+    required String mobileNo,
+    required String adsress,
+    required String password,
+    required String proofType,
+    required String proofNo,
+  }) = _ProfileModel;
+
+  factory ProfileModel.fromJson(Map<String, Object?> json) =>
+      _$ProfileModelFromJson(json);
+
+  factory ProfileModel.fromFirestore(
+    DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options,
+  ) {
+    final data = snapshot.data();
+    return ProfileModel.fromJson(data!);
+  }
+
+  Map<String, dynamic> toFirestore() {
+    return toJson();
+  }
 }

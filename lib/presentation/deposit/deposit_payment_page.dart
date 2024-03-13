@@ -27,8 +27,8 @@ class DepositPayment extends StatelessWidget {
     final paymentScreenshotPicker = ImagePicker();
     void postScreenshot() async {
       try {
-        XFile? pickedImage =
-            await paymentScreenshotPicker.pickImage(source: ImageSource.camera);
+        XFile? pickedImage = await paymentScreenshotPicker.pickImage(
+            source: ImageSource.gallery);
         if (pickedImage != null) {
           if (context.mounted) {
             paymentScreenshot.value = pickedImage.path;
@@ -112,7 +112,7 @@ class DepositPayment extends StatelessWidget {
                         Navigator.pushNamed(context, RoutPaths.deposit);
                       }
                     },
-                    text: 'Done'),
+                    child:Text('Done', style: typography.btn)  ),
               ],
             ),
           ),

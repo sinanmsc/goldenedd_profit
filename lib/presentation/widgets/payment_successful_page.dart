@@ -70,7 +70,8 @@ class PaymentSuccessfulPage extends StatelessWidget {
                           onTap: onTap ??
                               () => Navigator.pushNamedAndRemoveUntil(context,
                                   RoutPaths.mainPage, (route) => false),
-                          text: txtBackToHome),
+                          child: Text(txtBackToHome, style: typography.btn)
+                           ),
                       SizedBox(height: Responsive.height(2, context)),
                       CustomOutlinedButton(
                         onTap: () =>

@@ -44,7 +44,7 @@ class DepositSchemContainer extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        Image.asset(imagePath, width: 48),
+                        Image.network(imagePath, width: 48),
                         SizedBox(height: Responsive.height(3, context)),
                       ],
                     ),

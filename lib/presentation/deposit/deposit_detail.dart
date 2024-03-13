@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:goldenegg_profit/domain/constants/deposit_constants.dart';
-import 'package:goldenegg_profit/domain/models/deposit_scheme_model.dart';
-import 'package:goldenegg_profit/domain/utils/responsive_utils.dart';
-import 'package:goldenegg_profit/presentation/deposit/widgets.dart/welcom_bonus_widget.dart';
-import 'package:goldenegg_profit/presentation/widgets/payment_successful_page.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_appbar.dart';
-import 'package:goldenegg_profit/presentation/widgets/custom_button.dart';
-import 'package:goldenegg_profit/presentation/widgets/shadermasking.dart';
 
+import '../../domain/constants/deposit_constants.dart';
+import '../../domain/models/deposit/deposit_model.dart';
 import '../../domain/router/router.dart';
 import '../../domain/theme/theme_helper.dart';
+import '../../domain/utils/responsive_utils.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/doller_widget.dart';
+import '../widgets/payment_successful_page.dart';
+import '../widgets/shadermasking.dart';
+import 'widgets.dart/welcom_bonus_widget.dart';
 
 class DepositDetail extends StatelessWidget {
   final Gradient containerGradient;
-  final DepositSchemeModel scheme;
+  final DepositModel scheme;
   const DepositDetail(
       {super.key, required this.scheme, required this.containerGradient});
 
@@ -54,16 +54,16 @@ class DepositDetail extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Image.asset(scheme.imagePath),
+                              Image.network(scheme.image),
                               SizedBox(width: Responsive.width(3, context)),
-                              Text(scheme.title,
+                              Text(scheme.name,
                                   style: typography.semiBoldTitle),
                             ],
                           ),
                           Row(
                             children: [
                               Text(
-                                scheme.amount,
+                                scheme.amount.toStringAsFixed(0),
                                 style: typography.appBarTitle,
                               ),
                               const DollerWidget(fontSize: 24),
@@ -75,7 +75,7 @@ class DepositDetail extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('$dailyProfit ${scheme.profitAmount}',
+                          Text('$dailyProfit ${scheme.dailyProfit}',
                               style: typography.duckTitle),
                           const DollerWidget(fontSize: 15),
                         ],
@@ -108,7 +108,7 @@ class DepositDetail extends StatelessWidget {
                                         },
                                         successMsg: depositSuccessMsg),
                                   )),
-                              text: 'Buy Now')),
+                              child: Text('Buy Now', style: typography.btn))),
                       SizedBox(height: Responsive.height(3, context)),
                     ],
                   ),
